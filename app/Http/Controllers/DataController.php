@@ -1,6 +1,9 @@
-<?php namespace App\Http\Controllers;
+<?php
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use DB;
+use App\Menu;
 
 class DataController extends Controller {
 
@@ -12,7 +15,10 @@ class DataController extends Controller {
      */
     public function showData($id)
     {
-        return view('lista', ['user' => 'pippo']);
+        $voci = Menu::where('attivo', 1)
+                          ->orderBy('ordine', 'asc')
+                          ->get();
+        return view('theme/includes.navbar', ['voci_menu' => $voci]);
     }
 
 }

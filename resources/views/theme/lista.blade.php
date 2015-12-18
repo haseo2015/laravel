@@ -8,10 +8,10 @@
     <title>Foundation 5</title>
 
     <!-- If you are using CSS version, only link these 2 files, you may add app.css to use for your overrides if you like. -->
-    {!! Html::style('css/foundation.css') !!}
-    {!! Html::style('components/slickslider/slick/slick.css') !!}
-    {!! Html::style('components/slickslider/slick/slick-theme.css') !!}
-    {!! Html::style('css/app.css') !!}
+    {!! HTML::style('css/foundation.css') !!}
+    {!! HTML::style('components/slickslider/slick/slick.css') !!}
+    {!! HTML::style('components/slickslider/slick/slick-theme.css') !!}
+    {!! HTML::style('css/app.css') !!}
 </head>
 <body>
 
@@ -20,10 +20,10 @@
 
 
 <!-- body content here -->
-{!!Html::script('js/vendor/jquery.min.js')!!}
-{!!Html::script('js/vendor/what-input.min.js')!!}
-{!!Html::script('js/foundation.min.js')!!}
-{!!Html::script('components/slickslider/slick/slick.min.js')!!}
-{!!Html::script('js/app.js')!!}
+{!!HTML::script('js/vendor/jquery.min.js')!!}
+{!!HTML::script('js/vendor/what-input.min.js')!!}
+{!!HTML::script('js/foundation.min.js')!!}
+{!!HTML::script('components/slickslider/slick/slick.min.js')!!}
+{!!HTML::script('js/app.js')!!}
 </body>
 </html>
