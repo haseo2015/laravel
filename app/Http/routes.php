@@ -20,7 +20,8 @@ Route::get('/{section}', function ($section) {
 });
 /*
 Route::get('/about', function () {
-    return View::make('theme/pages.about');
+    return
+::make('theme/pages.about');
 });
 
 Route::get('/contatti', function () {
