@@ -6,10 +6,13 @@
     @include('theme.includes.head')
 </head>
 <body>
-@include('theme.includes.navbar')
+    @include('theme.includes.navbar')
 
-@yield('content')
 
+
+
+
+    @yield('content')
 
 <!-- body content here -->
 @include ('theme.includes.js_scripts')

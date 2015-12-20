@@ -11,24 +11,31 @@
 |
 */
 
-Route::get('/', function () {
-    return View::make('theme/default');
-});
 
-Route::get('/home', function () {
-    return View::make('theme/pages.home');
-});
 
+Route::controller('/', 'FrontendController');
+
+Route::get('/{section}', function ($section) {
+   // return FrontendController
+});
+/*
 Route::get('/about', function () {
     return View::make('theme/pages.about');
 });
 
+Route::get('/contatti', function () {
+    return View::make('theme/pages.contatti');
+});
 
 
 
 // passata alla view normale
 Route::get('/lista', function () {
-    return view('lista');
+    return view('theme/default');
 });
+
+
+
+
 // passata al controller
-Route::get('lista/{id}', 'DataController@showData');
+//Route::get('lista/{id}', 'DataController@showData');

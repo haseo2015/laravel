@@ -3,7 +3,6 @@
     <title>Foundation 5</title>
 
     <!-- If you are using CSS version, only link these 2 files, you may add app.css to use for your overrides if you like. -->
-    {!! HTML::style('css/foundation.css') !!}
-    {!! HTML::style('components/slickslider/slick/slick.css') !!}
-    {!! HTML::style('components/slickslider/slick/slick-theme.css') !!}
-    {!! HTML::style('css/app.css') !!}
+ {!! HTML::style('components/slickslider/slick/slick.css') !!}
+ {!! HTML::style('components/slickslider/slick/slick-theme.css') !!}
+ {!! HTML::style('css/app.css') !!}

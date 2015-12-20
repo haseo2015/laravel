@@ -198,9 +198,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => Illuminate\Html\FormFacade::class,
-        'HTML'      => Illuminate\Html\HtmlFacade::class,
+        'HTML'      => Collective\Html\HtmlFacade::class,
         'Slug'      => Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
-        'Menu'      => Lavary\Menu\Facade::class
+        'Lavary'    => Lavary\Menu\Facade::class
 
     ],
 
