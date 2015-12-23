@@ -10,33 +10,17 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use App\Category;
 
+Route::get('/', function() {
 
+    // prelevo l'elenco delle categorie per il menu...
+    $categories = App\Category::all();
 
-Route::controller('/', 'FrontendController');
+    // prelevo gli articoli (includendo i dati sulle rispettive categorie ed autore associati)
+    //$articles = \App\Article::with('categories', 'user')->where('published_at', '<=', 'NOW()')->where('is_published', '=', true)->orderBy('published_at', 'DESC')->paginate(5);
 
-Route::get('/{section}', function ($section) {
-   // return FrontendController
-});
-/*
-Route::get('/about', function () {
-    return
-::make('theme/pages.about');
-});
+   // return view('blog.home', ['articles' => $articles, 'categories' => $categories]);
 
-Route::get('/contatti', function () {
-    return View::make('theme/pages.contatti');
 });
 
-
-
-// passata alla view normale
-Route::get('/lista', function () {
-    return view('theme/default');
-});
-
-
-
-
-// passata al controller
-//Route::get('lista/{id}', 'DataController@showData');

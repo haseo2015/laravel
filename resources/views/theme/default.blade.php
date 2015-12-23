@@ -8,10 +8,6 @@
 <body>
     @include('theme.includes.navbar')
 
-
-
-
-
     @yield('content')
 
 <!-- body content here -->

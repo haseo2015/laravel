@@ -55,9 +55,9 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'cosplaydesign'),
-            'username'  => env('DB_USERNAME', 'root'),
-            'password'  => env('DB_PASSWORD', 'admin'),
+            'database'  => env('DB_DATABASE', 'laravelblog'),
+            'username'  => env('DB_USERNAME', 'laravel_user'),
+            'password'  => env('DB_PASSWORD', 'laravel_pass'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => 'cd_',

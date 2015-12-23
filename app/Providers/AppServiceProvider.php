@@ -4,9 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use DB;
-use App\Menu;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,12 +16,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        view()->composer('theme.default', function($view){
-            $voci = Menu::where('attivo', 1)
-                ->orderBy('ordine', 'asc')
-                ->get();
-            $view->with('voci_menu', $voci);
-        });
     }
 
     /**
