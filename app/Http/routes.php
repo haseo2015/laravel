@@ -12,23 +12,8 @@
 */
 use App\Category;
 
-Route::get('/', function() {
 
-    // prelevo l'elenco delle categorie per il menu...
-    $categories = App\Category::all();
+Route::controller('/', 'SiteController');
 
-    // prelevo gli articoli (includendo i dati sulle rispettive categorie ed autore associati)
-    $articles = \App\Article::with('categories', 'user')->where('published_at', '<=', 'NOW()')->where('is_published', '=', true)->orderBy('published_at', 'DESC')->paginate(5);
+//Route::controller('/blog', 'FrontendController');
 
-    return view('blog.home', ['articles' => $articles, 'categories' => $categories]);
-
-});
-
-Route::get('articolo/{slug}', function($slug){
-
-    $categories = \App\Category::all();
-    $article = \App\Article::with('categories', 'user')->where('slug', '=', $slug)->first();
-
-    return view('blog.article', compact('categories', 'article'));
-
-});

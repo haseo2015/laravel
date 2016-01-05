@@ -12,5 +12,42 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+   /* compilo i miei scss */
+    mix.sass([
+        'app.scss'
+        ]
+        ,'public/css/app.css');
+
+    /* compilo i miei css */
+    mix.styles([
+        'bootstrap.min.css',
+        'foundation.min.css',
+        'font-awesome/css/font-awesome.min.css',
+    ],'public/css/base.css');
+
+    /* compilo i miei js */
+    mix.scripts([
+        "vendor/jquery.min.js",
+        "vendor/bootstrap.js",
+        "vendor/foundation.min.js",
+        "vendor/jquery.easing.min.js",
+        "vendor/jqBootstrapValidation.js",
+        "vendor/what-input.min.js",
+        "vendor/scrolling-nav.js",
+        "vendor/clean-blog.min.js",
+        "vendor/jquery.knob.js",
+        "_functions.js"
+
+    ],'public/js/app.js');
+
+
+    //mix.scriptsIn('resources/assets/js','public/js/app.js');
+
+    /*versiono i miei file css e js*/
+    mix.version([ 'css/base.css','css/app.css','js/app.js']);
+
+    /*mix.browserSync({
+        proxy: 'localhost:8000',
+        port: 8000
+    });*/
 });

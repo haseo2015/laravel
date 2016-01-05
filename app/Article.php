@@ -10,7 +10,7 @@ class Article extends Model
     public function user()
     {
     return $this->belongsTo('App\User');
-    }
+}
 
     // relazione molti a molti con le categorie
     public function categories()
