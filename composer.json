@@ -10,7 +10,8 @@
         "laravelcollective/html": "~5.0",
         "cviebrock/eloquent-sluggable": "dev-master",
         "lavary/laravel-menu": "dev-master",
-        "fzaninotto/faker": "^1.5"
+        "fzaninotto/faker": "^1.5",
+        "barryvdh/laravel-ide-helper": "dev-master"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

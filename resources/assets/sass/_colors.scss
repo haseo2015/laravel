@@ -1,0 +1,27 @@
+/*
+CosplayDesign Colors
+basati sui colori di google material design A700
+*/
+
+$bianco: #FFFFFF;
+
+/* progress colors */
+$rosso: #DD2C00; /* 0 to 25% */
+$arancio: #FF6D00; /* 25% to 50% */
+$giallo: #FFD600; /* 50% to 75% */
+$lime: #AEEA00; /* 75% to 90% */
+$verde: #64DD17; /* 90% to 100% */
+
+
+
+.progress_color_percetage {
+  &--under25 {color: $rosso;}
+  &--under50 {color: $arancio;}
+  &--under75 {color: $giallo;}
+  &--under90 {color: $lime;}
+  &--complete {color: $verde;}
+}
+
+
+
+

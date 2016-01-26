@@ -22,7 +22,9 @@ elixir(function(mix) {
     mix.styles([
         'bootstrap.min.css',
         'foundation.min.css',
+        'jquery.fancybox.css',
         'font-awesome/css/font-awesome.min.css',
+
     ],'public/css/base.css');
 
     /* compilo i miei js */
@@ -36,6 +38,9 @@ elixir(function(mix) {
         "vendor/scrolling-nav.js",
         "vendor/clean-blog.min.js",
         "vendor/jquery.knob.js",
+        "vendor/jquery.lazyload.min.js",
+        "vendor/jquery.fancybox.pack.js",
+        //"vendor/bin/materialize.min.js",
         "_functions.js"
 
     ],'public/js/app.js');
@@ -46,8 +51,11 @@ elixir(function(mix) {
     /*versiono i miei file css e js*/
     mix.version([ 'css/base.css','css/app.css','js/app.js']);
 
-    /*mix.browserSync({
+    mix.browserSync({
         proxy: 'localhost:8000',
-        port: 8000
-    });*/
+        port: 8000,
+        reloadOnRestart : false,
+        reloadDebounce: 2000,
+        injectChanges: false,
+    });
 });

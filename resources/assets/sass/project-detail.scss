@@ -1,0 +1,84 @@
+.project-detail {
+}
+
+.project__progress {
+  display:block;
+  width: 250px;
+  margin:0 auto;
+
+  .perc {
+    position: absolute;
+    font:700 50px 'Open Sans', sans-serif !important;
+    top:50%;
+    margin:-20px auto auto 40px;
+    color: #999;
+
+  }
+}
+input.knobby.detail {
+  margin-top: -44px !important;
+  margin-left:-80px !important;
+  font-size: 70px !important;
+  border:1px solid #fff !important;
+  width: 120px !important;
+  top:50%;
+  left:50%;
+  font-weight:700 !important;
+}
+
+.cover-image-project {
+  max-height: 330px;
+}
+
+.project__description {
+  width:70%;
+}
+
+/* TUTORIAL STEP */
+.thumnail {
+  img {
+    :after {
+      content: '';
+      clear:both;
+    }
+  }
+}
+.turorial__stepper {
+  list-style-position: outside;
+  font-size: 1.6rem;
+  margin-left:3.3rem;
+  li {
+    border-bottom:4px solid #999;
+    .media {
+      overflow: visible;}
+    .media-body {font-size: 1rem;}
+    ul{
+      margin:0 30px 15px;
+      list-style-type: decimal;
+      li {border-bottom:none;}
+    }
+
+    ol {
+      margin:0 30px 15px;
+      list-style-type: square;
+      li {border-bottom:none;}
+    }
+  }
+}
+.tutorial-step {
+
+}
+.thumnail__step {
+  .caption {
+    display: block;
+    padding:10px 0 5px;
+    font-size:11px;
+    line-height: normal;
+  }
+}
+img.step-image {
+  max-width:150px;
+  &--first {
+   max-width:400px;
+ }
+}
