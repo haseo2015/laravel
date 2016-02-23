@@ -5,9 +5,12 @@
 @section('subheading') Developer, Curious & Enthusiast. @endsection
 
 @section('content')
+    <?php dump($projectData);
+    $directory = "cd_" . $projectData[0]->slug .  "123456789";
+    ?>
     <div class="row">
         <div class="col-lg-12">
-            <h3 class="page-header">Progetto: nome del progetto
+            <h3 class="page-header">Progetto: {!! $projectData[0]->name !!}
                 <ol class="subheading-detail breadcrumbs">
                     <li>Area: <a href="/costumi" title="costumi">costumi</a></li>
                     <li>Serie: <a href="/serie/hack-gu" title="Hack G.U.">.Hack G.U</a></li>
@@ -27,7 +30,7 @@
             {!! HTML::image('img/cd-ironman-w-motorized-87654321/Stealth-Photo-by-David-Lee.jpg','a picture', array('class' => 'img-responsive cover-image-project pull-left lazy'))  !!}
         </div>
         <div class="col-md-4">
-            <p>Siamo sempre alla ricerca di ricette nuove per spezzare la routine quotidiana e, allo stesso tempo arricchire alcuni piatti che spesso cuciniamo in un determinato modo ma, che prevedono l'aggiunta di altri ingredienti, per donare loro un aspetto e un sapore diverso dal solito. </p>
+            <p>{!! $projectData[0]->short_description !!} </p>
 
             <h3>Dettagli:</h3>
             <ul>
@@ -40,16 +43,15 @@
         <div class="col-md-4">
             <span class="project__progress">
                 <input type="text" class="knobby detail"
-                       data-width="250"
-                       data-height="250"
-                       data-fgColor="#FFD600"
-                       data-skin="tron"
-                       data-thickness=".2"
-                       data-displayPrevious=false
-                       data-displayInput="true"
-                       data-readOnly="true"
-                       value="75">
-                    <span class="perc">%</span>
+                           data-width="250"
+                           data-height="250"
+                           data-fgColor="{!! $projectData[0]->knobColor !!}"
+                           data-skin="tron"
+                           data-thickness=".2"
+                           data-displayPrevious=false
+                           data-displayInput="true"
+                           data-readOnly="true"
+                           value="{!! $projectData[0]->progress !!}">
             </span>
         </div>
     </div>
@@ -62,25 +64,22 @@
         <div class="row tutorial-step">
             <div class="col-lg-12">
                 <ol class="turorial__stepper">
+
+                   @foreach($projectData as $_data)
                     <!-- SINGLE STEP -->
                     <li class="">
-                        <h4 class="media-heading">Introduzione</h4>
+                        <h4 class="media-heading">{!! $_data->step_title !!}</h4>
                         <div class="media">
-
-                            <div class="media-left">
-                                <div class="thumbnail thumnail__step media-object">
-                                    {!! HTML::image('img/cd-ironman-w-motorized-87654321/Step-1-Card-Helmet.jpg','Pepakura Iron Man Helmet', array('class' => 'img-responsive lazy step-image'))  !!}
-                                    <div class="caption">Fig.1 Pepakura Iron Man Helmet skdjhsadkjsad kh </div>
-                                </div>
-                            </div>
+                            @include ("cosplaydesign.includes.tutorial_images_gallery")
                             <div class="media-body">
-
-                                <p>Siamo sempre alla ricerca di ricette nuove per spezzare la routine quotidiana e, allo stesso tempo arricchire alcuni piatti che spesso cuciniamo in un determinato modo ma, che prevedono l'aggiunta di altri ingredienti, per donare loro un aspetto e un sapore diverso dal solito. Nello specifico, l'arrosto di carne, un secondo ricco e gustoso, tra i più amati da chi apprezza la carne. Prendiamo dunque spunto da alcune ricette di chef famosi che, per rendere l'arrosto ancora più saporito, consigliano di aggiungere del latte. Infatti questo ingrediente, è in grado di rendere il piatto ancora più succulento e la carne più tenera. Seguiamo gli utili suggerimenti di questa guida per scoprire come preparare l'arrosto al latte.</p>
+                                <p>{!! $_data->body !!}</p>
                             </div>
                         </div>
                     </li>
                     <!-- SINGLE STEP END -->
-                    <li class="">
+                    @endforeach
+
+                   <!--  <li class="">
                         <h4 class="media-heading">Occorrente</h4>
                         <div class="media">
                             <div class="media-left">
@@ -129,7 +128,7 @@
                                 <p>Quando l'arrosto avrà raggiunto la giusta doratura, riponetelo in una terrina. Nello stesso tegame per l'arrosto sciogliete il restante burro. Ora potete soffriggervi il trito di verdure. Nel frattempo spellate due spicchi di aglio e uniteli al soffritto, insieme alle foglie di alloro. Fate consumare bene il soffritto, poi aggiungete l'arrosto. Sfumate il tutto con mezzo bicchiere di vino bianco da tavola. Aggiustate di sale e pepe. Mentre il vino sfuma, scaldate il latte per l'arrosto. Poi versatelo nel tegame con l'arrosto e fate cuocere con coperchio per almeno 50 minuti. A fine cottura estraete l'arrosto al latte dal tegame. Verificate che sia pronto pungendolo con uno stecchino. Se fuoriesce del liquido roseo dovrete proseguire con la cottura. Se è trasparente potete proseguire con la ricetta.</p>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
 
                 </ol>
 

@@ -24,12 +24,12 @@ class ProjectTableSeeder extends Seeder
 
         for($c = 0; $c < $articlesCount; $c++)
         {
-            $name = $faker->sentence();
+            $name = $faker->text(54);
             $slug = Str::slug($name);
 
             // creo l'articolo
             $project = Project::create([
-                'name' => $name,
+                'name' => f,
                 'slug' => $slug,
                 'state' => $faker->boolean(80),
                 'progress' => $faker->unique()->randomDigit,

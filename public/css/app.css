@@ -8,6 +8,7 @@ basati sui colori di google material design A700
 /* 50% to 75% */
 /* 75% to 90% */
 /* 90% to 100% */
+/* SOCIAL */
 .progress_color_percetage--under25 {
   color: #DD2C00; }
 
@@ -15,7 +16,7 @@ basati sui colori di google material design A700
   color: #FF6D00; }
 
 .progress_color_percetage--under75 {
-  color: #FFD600; }
+  color: #FF6D00; }
 
 .progress_color_percetage--under90 {
   color: #AEEA00; }
@@ -23,11 +24,46 @@ basati sui colori di google material design A700
 .progress_color_percetage--complete {
   color: #64DD17; }
 
+/*JQUERY KNOB */
+/*
+
+*/
+/* PROJECT PROGRESS (JQUERY KNOB) */
+.project__progress {
+  display: inline-block;
+  width: auto;
+  margin: 0 auto; }
+  .project__progress small {
+    font-size: 43%;
+    margin-bottom: 5px;
+    display: inline-block; }
+  .project__progress input.knobby {
+    margin-top: -52px !important;
+    margin-left: 25px !important;
+    font-size: 15px !important;
+    font-family: 'Open Sans', sans-serif !important;
+    box-shadow: none;
+    text-align: center; }
+    .project__progress input.knobby.detail {
+      font-size: 70px !important;
+      width: 200px !important;
+      top: 50%;
+      font-weight: 700 !important; }
+    .project__progress input.knobby.small {
+      font-size: 12px !important; }
+
+/*raing*/
+.rating-symbol {
+  color: darkorange; }
+
 body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif; }
 
 a, a:hover, a:focus {
   text-decoration: none; }
+
+.cd_hide {
+  display: none; }
 
 .rounded {
   display: block;
@@ -74,13 +110,13 @@ a, a:hover, a:focus {
   background-color: #2980b9;
   padding: 2rem 4rem;
   text-align: center;
-  color: #fff;
+  color: #FFFFFF;
   margin-bottom: 0; }
   .footer i {
     font-size: 100px; }
 
 .footer h4 {
-  color: #fff;
+  color: #FFFFFF;
   font-size: 1em;
   font-weight: 400;
   text-transform: uppercase;
@@ -90,7 +126,7 @@ a, a:hover, a:focus {
 .footer p, .footer a {
   font-weight: 300;
   font-size: .8em;
-  color: #fff; }
+  color: #FFFFFF; }
 
 @media only screen and (min-width: 40.063em) {
   .footer .columns:nth-child(n+2) {
@@ -194,61 +230,74 @@ a, a:hover, a:focus {
   font-size: 0.7rem;
   color: #333; }
 
-input.knobby {
-  margin-top: -52px !important;
-  margin-left: 25px !important;
-  font-size: 25px !important;
-  border: 1px solid #fff;
-  font-family: 'Open Sans', sans-serif !important;
-  box-shadow: none; }
-
-.projectCard {
+.projectCard .card {
   border: 1px solid #c8c8c8;
   border-radius: 3px;
   margin-bottom: 10px;
-  padding-bottom: 10px; }
-  .projectCard:hover {
-    background: #c8c8c8;
+  margin: 5px; }
+  .projectCard .card .card__details {
+    top: 195px;
+    transition: all 0.5s ease-in-out; }
+  .projectCard .card:hover {
     cursor: pointer; }
-  .projectCard figure {
-    margin: 1em 40px 2em; }
-  .projectCard .card__author {
+    .projectCard .card:hover .card__details {
+      top: 0;
+      transition: all 0.5s ease-in-out; }
+  .projectCard .card figure {
+    margin: 0; }
+  .projectCard .card__cover {
+    position: relative;
+    overflow: hidden; }
+  .projectCard .card__details {
     position: absolute;
-    top: 100px;
-    right: 20px; }
-  .projectCard .project__progress {
-    margin-top: 30px; }
-  .projectCard input.knobby {
-    margin-top: -24px !important;
-    margin-left: 35px !important;
-    font-size: 12px !important;
-    border: 1px solid #fff; }
+    top: 195px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    vertical-align: middle;
+    display: block;
+    padding: 5%; }
+    .projectCard .card__details a {
+      color: #FFFFFF; }
+  .projectCard .card__author--name {
+    color: #FFFFFF;
+    margin-top: 5px; }
+    .projectCard .card__author--name a {
+      text-decoration: underline; }
+  .projectCard .card__detail {
+    padding: 15px 15px 0px;
+    color: #FFFFFF; }
+  .projectCard .card__title__container {
+    display: table;
+    clear: both;
+    height: 54px;
+    width: 100%;
+    overflow: hidden;
+    vertical-align: middle;
+    text-align: center; }
+  .projectCard .card__title {
+    display: table-cell;
+    font-size: .9rem;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle; }
 
 .page-header .subheading-detail {
   display: block;
   margin-top: 0.6rem;
   font-size: 1.5rem; }
 
-.project__progress {
-  display: block;
-  width: 250px;
-  margin: 0 auto; }
-  .project__progress .perc {
-    position: absolute;
-    font: 700 50px 'Open Sans', sans-serif !important;
-    top: 50%;
-    margin: -20px auto auto 40px;
-    color: #999; }
-
-input.knobby.detail {
-  margin-top: -44px !important;
-  margin-left: -80px !important;
-  font-size: 70px !important;
-  border: 1px solid #fff !important;
-  width: 120px !important;
-  top: 50%;
-  left: 50%;
-  font-weight: 700 !important; }
+.tags__container {
+  font-size: 75%; }
+  .tags__container .button {
+    font-size: 75%;
+    border-radius: .25em;
+    -moz-border-radius: .25em;
+    -webkit-border-radius: .25em;
+    margin: 2px 2px 2px 0;
+    padding: .2rem; }
 
 .cover-image-project {
   max-height: 330px; }
@@ -289,7 +338,7 @@ input.knobby.detail {
   line-height: normal; }
 
 img.step-image {
-  max-width: 150px; }
+  max-width: 250px; }
   img.step-image--first {
     max-width: 400px; }
 

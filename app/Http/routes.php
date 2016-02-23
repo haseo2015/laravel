@@ -14,6 +14,11 @@ use App\Category;
 
 
 Route::controller('/', 'SiteController');
-Route::resource('/accessori','SiteController');
+
+
+Route::resource('/categoria/armi','SiteController');
+Route::resource('/accessori','SiteController@getListByCategory');
+Route::resource('/costumi','SiteController');
+Route::resource('/progetto/{detail}','SiteController');
 //Route::controller('/blog', 'FrontendController');
 

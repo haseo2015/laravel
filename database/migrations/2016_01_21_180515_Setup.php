@@ -45,7 +45,7 @@ class Setup extends Migration
         {
             $table->increments('id');
             $table->integer('macro_category_id')->unsigned()->index();
-            $table->string('name');
+            $table->string('name',54);
             $table->string('slug')->index();
             $table->integer('state');
             $table->integer('progress');

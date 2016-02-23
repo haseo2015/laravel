@@ -4,15 +4,22 @@ basati sui colori di google material design A700
 */
 
 $bianco: #FFFFFF;
+$azzurro:#2980b9;
+$grigio_griglia: #c8c8c8;
+
 
 /* progress colors */
 $rosso: #DD2C00; /* 0 to 25% */
 $arancio: #FF6D00; /* 25% to 50% */
-$giallo: #FFD600; /* 50% to 75% */
+$giallo: #FF6D00; /* 50% to 75% */
 $lime: #AEEA00; /* 75% to 90% */
 $verde: #64DD17; /* 90% to 100% */
 
-
+/* SOCIAL */
+$facebook-color: #3b5998;
+$twitter-color: #55acee;
+$google-color: #d50f25;
+$cosplaydesign-color: #336699;
 
 .progress_color_percetage {
   &--under25 {color: $rosso;}

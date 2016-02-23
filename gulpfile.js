@@ -24,6 +24,7 @@ elixir(function(mix) {
         'foundation.min.css',
         'jquery.fancybox.css',
         'font-awesome/css/font-awesome.min.css',
+        'font-awesome/css/boostrap-rating.css',
 
     ],'public/css/base.css');
 
@@ -40,7 +41,7 @@ elixir(function(mix) {
         "vendor/jquery.knob.js",
         "vendor/jquery.lazyload.min.js",
         "vendor/jquery.fancybox.pack.js",
-        //"vendor/bin/materialize.min.js",
+        "vendor/bootstrap-rating.min.js",
         "_functions.js"
 
     ],'public/js/app.js');

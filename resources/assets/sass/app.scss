@@ -1,4 +1,11 @@
-@import "colors.scss";
+@import "bourbon/bourbon";
+@import "colors";
+@import "elements";
+
+$text-color: $bianco;
+$text-transform: uppercase;
+$icon-size: 2rem;
+
 //@import "materialize.scss";
 body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif;
@@ -6,6 +13,8 @@ body, h1, h2, h3, h4, h5, h6 {
 a, a:hover, a:focus{
   text-decoration: none;}
 
+
+.cd_hide {display:none;}
 
 .rounded {
     display: block;
@@ -70,12 +79,11 @@ a, a:hover, a:focus{
 }
 
 
-$text-color: #fff;
+
 
 // footer CSS
-
 .footer {
-  background-color: #2980b9;
+  background-color: $azzurro;
   padding: 2rem 4rem;
   text-align: center;
   color: $text-color;
@@ -118,12 +126,8 @@ $text-color: #fff;
 }
 
 
-$facebook-color: #3b5998;
-$twitter-color: #55acee;
-$google-color: #d50f25;
-$cosplaydesign-color: #336699;
-$text-transform: uppercase;
-$icon-size: 2rem;
+
+
 
 .split.button {
   width: 100%;
@@ -254,46 +258,91 @@ $icon-size: 2rem;
   }
 }
 
-input.knobby {
-  margin-top:-52px !important;
-  margin-left:25px !important;
-  font-size: 25px !important;
-  border:1px solid #fff;
-  font-family: 'Open Sans', sans-serif !important;
-  box-shadow: none;
-}
+
 
 
 .projectCard {
-  border:1px solid #c8c8c8;
-  -webkit-border-radius:3px;
-  -moz-border-radius:3px;
-  border-radius: 3px ;
-  margin-bottom:10px;
-  padding-bottom:10px;
+  .card {
+    border:1px solid $grigio_griglia;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius: 3px ;
+    margin-bottom:10px;
+    .card__details {
+      top:195px;
+      @include transition(all 0.5s ease-in-out);
+    }
   &:hover {
-    background: #c8c8c8;
-    cursor: pointer;}
+    //background: $grigio_griglia;
+    cursor: pointer;
+    .card__details {
+      top:0;
+      @include transition(all 0.5s ease-in-out);
+    }
+  }
 
   figure {
-    margin: 1em 40px 2em;
+    margin: 0;
   }
-  .card__author {
-    position: absolute;
-    top:100px;
-    right:20px;
+  &__cover {
+    position:relative;
+    overflow: hidden;
   }
-  .project__progress {
-    margin-top:30px;
+    // card scss
+    margin:5px;
+    &__details {
+      position: absolute;
+      top: 195px;
+      left: 0;
+      background: rgba(0,0,0,.75);
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      vertical-align: middle;
+      display: block;
+      padding:5%;
+      a {
+        color: $bianco;
+      }
+    }
+    &__author{
+      &--name {
+      color: $bianco;
+      margin-top: 5px;
+      a {text-decoration:underline;}
+    }
+    }
+
+    &__detail {
+      padding:15px 15px 0px;
+      color: $bianco;
+    }
+    &__title__container {
+      display: table;
+      clear:both;
+      height:54px;
+      width:100%;
+      overflow: hidden;
+      vertical-align: middle;
+      text-align: center;
+      //@include ellipsis(50%)
+    }
+    &__title {
+      display: table-cell;
+      font-size:.9rem;
+      text-align: center;
+      font-weight:bold;
+      vertical-align: middle;
+    }
+    &__datepub {
+
+    }
+
   }
-  input.knobby {
-    margin-top:-24px !important;
-    margin-left:35px !important;
-    font-size: 12px !important;
-    border:1px solid #fff;
   }
 
-}
+
+
 
 .page-header {
   .subheading-detail {
@@ -303,4 +352,17 @@ input.knobby {
   }
 }
 
-@import "project-detail.scss";
+.tags__container {
+  font-size:75%;
+  .button {
+    font-size:75%;
+    border-radius: .25em;
+    -moz-border-radius: .25em;
+    -webkit-border-radius: .25em;
+    margin:2px 2px 2px 0;
+    padding:.2rem;
+  }
+}
+
+
+@import "project-detail";

@@ -1,0 +1,39 @@
+/*JQUERY KNOB */
+/*
+
+*/
+/* PROJECT PROGRESS (JQUERY KNOB) */
+.project__progress {
+  display:inline-block;
+  width: auto;
+  margin:0 auto;
+  small {
+    font-size: 43%;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+
+  input.knobby {
+    margin-top:-52px !important;
+    margin-left:25px !important;
+    font-size: 15px !important;
+    font-family: 'Open Sans', sans-serif !important;
+    box-shadow: none;
+    text-align: center;
+    &.detail {
+      font-size: 70px !important;
+      width: 200px !important;
+      top:50%;
+      font-weight:700 !important;
+    }
+    &.small {
+      font-size:12px !important;
+    }
+  }
+}
+
+
+/*raing*/
+.rating-symbol {
+  color: darkorange;
+}

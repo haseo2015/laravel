@@ -5,7 +5,54 @@ $(document).foundation();
 $(document).ready(function(){
     /*tutti elementi dom */
     //$('.your-class').slick({});
-    $(".knobby").knob();
+
+
+    $('.knobby').each(function () {
+
+        var elm = $(this);
+        var color = elm.attr("data-fgColor");
+        var perc = elm.attr("value");
+
+        elm.knob({
+            'value': 0,
+            'min':0,
+            'max':100,
+            "skin":"tron",
+            "readOnly":true,
+            "thickness":.1,
+            'dynamicDraw': true,
+            "displayInput":true,
+
+            'format' : function (value) {
+                return value + '%';
+            }
+        });
+
+        $({value: 0}).animate({ value: perc }, {
+            duration: 1000,
+            easing: 'swing',
+            progress: function () {
+                elm.val(Math.ceil(this.value)).trigger('change')
+            }
+        });
+
+    });
+
+
+    $('.rate').rating({
+        filled: 'fa fa-star',
+        filledSelected: 'fa fa-star',
+        empty: 'fa fa-star-o',
+        inline: true,
+
+    });
+
+    $('.rate').each(function(index, element){
+       // $(this).rating('rate',2.5);
+    });
+
+
+
     $("img.lazy").lazyload({
         threshold : 200,
         effect : "fadeIn"
