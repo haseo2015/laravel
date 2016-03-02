@@ -17,10 +17,12 @@ class DatabaseSeeder extends Seeder
 
         //$this->call('CategoryTableSeeder');
         //$this->call('ArticleTableSeeder');
-        $this->call('UserTableSeeder');
-        $this->call('MacroCategoryTableSeeder');
-        $this->call('ProjectTableSeeder');
-        $this->call('DescriptionTableSeeder');
+        //$this->call('UserTableSeeder');
+        //$this->call('MacroCategoryTableSeeder');
+        //$this->call('ProjectTableSeeder');
+        //$this->call('DescriptionTableSeeder');
+
+        $this->call('MaterialSeeder');
 
         //$this->call('TypeSeeder');
 

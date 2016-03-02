@@ -23,6 +23,11 @@ class Project extends Model
         return $this->hasOne('App\MacroCategory');
     }
 
+    public function materials()
+    {
+        return $this->hasMany('App\Material');
+    }
+
 /*
     public function types(){
         return $this->belongsToMany('App\Type');

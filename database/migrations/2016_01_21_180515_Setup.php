@@ -67,8 +67,6 @@ class Setup extends Migration
             $table->dateTime('published_at');
             $table->timestamps();
         });
-
-
         // pivot projects descriptions
         Schema::create('description_project', function(Blueprint $table)
         {
@@ -78,6 +76,23 @@ class Setup extends Migration
             $table->timestamps();
         });
 
+        Schema::create('materials', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->string('material_name',60);
+            $table->string('slug')->index();
+            $table->integer('count');
+            $table->boolean('is_published');
+            $table->dateTime('published_at');
+            $table->timestamps();
+        });
+        Schema::create('material_project', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('project_id')->unsigned();
+            $table->integer('material_id')->unsigned();
+            $table->timestamps();
+        });
 
     }
 
@@ -94,6 +109,8 @@ class Setup extends Migration
         Schema::drop('projects');
         Schema::drop('descriptions');
         Schema::drop('description_project');
+        Schema::drop('materials');
+        Schema::drop('material_project');
 
     }
 }

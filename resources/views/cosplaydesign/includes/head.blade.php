@@ -1,6 +1,6 @@
  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosplaydesign:: Repository di tutorial di costumi, armi e accessori cosplay</title>
+    <title>@yield('title') - Cosplaydesing.it</title>
 
     <!-- If you are using CSS version, only link these 2 files, you may add app.css to use for your overrides if you like. -->
      <link rel="stylesheet" href="{{ elixir('css/base.css') }}">

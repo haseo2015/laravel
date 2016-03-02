@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
-
+DB::enableQueryLog();
 class SiteController extends Controller
 {
     /**
@@ -55,10 +55,10 @@ class SiteController extends Controller
         if ($slug) {
             $mc = \App\MacroCategory::all();
             $currentMC = \App\MacroCategory::where('slug', '=', $slug)->first();
-            // echo $currentMC;
-            $projects = DB::table('description_project')->distinct()
+
+            $projects = DB::table('description_project')
                 ->join('projects', 'projects.id', '=', 'description_project.project_id')
-                ->join('descriptions', 'descriptions.id', '=', 'description_project.description_id')
+                ->leftjoin('descriptions', 'descriptions.id', '=', 'description_project.description_id')
                 ->join('users', 'projects.user_id', '=', 'users.id')
                 ->join('macro_categories', 'projects.macro_category_id', '=', 'macro_categories.id')
                 ->select('macro_categories.id',
@@ -70,6 +70,11 @@ class SiteController extends Controller
                     'descriptions.*',
                     'users.*')
                 ->where('macro_categories.slug', '=', $slug)
+                ->where('projects.published_at', '<=', 'NOW()')
+                //->where('projects.is_published', '=', true)
+                ->orderBy('projects.published_at', 'DESC')
+                ->groupBy('projects.id')
+
                 ->get();
         } else {
             $projects = DB::table('description_project')->distinct()
@@ -85,6 +90,7 @@ class SiteController extends Controller
                     'projects.*', 'projects.slug as seo_url',
                     'descriptions.*',
                     'users.*')
+                ->groupBy('projects.id')
                 //->where('macro_categories.slug', '=', $slug)
                 ->get();
         }
@@ -97,21 +103,42 @@ class SiteController extends Controller
 
 
     public function getDataBySlug($slug){
+
+
             $projects = \App\Project::all();
             $currentProject = \App\Project::where('slug', '=', $slug)->first();
-            $datas = DB::table('description_project')
-                ->join('projects', 'projects.id', '=', 'description_project.project_id')
-                ->join('descriptions', 'descriptions.id', '=', 'description_project.description_id')
-                ->join('users', 'projects.user_id', '=', 'users.id')
-                ->select('projects.*', 'descriptions.*', 'users.*')
-                ->where('slug', '=', $slug)
-                ->get();
+
+        $datas = DB::table('description_project')->distinct()
+            ->join('projects', 'projects.id', '=', 'description_project.project_id')
+            ->join('descriptions', 'descriptions.id', '=', 'description_project.description_id')
+            ->join('users', 'projects.user_id', '=', 'users.id')
+            ->join('macro_categories', 'projects.macro_category_id', '=', 'macro_categories.id')
+            ->select('macro_categories.id',
+                'macro_categories.name as macro_name',
+                'macro_categories.slug as macro_slug',
+                'macro_categories.category_color as macro_color',
+                'macro_categories.fonticon as macro_icon',
+                'projects.*', 'projects.slug as seo_url',
+                'descriptions.*',
+                'users.*')
+            ->groupBy('projects.id')
+            ->where('projects.slug', '=', $slug)
+            ->get();
+
+
             foreach($datas as $mydata){
                 $knobColor = $this->generateKnobColor ($mydata->progress);
                 $mydata->knobColor = $knobColor;
             }
-            // dump($datas);
-            return view('cosplaydesign.pages.progetto',["projectData" => $datas]);
+
+
+            $mats = $this->getProjectMaterial($currentProject->id);
+            $projectData = $datas;
+
+            $steps = $this-> getTutorialStepByProjectId($currentProject->id);
+            //dump($steps);
+            $step_images = $this->getGalleryElementsByStepId($steps);
+            return view('cosplaydesign.pages.progetto',compact('projectData', 'mats','steps'));
     }
 
 
@@ -137,4 +164,39 @@ class SiteController extends Controller
         }
         return $color;
     }
+
+
+    private function getProjectMaterial($proj_id){
+        $mats = DB::table('material_project')->distinct()
+            ->leftjoin('projects', 'projects.id', '=', 'material_project.project_id')
+            ->leftjoin('materials', 'materials.id', '=', 'material_project.material_id')
+            ->select('materials.*')
+            ->where('material_project.project_id', '=', $proj_id)
+            ->get();
+
+        //dump($mats);
+        return $mats;
+    }
+
+    private function getTutorialStepByProjectId($proj_id){
+
+        $steps = DB::table('description_project')
+            ->leftjoin('descriptions', 'descriptions.id', '=', 'description_project.description_id')
+            ->select('descriptions.*')
+            ->where('description_project.project_id', '=', 10)
+        ->get();
+        //dump($steps);
+        return $steps;
+    }
+
+    public function getGalleryElementsByStepId($steps){
+        //dump($steps);
+        foreach($steps as $step){
+            $elements = \App\Gallery::find($step->gallery_id);
+            //dump($elements);
+        }
+        //
+        //
+    }
+
 }

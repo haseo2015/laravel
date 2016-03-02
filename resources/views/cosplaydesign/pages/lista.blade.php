@@ -1,9 +1,9 @@
 @extends('cosplaydesign.default')
 
-@section('title') Home Page @endsection
+@section('title') <?php echo $projects[0]->macro_name ?> @endsection
 
 @section('subheading') Developer, Curious & Enthusiast. @endsection
-<?php dump($projects) ?>
+
 @section('content')
     <div class="row">
         <div class="col-lg-12">

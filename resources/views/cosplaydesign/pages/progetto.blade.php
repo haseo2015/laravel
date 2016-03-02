@@ -1,21 +1,23 @@
 @extends('cosplaydesign.default')
 
-@section('title') Home Page @endsection
+@section('title')Progetto: {!! $projectData[0]->name !!} @endsection
 
 @section('subheading') Developer, Curious & Enthusiast. @endsection
 
 @section('content')
-    <?php dump($projectData);
+    <?php //dump($projectData);
+          //  dump($mats);
+           // dump($steps);
     $directory = "cd_" . $projectData[0]->slug .  "123456789";
     ?>
     <div class="row">
         <div class="col-lg-12">
             <h3 class="page-header">Progetto: {!! $projectData[0]->name !!}
                 <ol class="subheading-detail breadcrumbs">
-                    <li>Area: <a href="/costumi" title="costumi">costumi</a></li>
+                    <li>Area: <a href="/categoria/{!! $projectData[0]->macro_slug !!}" title="{!! $projectData[0]->macro_name !!}">{!! $projectData[0]->macro_name !!}</a></li>
                     <li>Serie: <a href="/serie/hack-gu" title="Hack G.U.">.Hack G.U</a></li>
-                    <li>Tipologia: <a href="/tipologia/videogames" title="videogames">vi deogames</a></li>
-                    <li>Autore: <a href="/member/haseoxth" title="autore haseoxth">haseoxth</a></li>
+                    <li>Tipologia: <a href="/tipologia/videogames" title="videogames">videogames</a></li>
+                    <li>Autore: <a href="/membri/{!! $projectData[0]->username !!}" title="autore {!! $projectData[0]->username !!}">{!! $projectData[0]->username !!}</a></li>
                 </ol>
             </h3>
         </div>
@@ -34,9 +36,14 @@
 
             <h3>Dettagli:</h3>
             <ul>
-                <li>Tempo di realizzazione: <strong>55 giorni</strong></li>
-                <li>Costo totale di realizzazione: <strong>180 ~ 200 €</strong></li>
-                <li>Materiali utilizzati: <strong>Plastica</strong>, <strong>Licra</strong>, <strong>Dischi in vinile</strong>, <strong>Legno</strong></li>
+                <li>Tempo di realizzazione: <strong>{!! $projectData[0]->timing_completion !!} giorni</strong></li>
+                <li>Costo totale di realizzazione: <strong>{!! $projectData[0]->approximate_cost !!} &euro;</strong></li>
+                <li>Materiali utilizzati:<br>
+                    <div class="materials">
+                        @foreach($mats as $mat)
+                            <span class="tiny hollow button">{!! $mat->material_name !!}</span>
+                        @endforeach
+                    </div></li>
                 <li class="sr-only">Progresso:</li>
             </ul>
         </div>
@@ -65,11 +72,12 @@
             <div class="col-lg-12">
                 <ol class="turorial__stepper">
 
-                   @foreach($projectData as $_data)
+                   @foreach($steps as $_data)
                     <!-- SINGLE STEP -->
                     <li class="">
                         <h4 class="media-heading">{!! $_data->step_title !!}</h4>
                         <div class="media">
+
                             @include ("cosplaydesign.includes.tutorial_images_gallery")
                             <div class="media-body">
                                 <p>{!! $_data->body !!}</p>

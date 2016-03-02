@@ -29,11 +29,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Progetti <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="accessori"><i class="fa fa-rebel"></i> Accessori</a></li>
+                            <li><a href="/categoria/accessori"><i class="fa fa-rebel"></i> Accessori</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#"><i class="fa fa-yelp"></i> Armi</a></li>
+                            <li><a href="/categoria/armi"><i class="fa fa-yelp"></i> Armi</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#"><i class="fa fa-qq"></i> Costumi</a></li>
+                            <li><a href="/categoria/costumi"><i class="fa fa-qq"></i> Costumi</a></li>
                         </ul>
                     </li>
                     <li>
@@ -61,13 +61,6 @@
     </nav>
 
     @yield('content')
-
-
-
-
-
-
-
 
     <!-- Footer -->
     <footer class="footer">

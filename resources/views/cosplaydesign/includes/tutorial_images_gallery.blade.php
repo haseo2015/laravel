@@ -1,3 +1,4 @@
+
 <div class="media-left">
     <a class="fancybox" rel="group" href="/img/cd-ironman-w-motorized-87654321/Step-1-Card-Helmet.jpg">
         <div class="thumbnail thumnail__step media-object">
