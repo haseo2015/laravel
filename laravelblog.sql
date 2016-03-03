@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2016-03-02 22:36:37
+Date: 2016-03-03 20:00:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -232,15 +232,15 @@ CREATE TABLE `cd_descriptions` (
 -- ----------------------------
 INSERT INTO cd_descriptions VALUES ('1', '9', null, 'Minus laborum molestiae cumque.', '1', '1', '2016-01-02 16:35:46', '2016-01-22 09:19:32', '2016-01-22 09:19:32');
 INSERT INTO cd_descriptions VALUES ('2', '7', null, 'Molestiae praesentium qui quia enim omnis veniam.', '1', '1', '2015-04-12 20:45:19', '2016-01-22 09:19:32', '2016-01-22 09:19:32');
-INSERT INTO cd_descriptions VALUES ('3', '7', null, 'Voluptas veritatis eum illum laborum amet omnis qui consequatur.', '1', '1', '2015-10-14 18:41:24', '2016-01-22 09:19:32', '2016-01-22 09:19:32');
-INSERT INTO cd_descriptions VALUES ('4', '9', null, 'Eos atque corrupti laboriosam assumenda molestiae et ut.', '1', '1', '2015-02-07 15:35:32', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
-INSERT INTO cd_descriptions VALUES ('5', '2', null, 'Repellat sed amet placeat esse est.', '1', '1', '2015-02-22 07:28:30', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
+INSERT INTO cd_descriptions VALUES ('3', '1', 'Il costume base', 'Voluptas veritatis eum illum laborum amet omnis qui consequatur.', '3', '1', '2015-10-14 18:41:24', '2016-01-22 09:19:32', '2016-01-22 09:19:32');
+INSERT INTO cd_descriptions VALUES ('4', '9', 'Creiamo lo scheletro del casco', 'Eos atque corrupti laboriosam assumenda molestiae et ut.', '1', '1', '2015-02-07 15:35:32', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
+INSERT INTO cd_descriptions VALUES ('5', '2', 'Materiali necessari', 'Repellat sed amet placeat esse est.', '2', '1', '2015-02-22 07:28:30', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
 INSERT INTO cd_descriptions VALUES ('6', '1', 'Introduzione', 'Ma la volpe col suo balzo ha raggiunto il quieto Fido. Quel vituperabile xenofobo zelante assaggia il whisky ed esclama: alleluja! Aquel vituperable xenófobo apasionado prueba su güisqui y exclama: ¡Aleluya! Ma la volpe col suo balzo ha raggiunto il quieto Fido. Quel vituperabile xenofobo zelante assaggia il whisky ed esclama: alleluja! Aquel vituperable xenófobo apasionado prueba su güisqui y exclama: ¡Aleluya! Ma la volpe col suo balzo ha raggiunto il quieto Fido. Quel vituperabile xenofobo zelante assaggia il whisky ed esclama: alleluja! Aquel vituperable xenófobo apasionado prueba su güisqui y exclama: ¡Aleluya!Ma la volpe col suo balzo ha', '1', '1', '2015-08-15 16:29:48', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
 INSERT INTO cd_descriptions VALUES ('7', '7', null, 'Quis et esse non est veniam exercitationem.', '1', '1', '2015-01-27 00:02:05', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
 INSERT INTO cd_descriptions VALUES ('8', '6', null, 'Mollitia soluta accusamus ducimus nihil hic consequatur quis.', '1', '1', '2016-01-08 06:40:05', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
 INSERT INTO cd_descriptions VALUES ('9', '2', 'How to train your dragon?', 'Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan', '1', '1', '2015-06-02 21:03:33', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
 INSERT INTO cd_descriptions VALUES ('10', '2', null, 'Quibusdam neque reprehenderit nostrum quos quis maiores fugit.', '1', '1', '2015-07-30 18:02:02', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
-INSERT INTO cd_descriptions VALUES ('11', '5', null, 'Accusantium voluptas consequatur eos qui quidem quo.', '1', '1', '2015-05-04 08:48:31', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
+INSERT INTO cd_descriptions VALUES ('11', '2', 'Gli accessori', 'Accusantium voluptas consequatur eos qui quidem quo.', '4', '1', '2015-05-04 08:48:31', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
 
 -- ----------------------------
 -- Table structure for `cd_descriptions_copy`
@@ -309,17 +309,22 @@ INSERT INTO cd_description_project VALUES ('11', '6', '11', '0000-00-00 00:00:00
 DROP TABLE IF EXISTS `cd_galleries`;
 CREATE TABLE `cd_galleries` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `description_id` int(10) unsigned NOT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `order` int(11) NOT NULL,
+  `descrption_id` int(10) unsigned NOT NULL,
+  `image_list` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `captions` mediumtext COLLATE utf8_unicode_ci,
+  `order` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of cd_galleries
 -- ----------------------------
+INSERT INTO cd_galleries VALUES ('1', '7', 'Step-1-Card-Helmet.jpg,Step-1-Card-Helmet.jpg', null, '1,2', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_galleries VALUES ('2', '5', 'Step-1-Card-Helmet.jpg', null, '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_galleries VALUES ('3', '3', 'cos0293-1.jpg', 'Il costume| Gli accesori', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_galleries VALUES ('4', '11', 'cos0293-5.jpg', 'Gli accessori', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for `cd_macro_categories`
@@ -504,6 +509,7 @@ CREATE TABLE `cd_projects` (
   `timing_completion` int(11) NOT NULL DEFAULT '0',
   `approximate_cost` double(11,2) NOT NULL DEFAULT '0.00',
   `materials_id` int(11) NOT NULL,
+  `cover_image` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `projects_macro_category_id_index` (`macro_category_id`),
   KEY `projects_slug_index` (`slug`),
@@ -513,16 +519,16 @@ CREATE TABLE `cd_projects` (
 -- ----------------------------
 -- Records of cd_projects
 -- ----------------------------
-INSERT INTO cd_projects VALUES ('1', '1', 'ARMA1::Sed provident deleniti excepturi quaerat.', 'sed-provident-deleniti-excepturi-quaerat', '0', '10', 'assumenda,omnis,ratione,molestiae,praesentium', 'Voluptatem dolorum corrupti quo accusamus optio ipsa harum.', '1', '2015-10-13 19:49:01', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '120', '50.00', '0');
-INSERT INTO cd_projects VALUES ('2', '2', 'ACCESSORIO::Suscipit occaecati sint ut aut.', 'suscipit-occaecati-sint-ut-aut', '0', '80', 'et,et,asperiores,veritatis,repellat', 'Optio quae quod in temporibus et at.', '1', '2015-08-02 04:56:25', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0');
-INSERT INTO cd_projects VALUES ('3', '2', 'ACCESSORIO::Nesciunt ea magnam sapiente omnis rerum.', 'nesciunt-ea-magnam-sapiente-omnis-rerum-officiis', '0', '20', 'rerum,eos,esse,et,recusandae', 'Atque ullam tempora a vero perferendis minus consequatur.', '1', '2015-07-06 09:29:57', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '100', '100.00', '3');
-INSERT INTO cd_projects VALUES ('4', '1', 'ARMA2::Ad dolorum nemo praesentium quo itaque maiores.', 'ad-dolorum-nemo-praesentium-quo-itaque-maiores', '0', '50', 'provident,est,voluptates,ea,adipisci', 'Nobis est qui dolore et numquam.', '1', '2015-03-30 12:16:15', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0');
-INSERT INTO cd_projects VALUES ('5', '3', 'COSTUME::Doloremque quas recusandae ', 'doloremque-quas-recusandae-quibusdam-et-laudantium-sed-eveniet', '1', '100', 'qui,soluta,consequatur,harum,beatae', 'Unde ex perferendis tempora rerum unde.', '1', '2015-10-22 19:24:42', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0');
-INSERT INTO cd_projects VALUES ('6', '3', 'COSTUME::Error aut nulla reprehenderit.', 'error-aut-nulla-reprehenderit-eos-id-nulla-eum', '0', '70', 'quis,et,tempore,autem,voluptatum', 'Nam magnam illum exercitationem.', '0', '2015-09-11 02:09:32', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0');
-INSERT INTO cd_projects VALUES ('7', '2', 'ACCESSORIO::Libero dolorem iure.', 'libero-dolorem-iure-commodi-vel-laboriosam-nulla', '1', '100', 'quis,libero,similique,aperiam,et', 'Occaecati quidem est nemo voluptatem totam.', '1', '2015-12-04 23:42:37', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0');
-INSERT INTO cd_projects VALUES ('8', '1', 'ARMA3::Aut aut voluptatem praesentium at et aut culpa.', 'aut-aut-voluptatem-praesentium-at-et-aut-culpa', '0', '40', 'architecto,assumenda,ut,quis,tempore', 'Dolores id et veniam nostrum ab recusandae impedit.', '1', '2015-05-21 08:33:04', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0');
-INSERT INTO cd_projects VALUES ('9', '1', 'ARMA4::Voluptates excepturi assumenda.', 'voluptates-excepturi-assumenda-aut-aspernatur', '1', '100', 'sequi,iste,consequatur,est,assumenda', 'Sint optio quaerat est odit omnis.', '0', '2015-10-03 22:20:21', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0');
-INSERT INTO cd_projects VALUES ('10', '1', 'ARMA::Ab et odio quia est.', 'ab-et-odio-quia-est', '0', '95', 'excepturi,rem,omnis,ut,dolorum', 'Adipisci iure sit dolores repellat est voluptate.', '1', '2015-12-29 08:59:34', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0');
+INSERT INTO cd_projects VALUES ('1', '1', 'ARMA1::Sed provident deleniti excepturi quaerat.', 'sed-provident-deleniti-excepturi-quaerat', '0', '10', 'assumenda,omnis,ratione,molestiae,praesentium', 'Voluptatem dolorum corrupti quo accusamus optio ipsa harum.', '1', '2015-10-13 19:49:01', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '120', '50.00', '0', '');
+INSERT INTO cd_projects VALUES ('2', '2', 'ACCESSORIO::Suscipit occaecati sint ut aut.', 'suscipit-occaecati-sint-ut-aut', '0', '80', 'et,et,asperiores,veritatis,repellat', 'Optio quae quod in temporibus et at.', '1', '2015-08-02 04:56:25', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0', '');
+INSERT INTO cd_projects VALUES ('3', '2', 'ACCESSORIO::Nesciunt ea magnam sapiente omnis rerum.', 'nesciunt-ea-magnam-sapiente-omnis-rerum-officiis', '0', '20', 'rerum,eos,esse,et,recusandae', 'Atque ullam tempora a vero perferendis minus consequatur.', '1', '2015-07-06 09:29:57', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '100', '100.00', '3', '');
+INSERT INTO cd_projects VALUES ('4', '1', 'ARMA2::Ad dolorum nemo praesentium quo itaque maiores.', 'ad-dolorum-nemo-praesentium-quo-itaque-maiores', '0', '50', 'provident,est,voluptates,ea,adipisci', 'Nobis est qui dolore et numquam.', '1', '2015-03-30 12:16:15', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0', '');
+INSERT INTO cd_projects VALUES ('5', '3', 'COSTUME::Doloremque quas recusandae ', 'doloremque-quas-recusandae-quibusdam-et-laudantium-sed-eveniet', '1', '100', 'qui,soluta,consequatur,harum,beatae', 'Unde ex perferendis tempora rerum unde.', '1', '2015-10-22 19:24:42', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0', '');
+INSERT INTO cd_projects VALUES ('6', '3', 'Haseo Xth Form', 'haseo-xth-form', '1', '70', '.hack, .Hack G.U., Haseo Xth Form, ', 'After having his PC data heavily damaged by Corbenik\'s \"Rebirth\", Haseo finds himself stranded on the outer fringes of \"The World\'s\" systems. He is rescued by Zelkova who brings him to his base, Net Slum Tartarga...', '1', '2015-09-11 02:09:32', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '100', '100.00', '0', 'haseo-xth-form.jpg');
+INSERT INTO cd_projects VALUES ('7', '2', 'ACCESSORIO::Libero dolorem iure.', 'libero-dolorem-iure-commodi-vel-laboriosam-nulla', '1', '100', 'quis,libero,similique,aperiam,et', 'Occaecati quidem est nemo voluptatem totam.', '1', '2015-12-04 23:42:37', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0', '');
+INSERT INTO cd_projects VALUES ('8', '1', 'ARMA3::Aut aut voluptatem praesentium at et aut culpa.', 'aut-aut-voluptatem-praesentium-at-et-aut-culpa', '0', '40', 'architecto,assumenda,ut,quis,tempore', 'Dolores id et veniam nostrum ab recusandae impedit.', '1', '2015-05-21 08:33:04', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0', '');
+INSERT INTO cd_projects VALUES ('9', '1', 'ARMA4::Voluptates excepturi assumenda.', 'voluptates-excepturi-assumenda-aut-aspernatur', '1', '100', 'sequi,iste,consequatur,est,assumenda', 'Sint optio quaerat est odit omnis.', '0', '2015-10-03 22:20:21', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0', '');
+INSERT INTO cd_projects VALUES ('10', '1', 'ARMA::Ab et odio quia est.', 'ab-et-odio-quia-est', '0', '95', 'excepturi,rem,omnis,ut,dolorum', 'Adipisci iure sit dolores repellat est voluptate.', '1', '2015-12-29 08:59:34', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0', '');
 
 -- ----------------------------
 -- Table structure for `cd_project_material`
