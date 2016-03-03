@@ -8,10 +8,10 @@ class Description extends Model
 {
     public function projects(){
         return $this->belongsToMany('App\Project');
+}
+
+   public function galleries(){
+        return $this->hasMany('App\Gallery','descrption_id');
     }
 
-   /* public function galleries(){
-        return $this->hasOne('App\Gallery','project_id','id');
-    }
-   */
 }

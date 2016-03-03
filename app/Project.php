@@ -15,7 +15,7 @@ class Project extends Model
 
     public function descriptions()
     {
-        return $this->belongsToMany('App\Description');
+        return $this->belongsToMany('App\Description','description_project','project_id');
     }
 
     public function macro_categories()

@@ -103,12 +103,41 @@ class SiteController extends Controller
 
 
     public function getDataBySlug($slug){
-
-
+            // get the current project by slug
             $projects = \App\Project::all();
             $currentProject = \App\Project::where('slug', '=', $slug)->first();
+//dump($currentProject->id);
+            // get the knob percentage color
+            $knobColor = $this->generateKnobColor ($currentProject->progress);
+            // get the project owner
+            $ownerData = \App\Project::find($currentProject->id)->user;
+//dump($ownerData);
+            // get the project steps
+            $steps = \App\Project::find($currentProject->id)->descriptions;
+//dump($steps);
+            // get the project materials
+            $materials = $this->getProjectMaterial($currentProject->id);
+            // get and associate the step images
+            foreach($steps as $step){
+//dump($step->gallery_id);
+                $images = \App\Gallery::find($step->gallery_id);
+//dump($images);
+                $step->images = $images;
+            }
 
-        $datas = DB::table('description_project')->distinct()
+        // set the relative data to the project
+        $currentProject->user = $ownerData;
+        $currentProject->materials = $materials;
+        $currentProject->steps = $steps;
+        $currentProject->knobColor = $knobColor;
+        $currentProject->materials = $this->getProjectMaterial($currentProject->id);
+        $currentProject->directory =  "img/cd-".$currentProject->slug."-12345678/"; // da definire
+
+
+        return view('cosplaydesign.pages.progetto',compact('currentProject'));
+        /*
+         * old version
+         * $datas = DB::table('description_project')->distinct()
             ->join('projects', 'projects.id', '=', 'description_project.project_id')
             ->join('descriptions', 'descriptions.id', '=', 'description_project.description_id')
             ->join('users', 'projects.user_id', '=', 'users.id')
@@ -126,19 +155,13 @@ class SiteController extends Controller
             ->get();
 
 
-            foreach($datas as $mydata){
-                $knobColor = $this->generateKnobColor ($mydata->progress);
-                $mydata->knobColor = $knobColor;
-            }
-
-
-            $mats = $this->getProjectMaterial($currentProject->id);
+            foreach($datas as $mydata){}
             $projectData = $datas;
 
             $steps = $this-> getTutorialStepByProjectId($currentProject->id);
             //dump($steps);
             $step_images = $this->getGalleryElementsByStepId($steps);
-            return view('cosplaydesign.pages.progetto',compact('projectData', 'mats','steps'));
+        */
     }
 
 
