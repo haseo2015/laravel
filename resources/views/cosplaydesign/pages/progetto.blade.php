@@ -71,16 +71,53 @@
                 <ol class="turorial__stepper">
 
                    @foreach($currentProject->steps as $step)
-                   <?php
-                   $array_immagini = explode(",", $step->images->image_list);
-                   $array_captions = explode(",", $step->images->captions);
-                   $dati_immagine = array($array_immagini,$array_captions);
-                   ?>
                    <!-- SINGLE STEP -->
                     <li class="">
                         <h4 class="media-heading">{!! $step->step_title !!}</h4>
                         <div class="media">
                             @include ("cosplaydesign.includes.tutorial_images_gallery")
+                                    <!-- Header Carousel -->
+                            <div id="" class="carousel slide" data-ride="carousel" style="background: #cccccc;">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                                </ol>
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+                                        <div class="carousel-caption">
+                                            <h2>Caption 1</h2>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+                                        <div class="carousel-caption">
+                                            <h2>Caption 2</h2>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+                                        <div class="carousel-caption">
+                                            <h2>Caption 3</h2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                    <span class="icon-prev"></span>
+                                </a>
+                                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                    <span class="icon-next"></span>
+                                </a>
+                            </div>
+
+
+
                             <div class="media-body">
                                 <p>{!! $step->body !!}</p>
                             </div>
