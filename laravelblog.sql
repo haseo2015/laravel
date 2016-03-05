@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2016-03-03 20:00:16
+Date: 2016-03-05 14:00:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -240,7 +240,7 @@ INSERT INTO cd_descriptions VALUES ('7', '7', null, 'Quis et esse non est veniam
 INSERT INTO cd_descriptions VALUES ('8', '6', null, 'Mollitia soluta accusamus ducimus nihil hic consequatur quis.', '1', '1', '2016-01-08 06:40:05', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
 INSERT INTO cd_descriptions VALUES ('9', '2', 'How to train your dragon?', 'Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan', '1', '1', '2015-06-02 21:03:33', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
 INSERT INTO cd_descriptions VALUES ('10', '2', null, 'Quibusdam neque reprehenderit nostrum quos quis maiores fugit.', '1', '1', '2015-07-30 18:02:02', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
-INSERT INTO cd_descriptions VALUES ('11', '2', 'Gli accessori', 'Accusantium voluptas consequatur eos qui quidem quo.', '4', '1', '2015-05-04 08:48:31', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
+INSERT INTO cd_descriptions VALUES ('11', '2', 'Creiamo le pistole', 'This project was initially started in 2008 as a personal project, but commissions put this on the back burner. It was revived when Cathy of godsavethequeenfashions.com needed them for her accompanying Haseo costume commission....', '4', '1', '2015-05-04 08:48:31', '2016-01-22 09:19:33', '2016-01-22 09:19:33');
 
 -- ----------------------------
 -- Table structure for `cd_descriptions_copy`
@@ -324,7 +324,7 @@ CREATE TABLE `cd_galleries` (
 INSERT INTO cd_galleries VALUES ('1', '7', 'Step-1-Card-Helmet.jpg,Step-1-Card-Helmet.jpg', null, '1,2', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO cd_galleries VALUES ('2', '5', 'Step-1-Card-Helmet.jpg', null, '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO cd_galleries VALUES ('3', '3', 'cos0293-1.jpg', 'Il costume| Gli accesori', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO cd_galleries VALUES ('4', '11', 'cos0293-5.jpg', 'Gli accessori', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_galleries VALUES ('4', '11', 's_xth_form_gun_blades.jpg,haseo-xth-guns.jpg,haseo_1-05-wipset.jpg,haseogun_003.jpg', 'Le pistole|Modello 1||', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for `cd_macro_categories`
@@ -349,9 +349,9 @@ CREATE TABLE `cd_macro_categories` (
 -- ----------------------------
 -- Records of cd_macro_categories
 -- ----------------------------
-INSERT INTO cd_macro_categories VALUES ('1', '0', 'Armi', 'armi', '#cc33bb', '556', '1', '1', '2015-04-21 23:50:17', '2016-01-22 09:19:32', '2016-01-22 09:19:32');
-INSERT INTO cd_macro_categories VALUES ('2', '0', 'Accessori', 'accessori', '#abcdef', '400', '2', '1', '2015-09-07 21:15:56', '2016-01-22 09:19:32', '2016-01-22 09:19:32');
-INSERT INTO cd_macro_categories VALUES ('3', '0', 'Costumi', 'costumi', '#cccccc', '358', '3', '1', '2015-10-08 16:11:34', '2016-01-22 09:19:32', '2016-01-22 09:19:32');
+INSERT INTO cd_macro_categories VALUES ('1', '0', 'Armi', 'armi', '#cc33bb', 'fa-yelp', '1', '1', '2015-04-21 23:50:17', '2016-01-22 09:19:32', '2016-01-22 09:19:32');
+INSERT INTO cd_macro_categories VALUES ('2', '0', 'Accessori', 'accessori', '#abcdef', 'fa-rebel', '2', '1', '2015-09-07 21:15:56', '2016-01-22 09:19:32', '2016-01-22 09:19:32');
+INSERT INTO cd_macro_categories VALUES ('3', '0', 'Costumi', 'costumi', '#cccccc', 'fa-qq', '3', '1', '2015-10-08 16:11:34', '2016-01-22 09:19:32', '2016-01-22 09:19:32');
 
 -- ----------------------------
 -- Table structure for `cd_materials`
@@ -523,8 +523,8 @@ INSERT INTO cd_projects VALUES ('1', '1', 'ARMA1::Sed provident deleniti exceptu
 INSERT INTO cd_projects VALUES ('2', '2', 'ACCESSORIO::Suscipit occaecati sint ut aut.', 'suscipit-occaecati-sint-ut-aut', '0', '80', 'et,et,asperiores,veritatis,repellat', 'Optio quae quod in temporibus et at.', '1', '2015-08-02 04:56:25', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0', '');
 INSERT INTO cd_projects VALUES ('3', '2', 'ACCESSORIO::Nesciunt ea magnam sapiente omnis rerum.', 'nesciunt-ea-magnam-sapiente-omnis-rerum-officiis', '0', '20', 'rerum,eos,esse,et,recusandae', 'Atque ullam tempora a vero perferendis minus consequatur.', '1', '2015-07-06 09:29:57', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '100', '100.00', '3', '');
 INSERT INTO cd_projects VALUES ('4', '1', 'ARMA2::Ad dolorum nemo praesentium quo itaque maiores.', 'ad-dolorum-nemo-praesentium-quo-itaque-maiores', '0', '50', 'provident,est,voluptates,ea,adipisci', 'Nobis est qui dolore et numquam.', '1', '2015-03-30 12:16:15', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0', '');
-INSERT INTO cd_projects VALUES ('5', '3', 'COSTUME::Doloremque quas recusandae ', 'doloremque-quas-recusandae-quibusdam-et-laudantium-sed-eveniet', '1', '100', 'qui,soluta,consequatur,harum,beatae', 'Unde ex perferendis tempora rerum unde.', '1', '2015-10-22 19:24:42', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0', '');
-INSERT INTO cd_projects VALUES ('6', '3', 'Haseo Xth Form', 'haseo-xth-form', '1', '70', '.hack, .Hack G.U., Haseo Xth Form, ', 'After having his PC data heavily damaged by Corbenik\'s \"Rebirth\", Haseo finds himself stranded on the outer fringes of \"The World\'s\" systems. He is rescued by Zelkova who brings him to his base, Net Slum Tartarga...', '1', '2015-09-11 02:09:32', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '100', '100.00', '0', 'haseo-xth-form.jpg');
+INSERT INTO cd_projects VALUES ('5', '3', 'Ironman w motorized', 'ironman-w-motorized', '1', '100', 'qui,soluta,consequatur,harum,beatae', 'Unde ex perferendis tempora rerum unde.', '1', '2015-10-22 19:24:42', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0', 'Stealth-Photo-by-David-Lee.jpg');
+INSERT INTO cd_projects VALUES ('6', '3', 'Haseo Xth Form', 'haseo-xth-form', '1', '70', '.hack,.Hack G.U.,Haseo Xth Form', 'After having his PC data heavily damaged by Corbenik\'s \"Rebirth\", Haseo finds himself stranded on the outer fringes of \"The World\'s\" systems. He is rescued by Zelkova who brings him to his base, Net Slum Tartarga...', '1', '2015-09-11 02:09:32', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '100', '100.00', '0', 'haseo-xth-form.jpg');
 INSERT INTO cd_projects VALUES ('7', '2', 'ACCESSORIO::Libero dolorem iure.', 'libero-dolorem-iure-commodi-vel-laboriosam-nulla', '1', '100', 'quis,libero,similique,aperiam,et', 'Occaecati quidem est nemo voluptatem totam.', '1', '2015-12-04 23:42:37', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0', '');
 INSERT INTO cd_projects VALUES ('8', '1', 'ARMA3::Aut aut voluptatem praesentium at et aut culpa.', 'aut-aut-voluptatem-praesentium-at-et-aut-culpa', '0', '40', 'architecto,assumenda,ut,quis,tempore', 'Dolores id et veniam nostrum ab recusandae impedit.', '1', '2015-05-21 08:33:04', '1', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0', '');
 INSERT INTO cd_projects VALUES ('9', '1', 'ARMA4::Voluptates excepturi assumenda.', 'voluptates-excepturi-assumenda-aut-aspernatur', '1', '100', 'sequi,iste,consequatur,est,assumenda', 'Sint optio quaerat est odit omnis.', '0', '2015-10-03 22:20:21', '2', '2016-01-22 09:19:32', '2016-01-22 09:19:32', '0', '0.00', '0', '');
@@ -570,5 +570,5 @@ CREATE TABLE `cd_users` (
 -- ----------------------------
 -- Records of cd_users
 -- ----------------------------
-INSERT INTO cd_users VALUES ('1', 'Francesco', 'Malatesta', 'Goldrake', 'francesco_malatesta', 'hey@hellofrancesco.com', '$2y$10$jpoIEyZ0tNPIJxMSftz6kecTqxUVJuSa8.M1xJk6cUrwYsvBJJjhy', null, '2016-01-22 09:19:31', '2016-01-22 09:19:31');
+INSERT INTO cd_users VALUES ('1', 'Francesco', 'Malatesta', 'Haseo', 'francesco_malatesta', 'hey@hellofrancesco.com', '$2y$10$jpoIEyZ0tNPIJxMSftz6kecTqxUVJuSa8.M1xJk6cUrwYsvBJJjhy', null, '2016-01-22 09:19:31', '2016-01-22 09:19:31');
 INSERT INTO cd_users VALUES ('2', 'Paolo', 'Rossi', 'GodZilla', 'paolo_rossi', 'hey@paolorossi.com', '$2y$10$BbY3PpiG/re5WYv1pHCm.OlOqjHyNiiNIg5j9I0dFm9iNfWocRnZG', null, '2016-01-22 09:19:31', '2016-01-22 09:19:31');
