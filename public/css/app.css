@@ -86,9 +86,11 @@ a, a:hover, a:focus {
   font-size: 34px;
   transition: 0.1s ease-in-out; }
 
-.navbar.top-nav-collapse .navbar-brand {
-  font-size: 20px;
-  transition: 0.1s ease-in-out; }
+.navbar.top-nav-collapse {
+  box-shadow: 1px 1px 30px #c8c8c8; }
+  .navbar.top-nav-collapse .navbar-brand {
+    font-size: 20px;
+    transition: 0.1s ease-in-out; }
 
 .dropdown-login {
   width: 18rem;
@@ -244,7 +246,9 @@ a, a:hover, a:focus {
       top: 0;
       transition: all 0.5s ease-in-out; }
   .projectCard .card figure {
-    margin: 0; }
+    margin: 0;
+    overflow: hidden;
+    max-height: 180px; }
   .projectCard .card__cover {
     position: relative;
     overflow: hidden; }

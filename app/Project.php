@@ -28,9 +28,32 @@ class Project extends Model
         return $this->hasMany('App\Material');
     }
 
-/*
-    public function types(){
-        return $this->belongsToMany('App\Type');
+
+
+
+
+    public static function getPojectById($projID){
+        return \App\Project::find($projID);
     }
-*/
+
+    public static function getProjectBySlug($slug){
+     return \App\Project::where('slug', '=', $slug);
+    }
+
+    public static function getCurrentProjectBySlug($slug){
+        return \App\Project::where('slug', '=', $slug)->first();
+    }
+
+    public static function getProjectsByCateogory($cat){
+        return \App\Project::where('macro_category_id', '=', $cat)->get();
+    }
+
+    public static function getProjectAuthor($projID){
+        return \App\Project::find($projID)->user;
+    }
+
+    public static function getProjectTags($meta_keys){
+        return explode(",",$meta_keys);
+    }
+
 }

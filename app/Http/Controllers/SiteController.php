@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
-DB::enableQueryLog();
+
 class SiteController extends Controller
 {
     /**
@@ -20,100 +20,48 @@ class SiteController extends Controller
         return view('cosplaydesign.pages.home');
     }
 
-    public function getCategoria(Request $request, $slug=null){
-        return $this->getListByCategory($slug);
-    }
-
-    public function getAccessori(Request $request, $slug=null){
-        return $this->getDataBySlug($slug);
-    }
-
-    public function getCostumi(Request $request, $slug=null){
-         return $this->getDataBySlug($slug);
-    }
-    public function getArmi(Request $request, $slug){
-        return $this->getDataBySlug($slug);
-    }
-
-    public function redirectToRight($slug){
-        echo $slug;
-    }
-
-    public function showDetail($slug){
-
-        $projects = \App\Project::all();
-        $currentProject = \App\Project::where('slug', '=', $slug)->first();
-        //$descs = $currentProject->descriptions();
-    //print_r( $descs );
-//exit;
-        return view('cosplaydesign.pages.progetto',['currentProject'=>$currentProject]);
-    }
-
 
     public function getListByCategory($slug)
     {
-        if ($slug) {
-            $mc = \App\MacroCategory::all();
-            $currentMC = \App\MacroCategory::where('slug', '=', $slug)->first();
-
-            $projects = DB::table('description_project')
-                ->join('projects', 'projects.id', '=', 'description_project.project_id')
-                ->leftjoin('descriptions', 'descriptions.id', '=', 'description_project.description_id')
-                ->join('users', 'projects.user_id', '=', 'users.id')
-                ->join('macro_categories', 'projects.macro_category_id', '=', 'macro_categories.id')
-                ->select('macro_categories.id',
-                    'macro_categories.name as macro_name',
-                    'macro_categories.slug as macro_slug',
-                    'macro_categories.category_color as macro_color',
-                    'macro_categories.fonticon as macro_icon',
-                    'projects.*', 'projects.slug as seo_url',
-                    'descriptions.*',
-                    'users.*')
-                ->where('macro_categories.slug', '=', $slug)
-                ->where('projects.published_at', '<=', 'NOW()')
-                //->where('projects.is_published', '=', true)
-                ->orderBy('projects.published_at', 'DESC')
-                ->groupBy('projects.id')
-
-                ->get();
+        if ($slug != "tutti"){
+            $currentMC = \App\MacroCategory::getCurrentMacroCategoryBySlug($slug);
+//$pippo = \App\MacroCategory->projectByCat($currentMC->id);
+            $projects = \App\Project::getProjectsByCateogory($currentMC->id);
+//dump($projects);
         } else {
-            $projects = DB::table('description_project')->distinct()
-                ->join('projects', 'projects.id', '=', 'description_project.project_id')
-                ->join('descriptions', 'descriptions.id', '=', 'description_project.description_id')
-                ->join('users', 'projects.user_id', '=', 'users.id')
-                ->join('macro_categories', 'projects.macro_category_id', '=', 'macro_categories.id')
-                ->select('macro_categories.id',
-                    'macro_categories.name as macro_name',
-                    'macro_categories.slug as macro_slug',
-                    'macro_categories.category_color as macro_color',
-                    'macro_categories.fonticon as macro_icon',
-                    'projects.*', 'projects.slug as seo_url',
-                    'descriptions.*',
-                    'users.*')
-                ->groupBy('projects.id')
-                //->where('macro_categories.slug', '=', $slug)
-                ->get();
+            $projects = \App\Project::All();
+            $currentMC = collect();
+            $currentMC->name = "tutti";
+            $currentMC->fonticon = "fa-group";
         }
-        foreach($projects as $project){
-            $knobColor = $this->generateKnobColor ($project->progress);
-            $project->knobColor = $knobColor;
-        }
-        return view('cosplaydesign.pages.lista',["projects" => $projects]);
+            foreach($projects as $project){
+//dump($project);
+                $owner = \App\Project::getProjectAuthor($project->id);
+                $tags = \App\Project::getProjectTags($project->meta_keys);
+                $knobColor = $this->generateKnobColor ($project->progress);
+                $project->knobColor = $knobColor;
+                $project->directory = "/img/cd-". $project->slug . "-12345678/";
+                $project->tags = $tags;
+                $project->owner = $owner;
+                $project->category = \App\MacroCategory::getCurrentMacroCategoryById($project->macro_category_id);
+            }
+
+        return view('cosplaydesign.pages.lista',compact("projects","currentMC"));
     }
 
 
     public function getDataBySlug($slug){
             // get the current project by slug
             $projects = \App\Project::all();
-            $currentProject = \App\Project::where('slug', '=', $slug)->first();
+            $currentProject = \App\Project::getCurrentProjectBySlug($slug);
 //dump($currentProject->id);
             // get the knob percentage color
             $knobColor = $this->generateKnobColor ($currentProject->progress);
             // get the project owner
-            $ownerData = \App\Project::find($currentProject->id)->user;
+            $ownerData = $currentProject->user;
 //dump($ownerData);
             // get the project steps
-            $steps = \App\Project::find($currentProject->id)->descriptions;
+            $steps = $currentProject->descriptions;
 //dump($steps);
             // get the project materials
             $materials = $this->getProjectMaterial($currentProject->id);
@@ -133,35 +81,7 @@ class SiteController extends Controller
         $currentProject->materials = $this->getProjectMaterial($currentProject->id);
         $currentProject->directory =  "img/cd-".$currentProject->slug."-12345678/"; // da definire
 
-
         return view('cosplaydesign.pages.progetto',compact('currentProject'));
-        /*
-         * old version
-         * $datas = DB::table('description_project')->distinct()
-            ->join('projects', 'projects.id', '=', 'description_project.project_id')
-            ->join('descriptions', 'descriptions.id', '=', 'description_project.description_id')
-            ->join('users', 'projects.user_id', '=', 'users.id')
-            ->join('macro_categories', 'projects.macro_category_id', '=', 'macro_categories.id')
-            ->select('macro_categories.id',
-                'macro_categories.name as macro_name',
-                'macro_categories.slug as macro_slug',
-                'macro_categories.category_color as macro_color',
-                'macro_categories.fonticon as macro_icon',
-                'projects.*', 'projects.slug as seo_url',
-                'descriptions.*',
-                'users.*')
-            ->groupBy('projects.id')
-            ->where('projects.slug', '=', $slug)
-            ->get();
-
-
-            foreach($datas as $mydata){}
-            $projectData = $datas;
-
-            $steps = $this-> getTutorialStepByProjectId($currentProject->id);
-            //dump($steps);
-            $step_images = $this->getGalleryElementsByStepId($steps);
-        */
     }
 
 

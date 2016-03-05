@@ -1,13 +1,14 @@
+
 @extends('cosplaydesign.default')
 
-@section('title') <?php echo $projects[0]->macro_name ?> @endsection
+@section('title')  @endsection
 
 @section('subheading') Developer, Curious & Enthusiast. @endsection
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h3 class="page-header"> <span class="fa fa-rebel fa-1x"></span> Accessori
+            <h3 class="page-header"> <span class="fa {{$currentMC->fonticon}} fa-1x"></span> {{$currentMC->name}}
             <div class="btn-group btn-group-sm grid-type" role="group" aria-label="...">
                 <button type="button" class="btn btn-default active"><i class="fa fa-list"></i></button>
                 <button type="button" class="btn btn-default"><i class="fa fa-th"></i></button>
@@ -90,46 +91,42 @@
 
                 @foreach($projects as $project)
                     <div class="col-md-4 projectCard">
-                        <div class="card" data-card-id="{{$project->id}}" data-url="{{'/'.$project->seo_url}}">
+                        <div class="card" data-card-id="{{$project->id}}" data-url="{{'/'.$project->slug}}">
                             <div class="card__title__container"><h5 class="card__title">{{$project->name}}</h5></div>
                             <div class="card__cover">
                                     <div class="card__details">
-                                        <a href="/progetto/{{$project->seo_url}}">
+                                        <a href="/progetto/{{$project->slug}}">
                                         <span class="project__progress pull-right">
-                                        <small>Progresso:</small><br>
-                                        <input type="text" class="knobby"
-                                               data-width="75"
-                                               data-height="75"
-                                               data-fgColor="{{$project->knobColor}}"
-                                               data-skin="tron"
-                                               data-thickness=".2"
-                                               data-displayPrevious=false
-                                               data-displayInput="true"
-                                               data-readOnly="true"
-                                               value="{{$project->progress}}">
+                                            <small>Progresso:</small><br>
+                                            <input type="text" class="knobby"
+                                                   data-width="75"
+                                                   data-height="75"
+                                                   data-fgColor="{{$project->knobColor}}"
+                                                   data-skin="tron"
+                                                   data-thickness=".2"
+                                                   data-displayPrevious=false
+                                                   data-displayInput="true"
+                                                   data-readOnly="true"
+                                                   value="{{$project->progress}}">
                                         </span>
                                                 <ul>
-                                                    <li><small>Difficoltà:</small><br><input type="hidden" class="rate" data-fractions="2" value="2" disabled="disabled" /></li>
-                                                    <li><small>Categoria: </small><i class="fa fa-rebel"></i></li>
+                                                    <!-- <li><small>Difficoltà:</small><br><input type="hidden" class="rate" data-fractions="2" value="2" disabled="disabled" /></li> -->
+                                                    <li><small>Categoria: </small><i class="fa {{$project->category->fonticon}}"></i></li>
                                                     <li><small>Tag:</small> <br>
                                                         <span class="tags__container">
-                                                             <span data-url="tag/xxx" title="" class="tiny hollow button">Berserk</span>
-                                                             <span data-url="tag/xxx" title="" class="tiny hollow button">Mononoke Hime</span>
-                                                            <span data-url="tag/xxx" title="" class="tiny hollow button">Tag lungo un pochino</span>
+                                                            @foreach($project->tags as $tag)
+                                                                <span data-url="tag/xxx" title="" class="tiny hollow button">{{$tag}}</span>
+                                                            @endforeach
                                                         </span></li>
-                                                    <li><small class="card__author--name">Autore: <a href="/author/{{$project->username}}" title="scehda autore">{{$project->username}}</a></small></li>
+                                                    <li><small class="card__author--name">Autore: <a href="/author/{{$project->owner->username}}" title="scehda autore">{{$project->owner->username}}</a></small></li>
                                                 </ul>
-
-
-
-                                        <!-- <p class="card__datepub">Data pubblicazione: 04.01.2016</p> -->
                                         <div class="clearfix"></div>
                                         </a>
                                     </div>
                                     <!--  -->
 
                                 <figure>
-                                    <img src="http://lorempixel.com/800/600/technics" class="img-responsive lazy" alt="Responsive image" >
+                                    <img src="{{$project->directory}}{{$project->cover_image}}" class="img-responsive lazy" alt="{{$project->name}}" >
                                 </figure>
                             </div>
 

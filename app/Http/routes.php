@@ -14,6 +14,7 @@ use App\Category;
 
 Route::resource('/progetto/{detail}/','SiteController@getDataBySlug');
 Route::resource('/categoria/{slug}/','SiteController@getListByCategory');
+Route::resource('/categoria/tutti/','SiteController@getListByCategory');
 Route::controller('/', 'SiteController');
 //Route::controller('/blog', 'FrontendController');
 
