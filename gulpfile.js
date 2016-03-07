@@ -23,8 +23,9 @@ elixir(function(mix) {
         'bootstrap.min.css',
         'foundation.min.css',
         'jquery.fancybox.css',
+        'boostrap-rating.css',
         'font-awesome/css/font-awesome.min.css',
-        'font-awesome/css/boostrap-rating.css',
+
 
     ],'public/css/base.css');
 
@@ -42,6 +43,8 @@ elixir(function(mix) {
         "vendor/jquery.lazyload.min.js",
         "vendor/jquery.fancybox.pack.js",
         "vendor/bootstrap-rating.min.js",
+        "cd.core.js",
+        "cd.homepage.js",
         "_functions.js"
 
     ],'public/js/app.js');
