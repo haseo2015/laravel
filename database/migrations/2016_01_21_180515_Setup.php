@@ -13,7 +13,7 @@ class Setup extends Migration
     public function up()
     {
         // creazione tabella utenti
-        Schema::create('users', function(Blueprint $table)
+     /*  Schema::create('users', function(Blueprint $table)
         {
             $table->increments('id');
             $table->string('first_name');
@@ -93,6 +93,30 @@ class Setup extends Migration
             $table->integer('material_id')->unsigned();
             $table->timestamps();
         });
+        Schema::create('galleries', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('description_id')->unsigned();
+            $table->string('image');
+            $table->integer('order');
+            $table->timestamps();
+        });
+*/
+        Schema::create('genders', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->string('gender');
+            $table->string('slug')->index();
+            $table->integer('active');
+            $table->timestamps();
+        });
+        Schema::create('project_gender', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('project_id');
+            $table->integer('gender_id');
+            $table->timestamps();
+        });
 
     }
 
@@ -104,13 +128,16 @@ class Setup extends Migration
     public function down()
     {
         // cancellazione tabella utenti
-        Schema::drop('users');
+        /*Schema::drop('users');
         Schema::drop('macro_categories');
         Schema::drop('projects');
         Schema::drop('descriptions');
         Schema::drop('description_project');
         Schema::drop('materials');
         Schema::drop('material_project');
+        Schema::drop('galleries');*/
+        Schema::drop('genders');
+        Schema::drop('project_gender');
 
     }
 }

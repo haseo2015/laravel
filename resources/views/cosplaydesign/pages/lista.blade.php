@@ -9,9 +9,9 @@
     <div class="row">
         <div class="col-lg-12">
             <h3 class="page-header"> <span class="fa {{$currentMC->fonticon}} fa-1x"></span> {{$currentMC->name}}
-            <div class="btn-group btn-group-sm grid-type" role="group" aria-label="...">
-                <button type="button" class="btn btn-default active"><i class="fa fa-list"></i></button>
-                <button type="button" class="btn btn-default"><i class="fa fa-th"></i></button>
+            <div class="btn-group btn-group-sm grid-type" role="group" >
+                <button type="button" class="btn btn-default active btn-switch-view" data-view="cd_list"><i class="fa fa-list"></i></button>
+                <button type="button" class="btn btn-default btn-switch-view" data-view="cd_grid"><i class="fa fa-th"></i></button>
 
             </div>
             </h3>
@@ -62,32 +62,37 @@
         </div>
 
         <div class="col-md-9">
-            <div class="row cd_list cd_hide">
+            <div class="row cd_list">
                 <ul class="list-group">
-                    @foreach($projects as $pproject)
-                        <li class="list-group-item project project__detail" data-project-id="1">
-                     <span class="project__progress pull-right">
-                        <input type="text" class="knobby"
-                               data-width="75"
-                               data-height="75"
-                               data-fgColor="red"
-                               data-skin="tron"
-                               data-thickness=".2"
-                               data-displayPrevious=false
-                               data-displayInput="true"
-                               data-readOnly="true"
-                               value="10">
-                    </span>
-                            <h5 class="progress__title">{{$pproject->name}}</h5>
-                            <p class="progress__author">Autore: <a href="#">Haseo Xth</a></p>
-                            <p class="progress__date">Data pubblicazione: 04.01.2016</p>
-
+                    @foreach($projects as $project)
+                        <li class="list-group-item project project__detail project__list" data-project-id="1">
+                            <a href="/progetto/{{$project->slug}}" title="vai al progetto">
+                                <figure class="list__cover-image">
+                                    <img src="{{$project->directory}}{{$project->cover_image}}" class="img-responsive lazy" alt="{{$project->name}}" >
+                                </figure>
+                                 <span class="project__progress list__progress pull-right">
+                                    <input type="text" class="knobby"
+                                           data-width="75"
+                                           data-height="75"
+                                           data-fgColor="{{$project->knobColor}}"
+                                           data-skin="tron"
+                                           data-thickness=".2"
+                                           data-displayPrevious=false
+                                           data-displayInput="true"
+                                           data-readOnly="true"
+                                           value="{{$project->progress}}">
+                                </span>
+                            <h5 class="progress__title">{{$project->name}}</h5>
+                            <p>Categoria: <i class="fa {{$project->category->fonticon}}"></i>{{$project->category->name}}</p>
+                            <p class="progress__author">Autore: <a href="/author/{{$project->owner->username}}" title="scehda autore">{{$project->owner->username}}</a></p>
+                            <div class="clear"></div>
+                            </a>
                         </li>
                     @endforeach
             </ul>
             </div>
 
-            <div class="row cd_grid ">
+            <div class="row cd_grid cd_hide">
 
                 @foreach($projects as $project)
                     <div class="col-md-4 projectCard">
@@ -134,9 +139,6 @@
                     </div>
                     @endforeach
             </div>
-
-
-
 
 
             <!-- paginatore -->

@@ -2,6 +2,15 @@
 }
 
 
+.project__list {}
+.list__cover-image {
+  margin:10px;
+  float:left;
+  max-width:100px;
+  max-height:75px;
+  overflow: hidden;
+}
+.list__progress{margin-top:15px;}
 
 .cover-image-project {
   max-height: 330px;

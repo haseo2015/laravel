@@ -16,6 +16,7 @@
             </div>
 
             <div class="col-md-4">
+                <a href="/categoria/armi/">
                 <div class="panel panel-success  text-center projectBlock">
                     <div class="panel-heading">
                         <h3 class="panel-title"><span class="glyphicons glyphicons-boat"></span>Armi</h3>
@@ -24,9 +25,11 @@
                         {!! HTML::image('img/project-armi.jpg')  !!}
                     </figure>
                 </div>
+                </a>
             </div>
 
             <div class="col-md-4">
+                <a href="/categoria/costumi/">
                 <div class="panel panel-info text-center projectBlock">
                     <div class="panel-heading">
                         <h3 class="panel-title">Costumi</h3>
@@ -35,10 +38,11 @@
                         {!! HTML::image('img/project-costumi.jpg')  !!}
                     </figure>
                 </div>
+                </a>
             </div>
 
             <div class="col-md-4">
-                <a href="">
+                <a href="/categoria/accessori/">
                     <div class="panel panel-warning text-center projectBlock">
                         <div class="panel-heading">
                             <h3 class="panel-title">Accessori</h3>

@@ -8,7 +8,6 @@ $(document).ready(function(){
 
 
     $('.knobby').each(function () {
-
         var elm = $(this);
         var color = elm.attr("data-fgColor");
         var perc = elm.attr("value");
@@ -59,6 +58,10 @@ $(document).ready(function(){
     });
 
     $(".fancybox").fancybox();
+
+
+
+
 
 
 });

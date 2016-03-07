@@ -55,6 +55,8 @@ class SiteController extends Controller
             $projects = \App\Project::all();
             $currentProject = \App\Project::getCurrentProjectBySlug($slug);
 //dump($currentProject->id);
+            //get the project gender(s)ù
+            $gender = \App\Project::getProjectGenders($currentProject->id);
             // get the knob percentage color
             $knobColor = $this->generateKnobColor ($currentProject->progress);
             // get the project owner
@@ -74,6 +76,7 @@ class SiteController extends Controller
             }
 
         // set the relative data to the project
+        $currentProject->gender = $gender;
         $currentProject->user = $ownerData;
         $currentProject->materials = $materials;
         $currentProject->steps = $steps;
@@ -132,14 +135,6 @@ class SiteController extends Controller
         return $steps;
     }
 
-    public function getGalleryElementsByStepId($steps){
-        //dump($steps);
-        foreach($steps as $step){
-            $elements = \App\Gallery::find($step->gallery_id);
-            //dump($elements);
-        }
-        //
-        //
-    }
+
 
 }

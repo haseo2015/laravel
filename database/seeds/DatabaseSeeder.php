@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
         //$this->call('ProjectTableSeeder');
         //$this->call('DescriptionTableSeeder');
 
-        $this->call('MaterialSeeder');
+        //$this->call('MaterialSeeder');
+        $this->call('GenderTableSeeder');
 
         //$this->call('TypeSeeder');
 

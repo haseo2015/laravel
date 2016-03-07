@@ -17,6 +17,10 @@ class Project extends Model
     {
         return $this->belongsToMany('App\Description','description_project','project_id');
     }
+    public function genders()
+    {
+        return $this->belongsToMany('App\Gender','project_gender','project_id');
+    }
 
     public function macro_categories()
     {
@@ -50,6 +54,10 @@ class Project extends Model
 
     public static function getProjectAuthor($projID){
         return \App\Project::find($projID)->user;
+    }
+
+    public static function getProjectGenders($projID){
+        return \App\Project::find($projID)->genders;
     }
 
     public static function getProjectTags($meta_keys){

@@ -140,7 +140,7 @@ return [
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
         Lavary\Menu\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
 
         /*
@@ -201,7 +201,8 @@ return [
         'Form'      => Illuminate\Html\FormFacade::class,
         'HTML'      => Collective\Html\HtmlFacade::class,
         'Slug'      => Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
-        'Lavary'    => Lavary\Menu\Facade::class
+        'Lavary'    => Lavary\Menu\Facade::class,
+        'Socialize' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 
