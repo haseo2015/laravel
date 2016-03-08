@@ -5,15 +5,15 @@
 .list__cover-image {
   margin:10px;
   float:left;
-  max-width:100px;
-  max-height:75px;
+  width:80px;
+  height:80px;
   overflow: hidden;
+  @include rounded(100%);
+  border:1px solid $grigio_griglia;
 }
 .list__progress{margin-top:15px;}
 
-.cover-image-project {
-  max-height: 330px;
-}
+.cover-image-project { max-height: 330px; }
 
 .project__description {
   width:70%;

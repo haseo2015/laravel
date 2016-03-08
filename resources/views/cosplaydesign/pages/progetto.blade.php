@@ -1,4 +1,4 @@
-<?php dump($currentProject);?>
+<?php dump($currentProject->gender);?>
 @extends('cosplaydesign.default')
 
 @section('title')Progetto: {!! $currentProject->name !!} @endsection
@@ -13,8 +13,12 @@
                 <ol class="subheading-detail breadcrumbs">
                     <li>Area: <a href="/categoria/{!! $currentProject->macro_slug !!}" title="{!! $currentProject->macro_name !!}">{!! $currentProject->macro_name !!}</a></li>
                     <li>Serie: <a href="/serie/hack-gu" title="Hack G.U.">.Hack G.U</a></li>
-                    <li>Tipologia: <a href="/tipologia/{!! $currentProject->gender[0]->slug !!}" title="{!! $currentProject->gender[0]->gender !!}">{!! $currentProject->gender[0]->gender !!}</a></li>
-                    <li>Autore: <a href="/membri/{!! $currentProject->user->slug!!}" title="autore {!! $currentProject->user->username !!}">{!! $currentProject->user->username !!}</a></li>
+                    <li>Tipologia:
+                        @foreach($currentProject->gender as $_gender)
+                            <a href="/tipologia/{!!$_gender->slug !!}" title="{!! $_gender->gender !!}">{!! $_gender->gender !!}</a>,
+                        @endforeach
+                    </li>
+                    <li>Autore: <a href="/membri/{!! $currentProject->user->slug_username   !!}" title="autore {!! $currentProject->user->username !!}">{!! $currentProject->user->username !!}</a></li>
                 </ol>
             </h3>
         </div>
