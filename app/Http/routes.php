@@ -11,7 +11,7 @@
 |
 */
 use App\Category;
-Route::resource('/membri/{slug}/','SiteController@getMemberBySlug');
+Route::resource('/membri/{slug}/','UserController@getMemberBySlug');
 Route::resource('/tipologia/{slug}/','SiteController@getProjectsByType');
 Route::resource('/serie/{slug}/','SiteController@getProjectsBySeries');
 

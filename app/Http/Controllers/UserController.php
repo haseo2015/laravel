@@ -19,4 +19,7 @@ class UserController extends Controller
     }
 
 
+    public function getMemberBySlug($slug){
+        return view('cosplaydesign.pages.schedautente');
+    }
 }
