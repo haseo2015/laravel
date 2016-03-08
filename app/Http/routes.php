@@ -11,10 +11,19 @@
 |
 */
 use App\Category;
+Route::resource('/membri/{slug}/','SiteController@getMemberBySlug');
+Route::resource('/tipologia/{slug}/','SiteController@getProjectsByType');
+Route::resource('/serie/{slug}/','SiteController@getProjectsBySeries');
 
 Route::resource('/progetto/{detail}/','SiteController@getDataBySlug');
 Route::resource('/categoria/{slug}/','SiteController@getListByCategory');
 Route::resource('/categoria/tutti/','SiteController@getListByCategory');
 Route::controller('/', 'SiteController');
-//Route::controller('/blog', 'FrontendController');
+
+/* TO DO: social login*/
+Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
+Route::get('auth/google', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/google/callback', 'Auth\AuthController@handleProviderCallback');
+//Route::controller('/blog', FrontendController');
 

@@ -1,9 +1,9 @@
-<?php dump($currentProject) ?>
+<?php dump($currentProject);?>
 @extends('cosplaydesign.default')
 
 @section('title')Progetto: {!! $currentProject->name !!} @endsection
 
-@section('subheading') Developer, Curious & Enthusiast. @endsection
+@section('subheading')  @endsection
 
 @section('content')
 
@@ -19,6 +19,7 @@
             </h3>
         </div>
     </div>
+
     <div class="row project-detail">
         <div class="col-lg-12">
          <h3>Overall di progetto</h3>

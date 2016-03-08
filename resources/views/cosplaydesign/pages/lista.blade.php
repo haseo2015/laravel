@@ -10,8 +10,8 @@
         <div class="col-lg-12">
             <h3 class="page-header"> <span class="fa {{$currentMC->fonticon}} fa-1x"></span> {{$currentMC->name}}
             <div class="btn-group btn-group-sm grid-type" role="group" >
-                <button type="button" class="btn btn-default active btn-switch-view" data-view="cd_list"><i class="fa fa-list"></i></button>
-                <button type="button" class="btn btn-default btn-switch-view" data-view="cd_grid"><i class="fa fa-th"></i></button>
+                <button type="button" class="btn btn-default active btn-switch-view" data-view="cd_list" title="List view"><i class="fa fa-list"></i></button>
+                <button type="button" class="btn btn-default btn-switch-view" data-view="cd_grid" title="Grid view"><i class="fa fa-th"></i></button>
 
             </div>
             </h3>
@@ -62,7 +62,7 @@
         </div>
 
         <div class="col-md-9">
-            <div class="row cd_list">
+            <div class="row cd-view" data-view="cd_list">
                 <ul class="list-group">
                     @foreach($projects as $project)
                         <li class="list-group-item project project__detail project__list" data-project-id="1">
@@ -92,7 +92,7 @@
             </ul>
             </div>
 
-            <div class="row cd_grid cd_hide">
+            <div class="row cd-view cd_hide" data-view="cd_grid">
 
                 @foreach($projects as $project)
                     <div class="col-md-4 projectCard">

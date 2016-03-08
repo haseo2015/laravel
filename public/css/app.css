@@ -303,6 +303,17 @@ a, a:hover, a:focus {
     margin: 2px 2px 2px 0;
     padding: .2rem; }
 
+/*LISTA PROGETTI*/
+.list__cover-image {
+  margin: 10px;
+  float: left;
+  max-width: 100px;
+  max-height: 75px;
+  overflow: hidden; }
+
+.list__progress {
+  margin-top: 15px; }
+
 .cover-image-project {
   max-height: 330px; }
 

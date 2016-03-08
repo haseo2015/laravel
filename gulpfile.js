@@ -44,7 +44,10 @@ elixir(function(mix) {
         "vendor/jquery.fancybox.pack.js",
         "vendor/bootstrap-rating.min.js",
         "cd.core.js",
+        "cd.base.js",
+        "cd.helpers.js",
         "cd.homepage.js",
+        "cd.lista.js",
         "_functions.js"
 
     ],'public/js/app.js');
