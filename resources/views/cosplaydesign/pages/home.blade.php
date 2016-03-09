@@ -22,7 +22,7 @@
                         <h3 class="panel-title"><span class="glyphicons glyphicons-boat"></span>Armi</h3>
                     </div>
                     <figure>
-                        {!! HTML::image('img/project-armi.jpg')  !!}
+                        {!! HTML::image('img/project-armi.jpg',"",array('class' => 'img-responsive lazy'))  !!}
                     </figure>
                 </div>
                 </a>
@@ -35,7 +35,7 @@
                         <h3 class="panel-title">Costumi</h3>
                     </div>
                     <figure>
-                        {!! HTML::image('img/project-costumi.jpg')  !!}
+                        {!! HTML::image('img/project-costumi.jpg',"",array('class' => 'img-responsive lazy'))  !!}
                     </figure>
                 </div>
                 </a>
@@ -48,7 +48,7 @@
                             <h3 class="panel-title">Accessori</h3>
                         </div>
                         <figure>
-                            {!! HTML::image('img/project-accessori.jpg')  !!}
+                            {!! HTML::image('img/project-accessori.jpg',"",array('class' => 'img-responsive lazy'))  !!}
                         </figure>
                     </div>
                 </a>

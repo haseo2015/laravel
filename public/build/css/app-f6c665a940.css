@@ -303,13 +303,20 @@ a, a:hover, a:focus {
     margin: 2px 2px 2px 0;
     padding: .2rem; }
 
+.project__description {
+  width: 70%; }
+
 /*LISTA PROGETTI*/
 .list__cover-image {
   margin: 10px;
   float: left;
-  max-width: 100px;
-  max-height: 75px;
-  overflow: hidden; }
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border: 1px solid #c8c8c8; }
 
 .list__progress {
   margin-top: 15px; }
@@ -317,8 +324,9 @@ a, a:hover, a:focus {
 .cover-image-project {
   max-height: 330px; }
 
-.project__description {
-  width: 70%; }
+/*TABELLA PROGETTI*/
+.project__table td {
+  vertical-align: middle !important; }
 
 /* TUTORIAL STEP */
 .thumnail img :after {
@@ -356,5 +364,15 @@ img.step-image {
   max-width: 250px; }
   img.step-image--first {
     max-width: 400px; }
+
+/*
+* PROFILE.SCSS
+* scss for page member profile & correlated elements
+*/
+.profile__image {
+  margin: 5px auto; }
+
+.friends__element {
+  margin: 3px auto; }
 
 /*# sourceMappingURL=app.css.map */

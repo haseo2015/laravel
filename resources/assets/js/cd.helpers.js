@@ -6,7 +6,7 @@ $.using("cd.helpers", function (context, $, W) {
     context.init = function(){
         var body = $("body");
         // switch view funziona in combo con il data-view=[nome_classe]
-        $(".btn-switch-view").on("click","",context.switchView);
+        $(".js-switch-view").on("click","",context.switchView);
     };
 
     /*
@@ -15,13 +15,16 @@ $.using("cd.helpers", function (context, $, W) {
      */
     context.switchView = function(){
         var _clickedView = $(this).data("view");
-        $(".btn-switch-view").removeClass("active");
+        $(".js-switch-view").removeClass("active");
         $(this).addClass(".active");
-        $(".cd-view:visible").fadeOut("fast", function(){
-            $(".cd-view[data-view=" +_clickedView+ "]").fadeIn("fast");
+        $(".js-view:visible").fadeOut("fast", function(){
+            $(".js-view[data-view=" +_clickedView+ "]").fadeIn("fast");
 
         });
     };
+
+
+
 
     context.init();
 

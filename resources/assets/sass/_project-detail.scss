@@ -1,4 +1,5 @@
 .project-detail {}
+.project__description { width:70%; }
 
 /*LISTA PROGETTI*/
 .project__list {}
@@ -12,12 +13,13 @@
   border:1px solid $grigio_griglia;
 }
 .list__progress{margin-top:15px;}
-
 .cover-image-project { max-height: 330px; }
 
-.project__description {
-  width:70%;
-}
+
+
+/*TABELLA PROGETTI*/
+.project__table {}
+.project__table td{vertical-align: middle !important;}
 
 /* TUTORIAL STEP */
 .thumnail {
@@ -50,9 +52,7 @@
     }
   }
 }
-.tutorial-step {
-
-}
+.tutorial-step {}
 .thumnail__step {
   .caption {
     display: block;

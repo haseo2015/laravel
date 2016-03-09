@@ -12,28 +12,25 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
+    /* compilo i miei css */
+    mix.styles([
+        'bootstrap.min.css',
+        'jquery.fancybox.css',
+        'bootstrap-rating.css',
+        'font-awesome/css/font-awesome.min.css',
+        'isotope.css',
+    ],'public/css/base.css');
+
    /* compilo i miei scss */
     mix.sass([
         'app.scss'
         ]
         ,'public/css/app.css');
 
-    /* compilo i miei css */
-    mix.styles([
-        'bootstrap.min.css',
-        'foundation.min.css',
-        'jquery.fancybox.css',
-        'boostrap-rating.css',
-        'font-awesome/css/font-awesome.min.css',
-
-
-    ],'public/css/base.css');
-
     /* compilo i miei js */
     mix.scripts([
         "vendor/jquery.min.js",
         "vendor/bootstrap.js",
-        "vendor/foundation.min.js",
         "vendor/jquery.easing.min.js",
         "vendor/jqBootstrapValidation.js",
         "vendor/what-input.min.js",
@@ -43,12 +40,14 @@ elixir(function(mix) {
         "vendor/jquery.lazyload.min.js",
         "vendor/jquery.fancybox.pack.js",
         "vendor/bootstrap-rating.min.js",
+        "components/isotope/isotope.pkgd.min.js",
         "cd.core.js",
         "cd.base.js",
         "cd.helpers.js",
+        "cd.functions.js",
         "cd.homepage.js",
         "cd.lista.js",
-        "_functions.js"
+
 
     ],'public/js/app.js');
 

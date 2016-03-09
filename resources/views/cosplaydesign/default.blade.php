@@ -18,7 +18,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-left">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
                         <a href="#page-top"></a>
@@ -40,19 +40,12 @@
                         <a href="#contact">Contact</a>
                     </li>
                 </ul>
-                <div class="top-bar-right">
-                    <ul class="menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">
-                        <li class="has-submenu">
-                            <a href="#">Registrati/Accedi</a>
-                            <ul class="submenu menu vertical" data-submenu>
-                                <li><button href="#" class="facebook fa fa-facebook-square radius button split"> <span></span>Accedi via Facebook</button></li>
-                                <li><button href="#" class="twitter fa fa-twitter-square radius button split"> <span></span>Accedi via Twitter</button></li>
-                                <li><button href="#" class="google fa fa-google-plus-square radius button split"> <span></span>Accedi via Google +</button></li>
-                                <li><button href="#" class="cosplayDesign fa fa-instagram radius button split"> <span></span>Accedi via CosplayDesign</button></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">Accedi</a>
+                    </li>
+
+                </ul>
 
             </div>
             <!-- /.navbar-collapse -->
