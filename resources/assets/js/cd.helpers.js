@@ -1,34 +1,36 @@
-$.using("cd.helpers", function (context, $, W) {
+//$.using("cd.helpers", function (context, $, W) {
 
-    var NS = context._NS;
+    //var NS = context._NS;
     var callbacks = $.Callbacks( "unique" );
 
-    context.init = function(){
+    init = function(){
         var body = $("body");
         // switch view funziona in combo con il data-view=[nome_classe]
-        $(".js-switch-view").on("click","",context.switchView);
+        $(".js-switch-view").on("click","",switchView);
     };
 
     /*
      * context.switchView
      * change switch view function
      */
-    context.switchView = function(){
+    switchView = function(){
+        $.Listen( "switchOn:before" ).publish($(this) );
         var _clickedView = $(this).data("view");
         $(".js-switch-view").removeClass("active");
-        $(this).addClass(".active");
-        $.Listen( "switchOn" ).publish($(this) );
+        $(this).addClass("active");
         $(".js-view:visible").fadeOut("fast", function(){
-            $(".js-view[data-view=" +_clickedView+ "]").fadeIn("fast");
+            $(".js-view[data-view=" +_clickedView+ "]").fadeIn("fast",function(){
+                $.Listen( "switchOn:after" ).publish($(this) );
+            });
 
         });
     };
 
-    context.onSwitchOnEvent = function($selector){
+    onSwitchOnEvent = function($selector){
         console.log("context.onSwitchOnEvent" + $selector);
     };
 
 
-    context.init();
-    $.Listen( "switchOn" ).subscribe( context.onSwitchOnEvent($selector)  );
-});
+    init();
+    //$.Listen( "switchOn" ).subscribe( context.onSwitchOnEvent  );
+//});

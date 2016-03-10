@@ -25,7 +25,7 @@
                                 <li><small>Tag:</small> <br>
                                                         <span class="tags__container">
                                                             @foreach($project->tags as $tag)
-                                                                <span data-url="tag/xxx" title="" class="tiny hollow button">{{$tag}}</span>
+                                                                <a href=""><span class="label label-primary">{{$tag}}</span></a>
                                                             @endforeach
                                                         </span></li>
                                 <li><small class="card__author--name">Autore: <a href="/membri/{{$project->owner->slug_username}}" title="scehda autore">{{$project->owner->username}}</a></small></li>

@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h3 class="page-header"> <span class="fa {{$currentMC->fonticon}} fa-1x"></span> {{$currentMC->name}}
-            <div class="btn-group btn-group-sm grid-type" role="group">
+            <div class="btn-group btn-group-sm pull-right" role="group">
                 <button type="button" class="btn btn-default active js-switch-view" data-view="cd_list" title="List view"><i class="fa fa-list"></i></button>
                 <button type="button" class="btn btn-default js-switch-view" data-view="cd_grid" title="Grid view"><i class="fa fa-th"></i></button>
             </div>

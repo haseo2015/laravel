@@ -1,7 +1,15 @@
-/*JQUERY KNOB */
-/*
+/* LABEL */
+.label {
+  @include transition(all 0.2s ease-in 0s);
+  -webkit-filter: brightness(100%);
+  filter: url('#brightness');
+&:hover {
+    @include transition(all 0.2s ease-in 0s);
+  -webkit-filter: brightness(80%);
+  filter: url('#brightness');
+  }
 
-*/
+}
 /* PROJECT PROGRESS (JQUERY KNOB) */
 .project__progress {
   display:inline-block;
@@ -40,4 +48,19 @@
 
 /* ISOTOPE */
 .isotope__list {}
-.list__element {width: 100%; clear:both;}
+.list__element {
+  width: 100%;
+  clear:both;
+  margin-bottom:5px;
+}
+.element__container {
+  margin-bottom:0;
+  > * {
+    display:inline-block;
+    vertical-align: middle;
+  }
+  &_image {margin-right:10px;}
+  .list-group-item-heading {margin-bottom:5px;}
+  .list-group-item-text {margin-bottom:5px;line-height: 1.7;font-size:small;}
+}
+//.element__knobby {margin-top:20px;}

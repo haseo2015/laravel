@@ -1,7 +1,7 @@
 
 @extends('cosplaydesign.default')
 
-@section('title')Haseo Xth :: author :: CosplayDesign  @endsection
+@section('title'){Author} :: author :: CosplayDesign  @endsection
 
 @section('subheading')  @endsection
 
@@ -22,7 +22,7 @@
             <div class="panel widget light-widget panel-bd-top">
                 <div class="panel-heading no-title"> </div>
                 <div class="panel-body">
-                    <div class="text-center"> <img alt="" class="profile__image img-responsive img-circle" src="https://api.adorable.io/avatars/200/abott@adorable.png"> </div>
+                    <div class="text-center"> <img alt="" class="profile__image img-responsive img-circle" src="http://www.lorempixel.com/150/150/nature"> </div>
                     <div class="row">
                         <div class="col-xs-12"> <a class="btn vd_btn vd_bg-green btn-xs btn-block no-br"><i class="fa fa-check-circle append-icon"></i>Friends</a> </div>
                     </div>
@@ -40,27 +40,9 @@
                                 <td>User Rating</td>
                                 <td><input class="js-rate" type="hidden" /></td>
                             </tr>
-                            <tr>
-                                <td>Group Member</td>
-                                <td><a href="/groups/hack-g-u-team/"> .Hack G.U. Team </a></td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
-
-            <!-- FRIENDS WIDGET -->
-            <div class="panel widget light-widget friends">
-                <div class="panel-body-list">
-                    <h3 class="pd-20 mgbt-xs-0"><i class="fa fa-users mgr-10"></i>Friends</h3>
-                    <div class="height-xs-auto mgbt-xs-20">
-                        <div class="row">
-                                <!-- da collegare agli utenti -->
-
-                        </div>
-                    </div>
-                    <div class="closing text-center" style=""> <a href="#">See All Friends<i class="fa fa-angle-double-right prepend-icon"></i></a> </div>
                 </div>
             </div>
         </div>
@@ -69,18 +51,18 @@
             <!-- SUBNAVIGATION TABS -->
             <div class="tabs widget">
                 <ul class="nav nav-tabs widget js-tabs">
-                    <li class="active"> <a data-toggle="tab"  href="#profile-tab"> Profile <span class="menu-active"></span> </a></li>
-                    <li> <a data-toggle="tab" href="#projects-tab"> Projects <span class="menu-active"></span> </a></li>
-                    <li> <a data-toggle="tab" href="#photos-tab"> Photos <span class="menu-active"></span> </a></li>
-                    <li> <a data-toggle="tab" href="#friends-tab"> Friends <span class="menu-active"></span> </a></li>
-                    <li> <a data-toggle="tab" href="#groups-tab"> Groups <span class="menu-active"></span> </a></li>
+                    <li class="active"> <a data-toggle="tab"  href="#profile-tab"><i class="fa fa-user"></i> Profilo <span class="menu-active"></span> </a></li>
+                    <li> <a data-toggle="tab" href="#projects-tab"> <i class="fa fa-edit"></i> Progetti <span class="menu-active"></span> </a></li>
+                    <li> <a data-toggle="tab" href="#photos-tab"> <i class="fa fa-picture-o"></i> Galleria <span class="menu-active"></span> </a></li>
+                    <li> <a data-toggle="tab" href="#friends-tab"><i class="fa fa-group"></i> Amici <span class="menu-active"></span> </a></li>
+                    <li> <a data-toggle="tab" href="#groups-tab"><i class="fa fa-cubes"></i> Gruppi <span class="menu-active"></span> </a></li>
                 </ul>
                 <div class="tab-content">
                     <div id="profile-tab" class="tab-pane active">
                         <div class="pd-20">
-                            <div class="vd_info tr"> <a class="btn vd_btn btn-xs vd_bg-yellow"> <i class="fa fa-pencil append-icon"></i> Edit </a> </div>
+                            <div class="vd_info tr"> </div>
                             <!-- AUTHOR DATA -->
-                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ABOUT</h3>
+                            <h3 class="mgbt-xs-15"><i class="fa fa-user mgr-10 profile-icon"></i> Profilo</h3>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="row mgbt-xs-0">
@@ -157,7 +139,7 @@
                             <!-- EXPERIENCE / EDUCATION -->
                             <div class="row">
                                 <div class="col-sm-7 mgbt-xs-20">
-                                    <h3 class="mgbt-xs-15 font-semibold"><i class="fa fa-file-text-o mgr-10 profile-icon"></i> EXPERIENCE</h3>
+                                    <h3 class="mgbt-xs-15"><i class="fa fa-file-text-o"></i> Esperienze</h3>
                                     <div class="content-list content-menu">
                                         <ul class="list-wrapper">
                                             <li class="mgbt-xs-10"> <span class="menu-icon vd_green"><i class="fa  fa-circle-o"></i></span> <span class="menu-text"> <a href="http://www.venmond.com">Owner</a> at <a href="http://www.venmond.com">Vendroid Ltd.</a> <span class="menu-info"><span class="menu-date"> March 2013 ~ Now</span></span> </span> </li>
@@ -168,7 +150,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
-                                    <h3 class="mgbt-xs-15 font-semibold"><i class="fa fa-trophy mgr-10 profile-icon"></i> EDUCATION</h3>
+                                    <h3 class="mgbt-xs-15 font-semibold"><i class="fa fa-trophy mgr-10 profile-icon"></i> Premi vinti</h3>
                                     <div class="content-list content-menu">
                                         <ul class="list-wrapper">
                                             <li class="mgbt-xs-10"> <span class="menu-icon vd_green"><i class="fa  fa-circle-o"></i></span> <span class="menu-text"> Bachelor's degree, E-Commerce/Electronic Commerce at <a href="http://www.venmond.com">UCLA</a> <span class="menu-info"><span class="menu-date"> August 2003 ~ July 2008</span></span> </span> </li>
@@ -184,7 +166,7 @@
                             <div class="row">
                                 <!-- ACTIVITY -->
                                 <div class="col-sm-6">
-                                    <h3 class="mgbt-xs-15 font-semibold"><i class="fa fa-globe mgr-10 profile-icon"></i> ACTIVITY</h3>
+                                    <h3 class="mgbt-xs-15 font-semibold"><i class="fa fa-globe mgr-10 profile-icon"></i> Attività</h3>
                                     <div class="">
                                         <div class="content-list">
                                             <div data-rel="scroll" class="mCustomScrollbar _mCS_6" style="overflow: hidden;"><div class="mCustomScrollBox mCS-light" id="mCSB_6" style="position: relative; height: 100%; overflow: hidden; max-width: 100%; max-height: 400px;"><div class="mCSB_container" style="position:relative; top:0;">
@@ -206,7 +188,7 @@
                                 </div>
                                 <!-- WIDGET SKILLS -->
                                 <div class="col-sm-6">
-                                    <h3 class="mgbt-xs-15 font-semibold"><i class="fa fa-flask mgr-10 profile-icon"></i> SKILL</h3>
+                                    <h3 class="mgbt-xs-15 font-semibold"><i class="fa fa-flask mgr-10 profile-icon"></i> Skill</h3>
                                     <div class="skill-list">
                                         <div class="skill-name"> Photoshop </div>
                                         <div class="progress  progress-sm">
@@ -253,36 +235,109 @@
                     <!-- PROJECTS TAB -->
                     <div id="projects-tab" class="tab-pane">
                         <div class="pd-20">
-                            <div class="tr"> <a class="btn vd_btn btn-xs vd_bg-yellow"> <i class="fa fa-plus append-icon"></i> Add Project </a> </div>
-                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-bolt mgr-10 profile-icon"></i> PROJECTS</h3>
-                            <div class="btn-group btn-group-sm grid-type" role="group">
+                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-edit profile-icon"></i> Progetti</h3>
+                            <div class="btn-group btn-group-sm pull-right" role="group">
                                 <button type="button" class="btn btn-default active js-switch-view" data-view="cd_list" title="List view"><i class="fa fa-list"></i></button>
                                 <button type="button" class="btn btn-default js-switch-view" data-view="cd_grid" title="Grid view"><i class="fa fa-th"></i></button>
                             </div>
                             <div class="row js-view" data-view="cd_list">
                                 <ul class="filters nav nav-pills">
-                                    <li class="active"><a href="#photos-1" data-filter="*">All</a></li>
+                                    <li class="active"><a href="#photos-1" data-filter="*">Tutti</a></li>
                                     <li><a href="#" data-filter=".cat1">Armi</a></li>
                                     <li><a href="#" data-filter=".cat2">Accessori</a></li>
                                     <li><a href="#" data-filter=".cat3">Costumi</a></li>
                                 </ul>
-                                <ul class="isotope js-isotope list-group isotope__list">
+                                <br>
+                                <ul class="isotope js-isotope list-group isotope__list" style="position:relative;">
                                         @for($i=1;$i<=6;$i++)
                                         <li class="list__element list-group-item cat1">
-                                            <h1>Categria 1</h1>
-                                            <img alt="example image" src="http://www.lorempixel.com/50/50/nature" class="img-circle img-responsive">
+                                            <dl class="element__container">
+                                                <dt class="element__container_image"><img alt="example image" src="http://www.lorempixel.com/140/140/nature" class="img-circle img-responsive"></dt>
+                                                <dd>
+                                                    <h3 class="list-group-item-heading"><a href="">List group item heading</a></h3>
+                                                    <p class="list-group-item-text">
+                                                        Categoria: <a href=""><span class="label label-danger">Armi</span></a><br>
+                                                        Serie: </i> <a href=""><span class="label label-default">.Hack G.U</span></a><br>
+                                                        Genere: <a href=""><span class="label label-default">Manga</span></a>, <a href=""><span class="label label-default">Videogames</span></a><br>
+                                                        <i class="fa fa-tags"></i> <a href=""><span class="label label-primary">#Manga</span></a>, <a href=""><span class="label label-primary">#Videogames</span></a>
+                                                        <a href=""><span class="label label-primary">#.Hack</span></a>, <a href=""><span class="label label-primary">#Haseo</span></a>
+                                                    </p>
+                                                </dd>
+                                                <dt class="pull-right element__knobby">
+                                                    <input type="text" class="knobby"
+                                                           data-width="140"
+                                                           data-height="140"
+                                                           data-fgColor="green"
+                                                           data-skin="tron"
+                                                           data-thickness=".2"
+                                                           data-displayPrevious=false
+                                                           data-displayInput="true"
+                                                           data-readOnly="true"
+                                                           value="100">
+                                                </dt>
+                                            </dl>
+
                                         </li>
                                         <li class="list__element list-group-item cat2 ">
-                                            <h1>Categria 2</h1>
-                                            <img alt="example image" src="http://www.lorempixel.com/50/50/people" class="img-circle img-responsive">
+                                            <dl class="element__container">
+                                                <dt class="element__container_image"><img alt="example image" src="http://www.lorempixel.com/140/140/people" class="img-circle img-responsive"></dt>
+                                                <dd>
+                                                    <h3 class="list-group-item-heading"><a href="">List group item heading</a></h3>
+                                                    <p class="list-group-item-text">Autore: <a href="">Haseo Xth</a></p>
+                                                    <p class="list-group-item-text">
+                                                        Categoria: <a href=""><span class="label label-warning">Accessori</span></a><br>
+                                                        Serie: </i> <a href=""><span class="label label-default">.Hack G.U</span></a><br>
+                                                        Genere: <a href=""><span class="label label-default">Manga</span></a>, <a href=""><span class="label label-default">Videogames</span></a><br>
+                                                        <i class="fa fa-tags"></i> <a href=""><span class="label label-primary">#Manga</span></a>, <a href=""><span class="label label-primary">#Videogames</span></a>
+                                                        <a href=""><span class="label label-primary">#.Hack</span></a>, <a href=""><span class="label label-primary">#Haseo</span></a>
+                                                    </p>
+                                                </dd>
+                                                <dt class="pull-right element__knobby">
+                                                    <input type="text" class="knobby"
+                                                           data-width="140"
+                                                           data-height="140"
+                                                           data-fgColor="green"
+                                                           data-skin="tron"
+                                                           data-thickness=".2"
+                                                           data-displayPrevious=false
+                                                           data-displayInput="true"
+                                                           data-readOnly="true"
+                                                           value="100">
+                                                </dt>
+                                            </dl>
                                         </li>
-                                        <li class="list__element list-group-item cat3 ">
-                                            <h1>Categria 3</h1>
-                                            <img alt="example image" src="http://www.lorempixel.com/50/50/technics" class="img-circle img-responsive">
+                                        <li class="list__element list-group-item cat3">
+                                            <dl class="element__container">
+                                                <dt class="element__container_image"><a href="" title="Vai al progetto"><img alt="example image" src="http://www.lorempixel.com/140/140/technics" class="img-circle img-responsive"></a></dt>
+                                                <dd>
+                                                <p class="list-group-item-text">Autore: <a href="">Haseo Xth</a></p>
+                                                <h3 class="list-group-item-heading"><a href="">List group item heading</a></h3>
+                                                <p class="list-group-item-text">
+                                                    Categoria: <a href=""><span class="label label-success">Costumi</span></a><br>
+                                                    Serie: </i> <a href=""><span class="label label-default">.Hack G.U</span></a><br>
+                                                    Genere: <a href=""><span class="label label-default">Manga</span></a>, <a href=""><span class="label label-default">Videogames</span></a><br>
+                                                    <i class="fa fa-tags"></i> <a href=""><span class="label label-primary">#Manga</span></a>, <a href=""><span class="label label-primary">#Videogames</span></a>
+                                                     <a href=""><span class="label label-primary">#.Hack</span></a>, <a href=""><span class="label label-primary">#Haseo</span></a>
+                                                </p>
+                                                </dd>
+                                                <dt class="pull-right element__knobby">
+                                                    <input type="text" class="knobby"
+                                                           data-width="140"
+                                                           data-height="140"
+                                                           data-fgColor="green"
+                                                           data-skin="tron"
+                                                           data-thickness=".2"
+                                                           data-displayPrevious=false
+                                                           data-displayInput="true"
+                                                           data-readOnly="true"
+                                                           value="100">
+                                                </dt>
+                                            </dl>
                                         </li>
                                         @endfor
                                 </ul>
                             </div>
+                            <!-- PROJECTS GALLERY -->
                             <div class="row js-view cd_hide" data-view="cd_grid">
                                 <ul class="filters nav nav-pills">
                                     <li class="active"><a href="#photos-1" data-filter="*">All</a></li>
@@ -291,7 +346,7 @@
                                     <li><a href="#photos-4" data-filter=".cat-3">Costumi</a></li>
                                 </ul>
                                 <br>
-                                <div class="isotope js-isotope user__gallery">
+                                <div class="isotope js-isotope user__gallery" style="position:relative;">
                                     <div class="gallery-item  cat-1">
                                         <a href="http://www.lorempixel.com/300/200/technics" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
                                             <img alt="example image" src="http://www.lorempixel.com/300/200/technics" class="img-circle img-responsive">
@@ -302,7 +357,6 @@
                                             <img alt="example image" src="http://www.lorempixel.com/300/200/nature" class="img-circle img-responsive">
                                         </a>
                                     </div>
-
                                     <div class="gallery-item  cat-2">
                                         <a href="http://www.lorempixel.com/300/200/nature" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
                                             <img alt="example image" src="http://www.lorempixel.com/300/200/nature" class="img-circle img-responsive">
@@ -338,8 +392,7 @@
                                             <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
                                         </a>
                                     </div>
-
-                                    <div class="gallery-item   cat-3">
+                                    <div class="gallery-item  cat-3">
                                         <a href="img/photos/09.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
                                             <img alt="example image" src="http://lorempixel.com/400/300/nightlife/" class="img-circle img-responsive">
                                         </a>
@@ -370,7 +423,6 @@
                                             <img alt="example image" src="http://lorempixel.com/400/300/nature/" class="img-circle img-responsive">
                                         </a>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -378,8 +430,7 @@
                     <!-- PHOTOS TAB -->
                     <div id="photos-tab" class="tab-pane">
                         <div class="pd-20">
-                            <div class="vd_info tr"> <a class="btn btn-xs vd_bg-yellow"> <i class="fa fa-plus append-icon"></i> Add Photo </a> </div>
-                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-picture-o mgr-10 profile-icon"></i> PHOTOS</h3>
+                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-picture-o mgr-10 profile-icon"></i> Gallleria</h3>
                             <ul id="" class="filters nav nav-pills">
                                 <li class="active"><a href="#photos-1" data-filter="*">All</a></li>
                                 <li><a href="#photos-2" data-filter=".filter-1">Photos of You</a></li>
@@ -387,7 +438,7 @@
                                 <li><a href="#photos-4" data-filter=".filter-3">Vacation</a></li>
                             </ul>
                             <br>
-                            <div class="isotope js-isotope user__gallery">
+                            <div class="isotope js-isotope user__gallery" style="position:relative;">
                                 <div class="gallery-item  filter-1" style="position: absolute; left: 0px; top: 0px;">
                                     <a href="http://www.lorempixel.com/300/200/technics" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
                                         <img alt="example image" src="http://www.lorempixel.com/300/200/technics" class="img-circle img-responsive">
@@ -477,7 +528,7 @@
                     <!-- FRIENDS TAB -->
                     <div id="friends-tab" class="tab-pane">
                         <div class="pd-20">
-                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-users mgr-10 profile-icon"></i> FRIENDS</h3>
+                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-users profile-icon"></i> Amici</h3>
                             <ul class="nav nav-pills">
                                 <li class="active"><a href="#photos-1" data-toggle="tab">Friends</a></li>
                                 <li><a href="#photos-2" data-toggle="tab">Pending Request</a></li>
@@ -515,7 +566,7 @@
                     <!-- GROUPS TAB -->
                     <div id="groups-tab" class="tab-pane">
                         <div class="pd-20">
-                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-leaf mgr-10 profile-icon"></i> GROUPS</h3>
+                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-cubes profile-icon"></i> Gruppi</h3>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="content-list content-large menu-action-right">
