@@ -68,8 +68,8 @@
         <div class="col-sm-9">
             <!-- SUBNAVIGATION TABS -->
             <div class="tabs widget">
-                <ul class="nav nav-tabs widget">
-                    <li class="active"> <a data-toggle="tab" href="#profile-tab"> Profile <span class="menu-active"></span> </a></li>
+                <ul class="nav nav-tabs widget js-tabs">
+                    <li class="active"> <a data-toggle="tab"  href="#profile-tab"> Profile <span class="menu-active"></span> </a></li>
                     <li> <a data-toggle="tab" href="#projects-tab"> Projects <span class="menu-active"></span> </a></li>
                     <li> <a data-toggle="tab" href="#photos-tab"> Photos <span class="menu-active"></span> </a></li>
                     <li> <a data-toggle="tab" href="#friends-tab"> Friends <span class="menu-active"></span> </a></li>
@@ -193,10 +193,10 @@
                                                             <li> <span class="menu-icon vd_blue"><i class=" fa fa-user"></i></span> <span class="menu-text"> Change your user profile details <span class="menu-info"><span class="menu-date"> ~ 1 Hour 20 Minutes Ago</span></span> </span> </li>
                                                             <li> <span class="menu-icon vd_red"><i class=" fa fa-cogs"></i></span> <span class="menu-text"> Your setting is updated <span class="menu-info"><span class="menu-date"> ~ 12 Days Ago</span></span> </span></li>
                                                             <li>  <span class="menu-icon vd_green"><i class=" fa fa-book"></i></span> <span class="menu-text"> Added new article <span class="menu-info"><span class="menu-date"> ~ 19 Days Ago</span></span> </span>  </li>
-                                                            <li>  <span class="menu-icon vd_green"><img alt="example image" src="img/avatar/avatar.jpg"></span> <span class="menu-text"> Change Profile Pic <span class="menu-info"><span class="menu-date"> ~ 20 Days Ago</span></span> </span> </li>
+                                                            <li>  <span class="menu-icon vd_green"><img alt="example image" src="http://placehold.it/50x50"></span> <span class="menu-text"> Change Profile Pic <span class="menu-info"><span class="menu-date"> ~ 20 Days Ago</span></span> </span> </li>
                                                             <li>  <span class="menu-icon vd_red"><i class=" fa fa-cogs"></i></span> <span class="menu-text"> Your setting is updated <span class="menu-info"><span class="menu-date"> ~ 12 Days Ago</span></span> </span>  </li>
                                                             <li>  <span class="menu-icon vd_green"><i class=" fa fa-book"></i></span> <span class="menu-text"> Added new article <span class="menu-info"><span class="menu-date"> ~ 19 Days Ago</span></span> </span> </li>
-                                                            <li>  <span class="menu-icon vd_green"><img alt="example image" src="img/avatar/avatar.jpg"></span> <span class="menu-text"> Change Profile Pic <span class="menu-info"><span class="menu-date"> ~ 20 Days Ago</span></span> </span>  </li>
+                                                            <li>  <span class="menu-icon vd_green"><img alt="example image" src="http://placehold.it/50x50"></span> <span class="menu-text"> Change Profile Pic <span class="menu-info"><span class="menu-date"> ~ 20 Days Ago</span></span> </span>  </li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -253,276 +253,218 @@
                     <!-- PROJECTS TAB -->
                     <div id="projects-tab" class="tab-pane">
                         <div class="pd-20">
-                            <div class="vd_info tr"> <a class="btn vd_btn btn-xs vd_bg-yellow"> <i class="fa fa-plus append-icon"></i> Add Project </a> </div>
+                            <div class="tr"> <a class="btn vd_btn btn-xs vd_bg-yellow"> <i class="fa fa-plus append-icon"></i> Add Project </a> </div>
                             <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-bolt mgr-10 profile-icon"></i> PROJECTS</h3>
-                            <table class="table table-striped table-hover project__table">
-                                <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Progresso</th>
-                                    <th>Nome progetto</th>
-                                    <th>Categoria</th>
-                                    <th>Serie</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @for($i=1;$i<=9;$i++)
-                                <tr>
-                                    <td><img class="media-object img-circle" src="http://lorempixel.com/80/80/abstract/" alt="..."></td>
-                                    <td class="center">
-                                        <input type="text" class="knobby"
-                                               data-width="75"
-                                               data-height="75"
-                                               data-fgColor="red"
-                                               data-skin="tron"
-                                               data-thickness=".2"
-                                               data-displayPrevious=false
-                                               data-displayInput="true"
-                                               data-readOnly="true"
-                                               value="<?php echo mt_rand(10,100)?>">
-                                    </td>
-                                    <td><a href="/progetto/ironman-w-motorized" title="">Ironman W Motorized</a></td>
-                                    <td class="center"><a href="/categoria/accessori/"><i class="fa fa-rebel fa-2x"></i></a></td>
-                                    <td class="center"><a href="/series/hack-gu/">.Hack G.U.</a></td>
-                                    <td class="menu-action rounded-btn">
-                                        <a class="btn menu-icon vd_bg-green" data-placement="top" data-toggle="tooltip" data-original-title="view">
-                                            <i class="fa fa-eye"></i>
+                            <div class="btn-group btn-group-sm grid-type" role="group">
+                                <button type="button" class="btn btn-default active js-switch-view" data-view="cd_list" title="List view"><i class="fa fa-list"></i></button>
+                                <button type="button" class="btn btn-default js-switch-view" data-view="cd_grid" title="Grid view"><i class="fa fa-th"></i></button>
+                            </div>
+                            <div class="row js-view" data-view="cd_list">
+                                <ul class="filters nav nav-pills">
+                                    <li class="active"><a href="#photos-1" data-filter="*">All</a></li>
+                                    <li><a href="#" data-filter=".cat1">Armi</a></li>
+                                    <li><a href="#" data-filter=".cat2">Accessori</a></li>
+                                    <li><a href="#" data-filter=".cat3">Costumi</a></li>
+                                </ul>
+                                <ul class="isotope js-isotope list-group isotope__list">
+                                        @for($i=1;$i<=6;$i++)
+                                        <li class="list__element list-group-item cat1">
+                                            <h1>Categria 1</h1>
+                                            <img alt="example image" src="http://www.lorempixel.com/50/50/nature" class="img-circle img-responsive">
+                                        </li>
+                                        <li class="list__element list-group-item cat2 ">
+                                            <h1>Categria 2</h1>
+                                            <img alt="example image" src="http://www.lorempixel.com/50/50/people" class="img-circle img-responsive">
+                                        </li>
+                                        <li class="list__element list-group-item cat3 ">
+                                            <h1>Categria 3</h1>
+                                            <img alt="example image" src="http://www.lorempixel.com/50/50/technics" class="img-circle img-responsive">
+                                        </li>
+                                        @endfor
+                                </ul>
+                            </div>
+                            <div class="row js-view cd_hide" data-view="cd_grid">
+                                <ul class="filters nav nav-pills">
+                                    <li class="active"><a href="#photos-1" data-filter="*">All</a></li>
+                                    <li><a href="#photos-2" data-filter=".cat-1">Armi</a></li>
+                                    <li><a href="#photos-3" data-filter=".cat-2">Accessori</a></li>
+                                    <li><a href="#photos-4" data-filter=".cat-3">Costumi</a></li>
+                                </ul>
+                                <br>
+                                <div class="isotope js-isotope user__gallery">
+                                    <div class="gallery-item  cat-1">
+                                        <a href="http://www.lorempixel.com/300/200/technics" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://www.lorempixel.com/300/200/technics" class="img-circle img-responsive">
                                         </a>
-                                        <a class="btn menu-icon vd_bg-yellow" data-placement="top" data-toggle="tooltip" data-original-title="edit">
-                                            <i class="fa fa-pencil"></i>
+                                    </div>
+                                    <div class="gallery-item  cat-2">
+                                        <a href="http://www.lorempixel.com/300/200/nature" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://www.lorempixel.com/300/200/nature" class="img-circle img-responsive">
                                         </a>
-                                        <a class="btn menu-icon vd_bg-red" data-placement="top" data-toggle="tooltip" data-original-title="delete">
-                                            <i class="fa fa-times"></i>
-                                        </a>
-                                        <a class="btn menu-icon vd_bg-red" data-placement="top" data-toggle="tooltip" data-original-title="delete">
-                                            <i class="fa fa-thumbs-up"></i>
-                                        </a>
+                                    </div>
 
-                                    </td>
-                                </tr>
-                                @endfor
-                                </tbody>
-                            </table>
-                            <div class="">
+                                    <div class="gallery-item  cat-2">
+                                        <a href="http://www.lorempixel.com/300/200/nature" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://www.lorempixel.com/300/200/nature" class="img-circle img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="gallery-item  cat-3">
+                                        <a href="http://www.lorempixel.com/300/200/technics" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://www.lorempixel.com/300/200/nightlife" class="img-circle img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="gallery-item  cat-1">
+                                        <a href="http://www.lorempixel.com/300/200/technics" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="gallery-item  cat-2">
+                                        <a href="img/photos/06.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://lorempixel.com/400/300/nature/" class="img-circle img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="gallery-item  cat-3">
+                                        <a href="img/photos/08.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://lorempixel.com/400/300/nightlife/" class="img-circle img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="gallery-item  cat-2">
+                                        <a href="img/photos/04.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://lorempixel.com/400/300/nature/" class="img-circle img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="gallery-item  cat-1">
+                                        <a href="img/photos/10.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
+                                        </a>
+                                    </div>
+
+                                    <div class="gallery-item   cat-3">
+                                        <a href="img/photos/09.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://lorempixel.com/400/300/nightlife/" class="img-circle img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="gallery-item  cat-2">
+                                        <a href="img/photos/01.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://lorempixel.com/400/300/nature/" class="img-circle img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="gallery-item  cat-1">
+                                        <a href="img/photos/11.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
+                                            <div class="bg-cover"></div>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-item  cat-1">
+                                        <a href="img/photos/12.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="gallery-item  cat-3">
+                                        <a href="img/photos/13.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://lorempixel.com/400/300/nightlife/" class="img-circle img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="gallery-item  cat-2">
+                                        <a href="img/photos/14.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                            <img alt="example image" src="http://lorempixel.com/400/300/nature/" class="img-circle img-responsive">
+                                        </a>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- PHOTOS TAB -->
                     <div id="photos-tab" class="tab-pane">
                         <div class="pd-20">
-                            <div class="vd_info tr"> <a class="btn vd_btn btn-xs vd_bg-yellow"> <i class="fa fa-plus append-icon"></i> Add Photo </a> </div>
+                            <div class="vd_info tr"> <a class="btn btn-xs vd_bg-yellow"> <i class="fa fa-plus append-icon"></i> Add Photo </a> </div>
                             <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-picture-o mgr-10 profile-icon"></i> PHOTOS</h3>
-                            <ul id="filters" class="nav nav-pills">
+                            <ul id="" class="filters nav nav-pills">
                                 <li class="active"><a href="#photos-1" data-filter="*">All</a></li>
                                 <li><a href="#photos-2" data-filter=".filter-1">Photos of You</a></li>
                                 <li><a href="#photos-3" data-filter=".filter-2">Scenery</a></li>
                                 <li><a href="#photos-4" data-filter=".filter-3">Vacation</a></li>
                             </ul>
                             <br>
-                            <div class="isotope js-isotope vd_gallery" style="position: relative; height: 3000px;">
+                            <div class="isotope js-isotope user__gallery">
                                 <div class="gallery-item  filter-1" style="position: absolute; left: 0px; top: 0px;">
-                                    <a href="img/photos/01.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/01.jpg">
-                                        <div class="bg-cover"></div>
+                                    <a href="http://www.lorempixel.com/300/200/technics" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="http://www.lorempixel.com/300/200/technics" class="img-circle img-responsive">
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Felicious</span> de louis amigos</h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/01.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
-
                                 </div>
                                 <div class="gallery-item  filter-2" style="position: absolute; left: 0px; top: 200px;">
-                                    <a href="img/photos/03.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/03.jpg">
-                                        <div class="bg-cover"></div>
+                                    <a href="http://www.lorempixel.com/300/200/technics" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="http://www.lorempixel.com/300/200/technics" class="img-circle img-responsive">
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Sola</span> Aprecios</h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/03.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
                                 </div>
 
                                 <div class="gallery-item  filter-2" style="position: absolute; left: 0px; top: 400px;">
-                                    <a href="img/photos/08.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/08.jpg">
-                                        <div class="bg-cover"></div>
+                                    <a href="http://www.lorempixel.com/300/200/technics" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="http://www.lorempixel.com/300/200/technics" class="img-circle img-responsive">
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Lorem</span> ipsum</h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/08.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
-
                                 </div>
                                 <div class="gallery-item  filter-3" style="position: absolute; left: 0px; top: 600px;">
-                                    <a href="img/photos/15.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/15.jpg">
-                                        <div class="bg-cover"></div>
+                                    <a href="http://www.lorempixel.com/300/200/technics" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="http://www.lorempixel.com/300/200/technics" class="img-circle img-responsive">
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Doler</span> sit amet</h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/15.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
-
                                 </div>
                                 <div class="gallery-item  filter-1" style="position: absolute; left: 0px; top: 800px;">
-                                    <a href="img/photos/02.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/02.jpg">
-                                        <div class="bg-cover"></div>
+                                    <a href="http://www.lorempixel.com/300/200/technics" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                        <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Gracias</span> mundo</h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/02.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
-
                                 </div>
                                 <div class="gallery-item  filter-2" style="position: absolute; left: 0px; top: 1000px;">
                                     <a href="img/photos/06.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/06.jpg">
-                                        <div class="bg-cover"></div>
+                                        <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Solero</span> dorona</h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/06.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
-
-
-
                                 </div>
                                 <div class="gallery-item  filter-3" style="position: absolute; left: 0px; top: 1200px;">
                                     <a href="img/photos/08.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/08.jpg">
-                                        <div class="bg-cover"></div>
+                                        <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Weinto</span> grametto</h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/08.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
-
                                 </div>
                                 <div class="gallery-item  filter-2" style="position: absolute; left: 0px; top: 1400px;">
                                     <a href="img/photos/04.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/04.jpg">
-                                        <div class="bg-cover"></div>
+                                        <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Sara</span> he yaso</h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/04.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
-
-
                                 </div>
                                 <div class="gallery-item  filter-1" style="position: absolute; left: 0px; top: 1600px;">
                                     <a href="img/photos/10.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/10.jpg">
-                                        <div class="bg-cover"></div>
+                                        <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Numero</span> uno</h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/10.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
-
-
-
                                 </div>
 
                                 <div class="gallery-item   filter-3" style="position: absolute; left: 0px; top: 1800px;">
                                     <a href="img/photos/09.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/09.jpg">
-                                        <div class="bg-cover"></div>
+                                        <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Beon</span> dukim</h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/09.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
                                 </div>
                                 <div class="gallery-item  filter-2" style="position: absolute; left: 0px; top: 2000px;">
                                     <a href="img/photos/01.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/01.jpg">
-                                        <div class="bg-cover"></div>
+                                        <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Gretia</span> de louis amigos</h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/01.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
-
-
                                 </div>
                                 <div class="gallery-item  filter-1" style="position: absolute; left: 0px; top: 2200px;">
                                     <a href="img/photos/11.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/11.jpg">
+                                        <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
                                         <div class="bg-cover"></div>
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Title</span> de koko</h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/11.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
-
                                 </div>
                                 <div class="gallery-item  filter-1" style="position: absolute; left: 0px; top: 2400px;">
                                     <a href="img/photos/12.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/12.jpg">
-                                        <div class="bg-cover"></div>
+                                        <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Some</span> random text</h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/12.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
-
                                 </div>
                                 <div class="gallery-item  filter-3" style="position: absolute; left: 0px; top: 2600px;">
                                     <a href="img/photos/13.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/13.jpg">
-                                        <div class="bg-cover"></div>
+                                        <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Soleram</span> drago</h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/13.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
-
-
                                 </div>
                                 <div class="gallery-item  filter-2" style="position: absolute; left: 0px; top: 2800px;">
                                     <a href="img/photos/14.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                        <img alt="example image" src="img/photos/14.jpg">
-                                        <div class="bg-cover"></div>
+                                        <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
                                     </a>
-                                    <div class="vd_info">
-                                        <h3 class="mgbt-xs-15"><span class="font-semibold">Gretia</span> de louis </h3>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="img/photos/14.jpg" data-rel="prettyPhoto[1]" rel="prettyPhoto[1]"><i class="fa fa-search"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-thumbs-up"></i></a>
-                                        <a class="vd_bg-green vd_white mgr-10 btn vd_round-btn btn-xs" role="button" href="#"><i class="fa fa-comments"></i></a>
-                                    </div>
-
-
                                 </div>
 
                             </div>
@@ -569,7 +511,8 @@
                                 </div>
                             </div>
                         </div><!-- pd-20 -->
-                    </div>  <!-- photos tab -->
+                    </div>
+                    <!-- GROUPS TAB -->
                     <div id="groups-tab" class="tab-pane">
                         <div class="pd-20">
                             <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-leaf mgr-10 profile-icon"></i> GROUPS</h3>
@@ -578,7 +521,7 @@
                                     <div class="content-list content-large menu-action-right">
                                         <ul class="list-wrapper pd-lr-15">
                                             <li>
-                                                <div class="menu-icon"><a href="#"><img src="img/groups/logo-01.jpg" alt="example image"></a></div>
+                                                <div class="menu-icon"><a href="#"><img src="http://placehold.it/150x150" alt="example image"></a></div>
                                                 <div class="menu-text">
                                                     <h4 class="mgbt-xs-0"><a href="#">Groupis Group</a></h4>
                                                     <div class="menu-info">
@@ -601,7 +544,7 @@
                                     <div class="content-list content-large menu-action-right">
                                         <ul class="list-wrapper pd-lr-15">
                                             <li>
-                                                <div class="menu-icon"><a href="#"><img src="img/groups/logo-02.jpg" alt="example image"></a></div>
+                                                <div class="menu-icon"><a href="#"><img src="http://placehold.it/150x150" alt="example image"></a></div>
                                                 <div class="menu-text">
                                                     <h4 class="mgbt-xs-0"><a href="#">Ztormin Community</a></h4>
                                                     <div class="menu-info">
@@ -624,7 +567,7 @@
                                     <div class="content-list content-large menu-action-right">
                                         <ul class="list-wrapper pd-lr-15">
                                             <li>
-                                                <div class="menu-icon"><a href="#"><img src="img/groups/logo-03.jpg" alt="example image"></a></div>
+                                                <div class="menu-icon"><a href="#"><img src="http://placehold.it/150x150" alt="example image"></a></div>
                                                 <div class="menu-text">
                                                     <h4 class="mgbt-xs-0"><a href="#">Book Lovers</a></h4>
                                                     <div class="menu-info">
@@ -648,7 +591,7 @@
 
                             </div> <!-- row -->
                         </div> <!-- pd-20 -->
-                    </div>  <!-- groups tab -->
+                    </div>
 
                 </div>
                 <!-- tab-content -->

@@ -69,19 +69,28 @@ $.using("cd.utils", function (context, $, W) {
         };
 
         context.initIsotope = function(){
-            var $container = $('.isotope').isotope({
+            var $container = $('.isotope'),
+                $layout = "";
+            if ($container.hasClass(".isotope__list")){
+                $layout = 'fitRows';
+            } else {
+                $layout = 'vertical';
+            }
+
+            $container.isotope({
                 itemSelector: '.gallery-item',
-                layoutMode: 'fitRows'
+                layoutMode: $layout
             });
+
 
             $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                 $container.isotope('layout');
             });
 
             // bind filter button click
-            $('#filters').on( 'click', 'a', function() {
+            $('.filters').on( 'click', 'a', function() {
                 var filterValue = $(this).attr('data-filter');
-                $('#filters li').removeClass('active');
+                $('.filters li').removeClass('active');
                 $(this).parent().addClass('active');
                 $container.isotope({filter: filterValue});
             });

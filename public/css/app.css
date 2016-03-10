@@ -56,6 +56,11 @@ basati sui colori di google material design A700
 .rating-symbol {
   color: darkorange; }
 
+/* ISOTOPE */
+.list__element {
+  width: 100%;
+  clear: both; }
+
 body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif; }
 
@@ -374,5 +379,10 @@ img.step-image {
 
 .friends__element {
   margin: 3px auto; }
+
+.user__gallery .gallery-item a img {
+  width: 150px;
+  height: 150px;
+  padding: 5px; }
 
 /*# sourceMappingURL=app.css.map */
