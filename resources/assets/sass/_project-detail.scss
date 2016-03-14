@@ -1,6 +1,12 @@
 .project-detail {}
 .project__description { width:70%; }
-
+.project__subdetails {
+  list-style: none;
+  padding: 0;
+  font-size: 18px;
+  margin-top: 10px;
+  li {display:inline-block;}
+}
 /*LISTA PROGETTI*/
 .project__list {}
 .list__cover-image {

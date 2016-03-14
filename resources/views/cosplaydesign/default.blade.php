@@ -13,7 +13,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">CosplayDesgin</a>
+                <a class="navbar-brand page-scroll" href="/">CosplayDesgin</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -24,7 +24,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a href="#about">About</a>
+                        <a href="/chi-siamo">Chi siamo</a>
                     </li>
                     <li class="dropdown">
                         <a href="/progetti/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Progetti <span class="caret"></span></a>
@@ -37,7 +37,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#contact">Contact</a>
+                        <a href="/area/contatti">Contatti</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -52,18 +52,18 @@
         </div>
         <!-- /.container -->
     </nav>
-    <div class="maincontent">
+    <div class="maincontent container">
     @yield('content')
     </div>
     <!-- Footer -->
     <footer class="footer">
         <div class="row full-width">
-            <div class="small-12 medium-4 large-4 columns">
+            <div class="col-sm-4 col-lg-4">
                 <h3>CosplayDesign</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum maiores alias ea sunt facilis impedit fuga dignissimos illo quaerat iure in nobis id quos, eaque nostrum! Unde, voluptates suscipit repudiandae!</p>
 
             </div>
-            <div class="small-12 medium-4 large-4 columns">
+            <div class="col-sm-4 col-lg-4">
                 <h3>Resta in contatto con noi</h3>
                 <p>Registrati alla nostra newsletter gratuita</p>
                 <div class="input-group input-group-sm">
@@ -75,8 +75,8 @@
                 </div>
             </div>
 
-            <div class="small-12 medium-4 large-4 columns">
-                <h3>CosplayDesign @ Social </h3>
+            <div class="col-sm-4 col-lg-4 col-xs-12">
+                <h3>Social </h3>
                 <ul class="footer-links">
                     <li><a href="#">GitHub</a></li>
                     <li><a href="#">Facebook</a></li>

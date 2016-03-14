@@ -34,6 +34,32 @@ basati sui colori di google material design A700
     -webkit-filter: brightness(80%);
     filter: url("#brightness"); }
 
+/*DIMENSIONI FISSE*/
+.w100 {
+  width: 100px;
+  height: auto; }
+
+.h100 {
+  height: 100px;
+  width: auto; }
+
+.wh100 {
+  width: 100px;
+  height: 100px; }
+
+/*SOCIALS*/
+.facebook {
+  color: #3b5998; }
+
+.google {
+  color: #d50f25; }
+
+.twitter {
+  color: #55acee; }
+
+.instagram {
+  color: #125688; }
+
 /* PROJECT PROGRESS (JQUERY KNOB) */
 .project__progress {
   display: inline-block;
@@ -45,7 +71,7 @@ basati sui colori di google material design A700
     display: inline-block; }
   .project__progress input.knobby {
     margin-top: -52px !important;
-    margin-left: 25px !important;
+    margin-left: -10px !important;
     font-size: 15px !important;
     font-family: 'Open Sans', sans-serif !important;
     box-shadow: none;
@@ -54,9 +80,11 @@ basati sui colori di google material design A700
       font-size: 70px !important;
       width: 200px !important;
       top: 50%;
+      margin-left: -30px;
       font-weight: 700 !important; }
     .project__progress input.knobby.small {
-      font-size: 12px !important; }
+      font-size: 12px !important;
+      margin-top: 28px; }
 
 /*raing*/
 .rating-symbol {
@@ -74,13 +102,34 @@ basati sui colori di google material design A700
     display: inline-block;
     vertical-align: middle; }
   .element__container_image {
-    margin-right: 10px; }
+    margin: 10px;
+    width: 140px;
+    height: 140px;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border: 1px solid #c8c8c8; }
+    .element__container_image a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat; }
+    .element__container_image img {
+      height: 140px;
+      max-height: 140px; }
   .element__container .list-group-item-heading {
     margin-bottom: 5px; }
   .element__container .list-group-item-text {
     margin-bottom: 5px;
     line-height: 1.7;
     font-size: small; }
+
+.element__knobby {
+  margin-top: 10px; }
 
 body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif; }
@@ -334,6 +383,14 @@ a, a:hover, a:focus {
 
 .project__description {
   width: 70%; }
+
+.project__subdetails {
+  list-style: none;
+  padding: 0;
+  font-size: 18px;
+  margin-top: 10px; }
+  .project__subdetails li {
+    display: inline-block; }
 
 /*LISTA PROGETTI*/
 .list__cover-image {

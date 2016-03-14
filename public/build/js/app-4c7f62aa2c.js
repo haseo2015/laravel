@@ -5780,18 +5780,12 @@ $.using("cd.utils", function (context, $, W) {
 
         context.initIsotope = function(){
             var $container = $('.isotope'),
-                $layout = "";
-            if ($container.hasClass(".isotope__list")){
-                $layout = 'fitRows';
-            } else {
-                $layout = 'vertical';
-            }
+                $layout = $('.isotope').data('layout');
 
             $container.isotope({
                 itemSelector: '.gallery-item',
                 layoutMode: $layout
             });
-
 
             $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                 $container.isotope('layout');

@@ -12,7 +12,8 @@
         "lavary/laravel-menu": "dev-master",
         "fzaninotto/faker": "^1.5",
         "barryvdh/laravel-ide-helper": "dev-master",
-        "laravel/socialite": "^2.0"
+        "laravel/socialite": "^2.0",
+        "nesbot/carbon": "^1.21"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

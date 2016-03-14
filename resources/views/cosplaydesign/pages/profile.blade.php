@@ -1,7 +1,6 @@
-
 @extends('cosplaydesign.default')
 
-@section('title'){Author} :: author :: CosplayDesign  @endsection
+@section('title') {{$userdata->username}} :: author :: CosplayDesign  @endsection
 
 @section('subheading')  @endsection
 
@@ -22,22 +21,22 @@
             <div class="panel widget light-widget panel-bd-top">
                 <div class="panel-heading no-title"> </div>
                 <div class="panel-body">
-                    <div class="text-center"> <img alt="" class="profile__image img-responsive img-circle" src="http://www.lorempixel.com/150/150/nature"> </div>
+                    <div class="text-center"> <img alt="" class="profile__image img-responsive img-circle" src="{{$userdata->details->avatar}}"> </div>
                     <div class="row">
                         <div class="col-xs-12"> <a class="btn vd_btn vd_bg-green btn-xs btn-block no-br"><i class="fa fa-check-circle append-icon"></i>Friends</a> </div>
                     </div>
-                    <h2 class="font-semibold mgbt-xs-5 profile__name">Mariah Caraiban</h2>
-                    <h4 class="profile__sub">Owner at Our Company, Inc.</h4>
-                    <p class="profile__shortdesc">Ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                    <h2 class="font-semibold mgbt-xs-5 profile__name">{{$userdata->username}}</h2>
+                    <h4 class="profile__sub"><cite>{{$userdata->details->motto}}</cite></h4>
+                    <p class="profile__shortdesc">{{$userdata->details->bio}}</p>
                     <div class="mgtp-20">
                         <table class="table table-striped table-hover">
                             <tbody>
                             <tr>
                                 <td>Status</td>
-                                <td><span class="label label-success">Active</span></td>
+                                <td><span class="label label-success">Attivo</span></td>
                             </tr>
                             <tr>
-                                <td>User Rating</td>
+                                <td>Community Rating</td>
                                 <td><input class="js-rate" type="hidden" /></td>
                             </tr>
                             </tbody>
@@ -66,71 +65,65 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="row mgbt-xs-0">
-                                        <label class="col-xs-5 control-label">First Name:</label>
-                                        <div class="col-xs-7 controls">Mariah</div>
+                                        <label class="col-xs-5 control-label">Nome:</label>
+                                        <div class="col-xs-7 controls">{{$userdata->first_name}}</div>
                                         <!-- col-sm-10 -->
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="row mgbt-xs-0">
-                                        <label class="col-xs-5 control-label">Last Name:</label>
-                                        <div class="col-xs-7 controls">Caraiban</div>
+                                        <label class="col-xs-5 control-label">Cognome:</label>
+                                        <div class="col-xs-7 controls">{{$userdata->last_name}}</div>
                                         <!-- col-sm-10 -->
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="row mgbt-xs-0">
-                                        <label class="col-xs-5 control-label">User Name:</label>
-                                        <div class="col-xs-7 controls">Mariah</div>
+                                        <label class="col-xs-5 control-label">User:</label>
+                                        <div class="col-xs-7 controls">{{$userdata->username}}</div>
                                         <!-- col-sm-10 -->
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="row mgbt-xs-0">
                                         <label class="col-xs-5 control-label">Email:</label>
-                                        <div class="col-xs-7 controls">mariah@Vendroid.com</div>
+                                        <div class="col-xs-7 controls">{{ HTML::obfuscate($userdata->email) }}</div>
                                         <!-- col-sm-10 -->
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="row mgbt-xs-0">
-                                        <label class="col-xs-5 control-label">City:</label>
-                                        <div class="col-xs-7 controls">Los Angeles</div>
+                                        <label class="col-xs-5 control-label">Data di nascita:</label>
+                                        <div class="col-xs-7 controls">{{$userdata->details->birthday}}</div>
                                         <!-- col-sm-10 -->
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="row mgbt-xs-0">
-                                        <label class="col-xs-5 control-label">Country:</label>
-                                        <div class="col-xs-7 controls">United States</div>
+                                        <label class="col-xs-5 control-label">Interessi:</label>
+                                        <div class="col-xs-7 controls">(to do)</div>
                                         <!-- col-sm-10 -->
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="row mgbt-xs-0">
-                                        <label class="col-xs-5 control-label">Birthday:</label>
-                                        <div class="col-xs-7 controls">Jan 22, 1984</div>
-                                        <!-- col-sm-10 -->
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="row mgbt-xs-0">
-                                        <label class="col-xs-5 control-label">Interests:</label>
-                                        <div class="col-xs-7 controls">Basketball, Web, Design, etc.</div>
-                                        <!-- col-sm-10 -->
-                                    </div>
-                                </div>
+                                @if($userdata->details->website)
                                 <div class="col-sm-6">
                                     <div class="row mgbt-xs-0">
                                         <label class="col-xs-5 control-label">Website:</label>
-                                        <div class="col-xs-7 controls"><a href="http://Vendroid.venmond.com">Vendroid.venmond.com</a></div>
+                                        <div class="col-xs-7 controls"><a href="http://{{$userdata->details->website}}" target="_blank" title="Sito personale">{{$userdata->details->website}}</a></div>
                                         <!-- col-sm-10 -->
                                     </div>
                                 </div>
+                                @endif
                                 <div class="col-sm-6">
                                     <div class="row mgbt-xs-0">
-                                        <label class="col-xs-5 control-label">Phone:</label>
-                                        <div class="col-xs-7 controls">+1-234-5678</div>
+                                        <label class="col-xs-5 control-label">Social:</label>
+                                        <div class="col-xs-7 controls">
+                                            @if($userdata->details->facebook)<a href="http://facebook.com/{{$userdata->details->facebook}}" target="_blank" title="Seguimi su Facebook"><i class="fa fa-facebook-square facebook fa-2x"></i></a>@endif
+                                                @if($userdata->details->google)<a href="https://plus.google.com/+{{$userdata->details->google}}" target="_blank" title="Seguimi su Google+"><i class="fa fa-google-plus-square google fa-2x"></i></a>@endif
+                                                @if($userdata->details->youtube)<a href="https://www.youtube.com/c/{{$userdata->details->youtube}}" target="_blank" title="Seguimi su Youtube+"><i class="fa fa-youtube-square google fa-2x"></i></a>@endif
+                                                @if($userdata->details->twitter)<a href="http://twitter.com/{{$userdata->details->twitter}}" target="_blank" title="Seguimi su Twitter"><i class="fa fa-twitter-square twitter fa-2x"></i></a>@endif
+                                                @if($userdata->details->instagram)<a href="https://www.instagram.com/{{$userdata->details->instagram}}" target="_blank" title="Seguimi su Instagram"><i class="fa fa-instagram instagram fa-2x"></i></a>@endif
+                                        </div>
                                         <!-- col-sm-10 -->
                                     </div>
                                 </div>
@@ -240,103 +233,14 @@
                                 <button type="button" class="btn btn-default active js-switch-view" data-view="cd_list" title="List view"><i class="fa fa-list"></i></button>
                                 <button type="button" class="btn btn-default js-switch-view" data-view="cd_grid" title="Grid view"><i class="fa fa-th"></i></button>
                             </div>
-                            <div class="row js-view" data-view="cd_list">
-                                <ul class="filters nav nav-pills">
-                                    <li class="active"><a href="#photos-1" data-filter="*">Tutti</a></li>
-                                    <li><a href="#" data-filter=".cat1">Armi</a></li>
-                                    <li><a href="#" data-filter=".cat2">Accessori</a></li>
-                                    <li><a href="#" data-filter=".cat3">Costumi</a></li>
-                                </ul>
-                                <br>
-                                <ul class="isotope js-isotope list-group isotope__list" style="position:relative;">
-                                        @for($i=1;$i<=6;$i++)
-                                        <li class="list__element list-group-item cat1">
-                                            <dl class="element__container">
-                                                <dt class="element__container_image"><img alt="example image" src="http://www.lorempixel.com/140/140/nature" class="img-circle img-responsive"></dt>
-                                                <dd>
-                                                    <h3 class="list-group-item-heading"><a href="">List group item heading</a></h3>
-                                                    <p class="list-group-item-text">
-                                                        Categoria: <a href=""><span class="label label-danger">Armi</span></a><br>
-                                                        Serie: </i> <a href=""><span class="label label-default">.Hack G.U</span></a><br>
-                                                        Genere: <a href=""><span class="label label-default">Manga</span></a>, <a href=""><span class="label label-default">Videogames</span></a><br>
-                                                        <i class="fa fa-tags"></i> <a href=""><span class="label label-primary">#Manga</span></a>, <a href=""><span class="label label-primary">#Videogames</span></a>
-                                                        <a href=""><span class="label label-primary">#.Hack</span></a>, <a href=""><span class="label label-primary">#Haseo</span></a>
-                                                    </p>
-                                                </dd>
-                                                <dt class="pull-right element__knobby">
-                                                    <input type="text" class="knobby"
-                                                           data-width="140"
-                                                           data-height="140"
-                                                           data-fgColor="green"
-                                                           data-skin="tron"
-                                                           data-thickness=".2"
-                                                           data-displayPrevious=false
-                                                           data-displayInput="true"
-                                                           data-readOnly="true"
-                                                           value="100">
-                                                </dt>
-                                            </dl>
-
-                                        </li>
-                                        <li class="list__element list-group-item cat2 ">
-                                            <dl class="element__container">
-                                                <dt class="element__container_image"><img alt="example image" src="http://www.lorempixel.com/140/140/people" class="img-circle img-responsive"></dt>
-                                                <dd>
-                                                    <h3 class="list-group-item-heading"><a href="">List group item heading</a></h3>
-                                                    <p class="list-group-item-text">Autore: <a href="">Haseo Xth</a></p>
-                                                    <p class="list-group-item-text">
-                                                        Categoria: <a href=""><span class="label label-warning">Accessori</span></a><br>
-                                                        Serie: </i> <a href=""><span class="label label-default">.Hack G.U</span></a><br>
-                                                        Genere: <a href=""><span class="label label-default">Manga</span></a>, <a href=""><span class="label label-default">Videogames</span></a><br>
-                                                        <i class="fa fa-tags"></i> <a href=""><span class="label label-primary">#Manga</span></a>, <a href=""><span class="label label-primary">#Videogames</span></a>
-                                                        <a href=""><span class="label label-primary">#.Hack</span></a>, <a href=""><span class="label label-primary">#Haseo</span></a>
-                                                    </p>
-                                                </dd>
-                                                <dt class="pull-right element__knobby">
-                                                    <input type="text" class="knobby"
-                                                           data-width="140"
-                                                           data-height="140"
-                                                           data-fgColor="green"
-                                                           data-skin="tron"
-                                                           data-thickness=".2"
-                                                           data-displayPrevious=false
-                                                           data-displayInput="true"
-                                                           data-readOnly="true"
-                                                           value="100">
-                                                </dt>
-                                            </dl>
-                                        </li>
-                                        <li class="list__element list-group-item cat3">
-                                            <dl class="element__container">
-                                                <dt class="element__container_image"><a href="" title="Vai al progetto"><img alt="example image" src="http://www.lorempixel.com/140/140/technics" class="img-circle img-responsive"></a></dt>
-                                                <dd>
-                                                <p class="list-group-item-text">Autore: <a href="">Haseo Xth</a></p>
-                                                <h3 class="list-group-item-heading"><a href="">List group item heading</a></h3>
-                                                <p class="list-group-item-text">
-                                                    Categoria: <a href=""><span class="label label-success">Costumi</span></a><br>
-                                                    Serie: </i> <a href=""><span class="label label-default">.Hack G.U</span></a><br>
-                                                    Genere: <a href=""><span class="label label-default">Manga</span></a>, <a href=""><span class="label label-default">Videogames</span></a><br>
-                                                    <i class="fa fa-tags"></i> <a href=""><span class="label label-primary">#Manga</span></a>, <a href=""><span class="label label-primary">#Videogames</span></a>
-                                                     <a href=""><span class="label label-primary">#.Hack</span></a>, <a href=""><span class="label label-primary">#Haseo</span></a>
-                                                </p>
-                                                </dd>
-                                                <dt class="pull-right element__knobby">
-                                                    <input type="text" class="knobby"
-                                                           data-width="140"
-                                                           data-height="140"
-                                                           data-fgColor="green"
-                                                           data-skin="tron"
-                                                           data-thickness=".2"
-                                                           data-displayPrevious=false
-                                                           data-displayInput="true"
-                                                           data-readOnly="true"
-                                                           value="100">
-                                                </dt>
-                                            </dl>
-                                        </li>
-                                        @endfor
-                                </ul>
-                            </div>
+                            <ul class="filters nav nav-pills">
+                                <li class="active"><a href="#photos-1" data-filter="*">Tutti</a></li>
+                                <li><a href="#" data-filter=".armi">Armi</a></li>
+                                <li><a href="#" data-filter=".accessori">Accessori</a></li>
+                                <li><a href="#" data-filter=".costumi">Costumi</a></li>
+                            </ul>
+                            <br>
+                           @include ("cosplaydesign.includes.view_lista");
                             <!-- PROJECTS GALLERY -->
                             <div class="row js-view cd_hide" data-view="cd_grid">
                                 <ul class="filters nav nav-pills">
@@ -346,7 +250,7 @@
                                     <li><a href="#photos-4" data-filter=".cat-3">Costumi</a></li>
                                 </ul>
                                 <br>
-                                <div class="isotope js-isotope user__gallery" style="position:relative;">
+                                <div class="isotope js-isotope user__gallery" data-layout="masonry" style="position:relative;">
                                     <div class="gallery-item  cat-1">
                                         <a href="http://www.lorempixel.com/300/200/technics" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
                                             <img alt="example image" src="http://www.lorempixel.com/300/200/technics" class="img-circle img-responsive">
@@ -519,9 +423,7 @@
                                 </div>
 
                             </div>
-
                             <div class="clearfix"></div>
-
                         </div>
                         <!-- pd-20 -->
                     </div>
@@ -529,36 +431,23 @@
                     <div id="friends-tab" class="tab-pane">
                         <div class="pd-20">
                             <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-users profile-icon"></i> Amici</h3>
-                            <ul class="nav nav-pills">
-                                <li class="active"><a href="#photos-1" data-toggle="tab">Friends</a></li>
-                                <li><a href="#photos-2" data-toggle="tab">Pending Request</a></li>
-                                <li><a href="#photos-3" data-toggle="tab">Blacklisted</a></li>
+                            <ul class="filters nav nav-pills">
+                                <li class="active"><a href="#photos-1" data-filter=".confirmed">Friends</a></li>
+                                <li><a href="#photos-2"  data-filter=".pending">Pending Request</a></li>
+                                <li><a href="#photos-3" data-filter=".blacklisted">Blacklisted</a></li>
                             </ul>
                             <div class="content-grid column-xs-3 column-sm-4 column-md-4 column-lg-6 height-xs-4 mgbt-xs-20">
                                 <div>
-                                    <ul class="list-wrapper">
-
-                                        @for($i = 1; $i <= 9; $i++)
-                                        <li>
-                                            <a href="#">
-                                                <span class="menu-icon"><img class="img-circle friends__element" src="https://api.adorable.io/avatars/50/abott@adorable.png" alt="example image"></span>
+                                    <div class="isotope js-isotope user__gallery" data-layout="masonry" style="position:relative;">
+                                        <?php $type = array(array("confirmed","cc3366"),array("pending","fac321"),array("blacklisted","cccccc")); ?>
+                                        @for($i=1;$i<=20;$i++)
+                                        <div class="gallery-item <?php echo $type[mt_rand(0,count($type)-1)][0]; ?>">
+                                            <a href="/membri/#" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
+                                                <img alt="example image" src="http://www.placehold.it/150/<?php echo $type[mt_rand(0,count($type)-1)][1]; ?>" class="img-circle img-responsive">
                                             </a>
-                                            <span class="menu-text"> Gabriella Montagna
-                                                <span class="menu-info">
-                                                    <span class="menu-date">San Diego</span>
-                                                    <span class="menu-action">
-                                                        <span data-placement="bottom" data-toggle="tooltip" data-original-title="Approve" class="menu-action-icon vd_green vd_bd-green">
-                                                            <i class="fa fa-check"></i>
-                                                        </span>
-                                                        <span data-placement="bottom" data-toggle="tooltip" data-original-title="Reject" class="menu-action-icon vd_red vd_bd-red">
-                                                            <i class="fa fa-times"></i>
-                                                        </span>
-                                                    </span>
-                                                </span>
-                                            </span>
-                                        </li>
+                                        </div>
                                         @endfor
-                                    </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div><!-- pd-20 -->

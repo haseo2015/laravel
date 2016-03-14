@@ -8,7 +8,7 @@
                         <a href="/progetto/{{$project->slug}}">
                                         <span class="project__progress pull-right">
                                             <small>Progresso:</small><br>
-                                            <input type="text" class="knobby"
+                                            <input type="text" class="knobby small"
                                                    data-width="75"
                                                    data-height="75"
                                                    data-fgColor="{{$project->knobColor}}"

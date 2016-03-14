@@ -67,8 +67,8 @@
                                     <img src="http://lorempixel.com/75/75/">
                                 </figure>
                             </div>
-                            <h3>Chi</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                            <h3>Design</h3>
+                            <p>Tanti tutorial realizzati da cosplayers più e meno bravi, più e meno dettagliati, per prendere spunto ed imparare dagli altri, come realizzare costumi, armi ed accessori dei tuoi personaggi preferiti.</p>
                         </div>
                     </div>
                 </div>
@@ -80,8 +80,8 @@
                                     <img src="http://lorempixel.com/75/75/">
                                 </figure>
                             </div>
-                            <h3>Come</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                            <h3>Community</h3>
+                            <p>Una grande community di cosplayers, dove scambiare opinioni, creare ed organizzare gruppi cosplay, condividere e scambiare materiali e documenti per la creazione di interpretazioni</p>
                         </div>
                     </div>
                 </div>
@@ -94,8 +94,8 @@
                                     <img src="http://lorempixel.com/75/75/">
                                 </figure>
                             </div>
-                            <h3>Cosa</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                            <h3>Partners</h3>
+                            <p>CosplayDesing è in collaborazione con le maggiori fiere del fumetto, e di molti negozi di accessori vari. </p>
                         </div>
                     </div>
                 </div>

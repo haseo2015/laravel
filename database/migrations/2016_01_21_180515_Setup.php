@@ -101,7 +101,7 @@ class Setup extends Migration
             $table->integer('order');
             $table->timestamps();
         });
-*/
+
         Schema::create('genders', function(Blueprint $table)
         {
             $table->increments('id');
@@ -115,6 +115,20 @@ class Setup extends Migration
             $table->increments('id');
             $table->integer('project_id');
             $table->integer('gender_id');
+            $table->timestamps();
+        });
+*/
+        Schema::create('user_detail', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->text('bio');
+            $table->date('birthday');
+            $table->string('website');
+            $table->text('facebook');
+            $table->text('twitter');
+            $table->text('google');
+            $table->text('instagram');
             $table->timestamps();
         });
 
@@ -135,9 +149,9 @@ class Setup extends Migration
         Schema::drop('description_project');
         Schema::drop('materials');
         Schema::drop('material_project');
-        Schema::drop('galleries');*/
+        Schema::drop('galleries');
         Schema::drop('genders');
-        Schema::drop('project_gender');
-
+        Schema::drop('project_gender');*/
+        Schema::drop('user_detail');
     }
 }

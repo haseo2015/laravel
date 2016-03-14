@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -19,7 +20,15 @@ class UserController extends Controller
     }
 
 
-    public function getMemberBySlug($slug){
-        return view('cosplaydesign.pages.profile');
+    public function getMemberData($slug){
+        $userdata = \App\User::getAllUserDataBySlug($slug);
+        $_projects = \App\User::getUsersProjects($userdata->id);
+        $projects = collect();
+        foreach($_projects as $project){
+            $project = \App\Project::getFullProjectData($project->id);
+            $projects->push($project);
+        }
+//dump($projects);
+       return view('cosplaydesign.pages.profile',array("userdata" => $userdata,"projects" => $projects));
     }
 }

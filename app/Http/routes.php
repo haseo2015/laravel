@@ -10,12 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-use App\Category;
-Route::resource('/membri/{slug}/','UserController@getMemberBySlug');
+Route::resource('/area/{page}/','SiteController@redirectToPage');
+
+Route::resource('/membri/{slug}/','UserController@getMemberData');
 Route::resource('/tipologia/{slug}/','SiteController@getProjectsByType');
 Route::resource('/serie/{slug}/','SiteController@getProjectsBySeries');
 
-Route::resource('/progetto/{detail}/','SiteController@getDataBySlug');
+
+Route::resource('/progetto/{detail}/','SiteController@getProjectData'); // dettaglio progetto
 Route::resource('/categoria/{slug}/','SiteController@getListByCategory');
 Route::resource('/categoria/tutti/','SiteController@getListByCategory');
 Route::controller('/', 'SiteController');

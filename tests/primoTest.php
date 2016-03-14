@@ -8,8 +8,6 @@ class primoTest extends TestCase
 {
     public function testBasicExample()
     {
-        $this->visit('/')
-        ->click('Accessori')
-        ->seePageIs('/accessori');
+       $this->visit('/membri/atoli16');
     }
 }

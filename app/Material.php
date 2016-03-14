@@ -9,6 +9,6 @@ class Material extends Model
 {
     public function projects()
     {
-        return $this->belongsToMany('App\Project');
+        return $this->belongsToMany('App\Material','material_project','project_id');
     }
 }

@@ -1,16 +1,16 @@
-<?php dump($currentProject->gender);?>
+<?php dump($currentProject);echo $currentProject->fullname; //exit;  ?>
 @extends('cosplaydesign.default')
 
-@section('title')Progetto: {!! $currentProject->name !!} @endsection
+@section('title')Progetto: {!! $currentProject  ->fullname !!} @endsection
 
 @section('subheading')  @endsection
 
 @section('content')
 
     <div class="row">
-        <div class="col-lg-12">
-            <h3 class="page-header">Progetto: {!! $currentProject->name !!}
-                <ol class="subheading-detail breadcrumbs">
+        <div class="col-lg-12 page-header">
+            <h1>{!! $currentProject->name !!}
+                <ol class="project__subdetails">
                     <li>Area: <a href="/categoria/{!! $currentProject->macro_slug !!}" title="{!! $currentProject->macro_name !!}">{!! $currentProject->macro_name !!}</a></li>
                     <li>Serie: <a href="/serie/hack-gu" title="Hack G.U.">.Hack G.U</a></li>
                     <li>Tipologia:
@@ -20,13 +20,13 @@
                     </li>
                     <li>Autore: <a href="/membri/{!! $currentProject->user->slug_username   !!}" title="autore {!! $currentProject->user->username !!}">{!! $currentProject->user->username !!}</a></li>
                 </ol>
-            </h3>
+            </h1>
         </div>
     </div>
 
     <div class="row project-detail">
         <div class="col-lg-12">
-         <h3>Overall di progetto</h3>
+         <h2>Dati tecnici</h2>
         </div>
      </div>
 
@@ -66,29 +66,27 @@
             </span>
         </div>
     </div>
-    <hr>
+    <!-- BEGIN TUTORIAL STEPS -->
     <div class="row">
-        <div class="col-lg-12">
-            <h3>Tutorial di realizzazione</h3>
+        <div class="col-lg-12 page-header">
+            <h1>Tutorial <small>vediamo come realizzarlo</small></h1>
         </div>
         <!-- STEP TUTORIAL -->
         <div class="row tutorial-step">
             <div class="col-lg-12">
-
                 <ol class="turorial__stepper">
-
-                   @foreach($currentProject->steps as $step)
-                   <!-- SINGLE STEP -->
-                    <li class="">
-                        <h4 class="media-heading">{!! $step->step_title !!}</h4>
-                        <div class="media">
-                            @include ("cosplaydesign.includes.tutorial_images_gallery")
-                            <div class="media-body">
-                                <p>{!! $step->body !!}</p>
+                    @foreach($currentProject->steps as $step)
+                        <!-- SINGLE STEP -->
+                        <li class="">
+                            <h4 class="media-heading">{!! $step->step_title !!}</h4>
+                            <div class="media">
+                                @include ("cosplaydesign.includes.tutorial_images_gallery")
+                                <div class="media-body">
+                                    <p>{!! $step->body !!}</p>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <!-- SINGLE STEP END -->
+                        </li>
+                        <!-- SINGLE STEP END -->
                     @endforeach
                 </ol>
             </div>
