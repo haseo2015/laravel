@@ -52,9 +52,10 @@
         </div>
         <!-- /.container -->
     </nav>
-    <div class="maincontent container">
+    <div class="maincontent">
     @yield('content')
     </div>
+    <div class="clearfix"></div>
     <!-- Footer -->
     <footer class="footer">
         <div class="row full-width">

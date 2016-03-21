@@ -26,7 +26,8 @@
                         </p>
                     </dd>
                     <dt class="pull-right element__knobby">
-                        <input type="text" class="knobby"
+                        <div class="progress__container">
+                            <input type="text" class="knobby list"
                                data-width="140"
                                data-height="140"
                                data-fgColor="{{$project->knobColor}}"
@@ -36,6 +37,7 @@
                                data-displayInput="true"
                                data-readOnly="true"
                                value="{{$project->progress}}">
+                        </div>
                     </dt>
                 </dl>
 

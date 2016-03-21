@@ -36,40 +36,9 @@
     }
   }
 }
-.turorial__stepper {
-  list-style-position: outside;
-  font-size: 1.6rem;
-  margin-left:3.3rem;
-  li {
-    border-bottom:4px solid #999;
-    .media {
-      overflow: visible;}
-    .media-body {font-size: 1rem;}
-    ul{
-      margin:0 30px 15px;
-      list-style-type: decimal;
-      li {border-bottom:none;}
-    }
 
-    ol {
-      margin:0 30px 15px;
-      list-style-type: square;
-      li {border-bottom:none;}
-    }
-  }
-}
-.tutorial-step {}
-.thumnail__step {
-  .caption {
-    display: block;
-    padding:10px 0 5px;
-    font-size:11px;
-    line-height: normal;
-  }
-}
-img.step-image {
-  max-width:250px;
-  &--first {
-   max-width:400px;
- }
+
+/**/
+.project__media {
+  .mediaobject {display:block;margin-bottom: 10px;}
 }

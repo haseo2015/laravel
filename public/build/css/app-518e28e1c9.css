@@ -61,9 +61,12 @@ basati sui colori di google material design A700
   color: #125688; }
 
 /* PROJECT PROGRESS (JQUERY KNOB) */
+.progress__container {
+  position: relative !important; }
+
 .project__progress {
   display: inline-block;
-  width: auto;
+  width: auto !important;
   margin: 0 auto; }
   .project__progress small {
     font-size: 43%;
@@ -80,11 +83,15 @@ basati sui colori di google material design A700
       font-size: 70px !important;
       width: 200px !important;
       top: 50%;
-      margin-left: -30px;
+      margin-left: -220px !important;
       font-weight: 700 !important; }
-    .project__progress input.knobby.small {
-      font-size: 12px !important;
-      margin-top: 28px; }
+    .project__progress input.knobby.grid {
+      font-size: 1.2rem !important;
+      margin-top: -10px !important;
+      margin-left: -17px !important;
+      position: absolute !important;
+      top: 50%;
+      left: 50%; }
 
 /*raing*/
 .rating-symbol {
@@ -130,6 +137,39 @@ basati sui colori di google material design A700
 
 .element__knobby {
   margin-top: 10px; }
+
+/*WIDGET*/
+.widget {
+  vertical-align: top;
+  margin-bottom: 10px; }
+  .widget h2 {
+    margin: 0 0 5px; }
+
+/*
+Cosplay design sliders scss
+
+MAIN SLIDER HOME
+*/
+.mycarousel {
+  height: 500px !important; }
+
+.mycarousel .slick-slide {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  height: 500px !important; }
+  .mycarousel .slick-slide h1 {
+    display: inline-block;
+    padding: 5px;
+    font: bold 30px "Roboto", sans-serif;
+    background: #000;
+    color: #FFFFFF;
+    letter-spacing: 3px;
+    margin-top: 42rem;
+    text-transform: uppercase; }
+
+.slick-next {
+  right: 0; }
 
 body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif; }
@@ -323,13 +363,34 @@ a, a:hover, a:focus {
     .projectCard .card:hover .card__details {
       top: 0;
       transition: all 0.5s ease-in-out; }
+  .projectCard .card .details__list {
+    padding: 0;
+    list-style: none; }
+    .projectCard .card .details__list li {
+      color: #FFFFFF; }
+      .projectCard .card .details__list li label {
+        font-weight: normal;
+        margin-bottom: 0;
+        font-size: 10px; }
+      .projectCard .card .details__list li span.label {
+        text-shadow: 1px 1px 1px #000;
+        font-size: 8px; }
+      .projectCard .card .details__list li .list__author {
+        font-size: 10px;
+        display: inline-block;
+        font-weight: 600;
+        color: red; }
   .projectCard .card figure {
     margin: 0;
     overflow: hidden;
     max-height: 180px; }
   .projectCard .card__cover {
     position: relative;
-    overflow: hidden; }
+    overflow: hidden;
+    height: 140px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top; }
   .projectCard .card__details {
     position: absolute;
     top: 195px;
@@ -419,37 +480,61 @@ a, a:hover, a:focus {
   content: '';
   clear: both; }
 
-.turorial__stepper {
-  list-style-position: outside;
-  font-size: 1.6rem;
-  margin-left: 3.3rem; }
-  .turorial__stepper li {
-    border-bottom: 4px solid #999; }
-    .turorial__stepper li .media {
-      overflow: visible; }
-    .turorial__stepper li .media-body {
-      font-size: 1rem; }
-    .turorial__stepper li ul {
-      margin: 0 30px 15px;
-      list-style-type: decimal; }
-      .turorial__stepper li ul li {
-        border-bottom: none; }
-    .turorial__stepper li ol {
-      margin: 0 30px 15px;
-      list-style-type: square; }
-      .turorial__stepper li ol li {
-        border-bottom: none; }
-
-.thumnail__step .caption {
+/**/
+.project__media .mediaobject {
   display: block;
-  padding: 10px 0 5px;
-  font-size: 11px;
-  line-height: normal; }
+  margin-bottom: 10px; }
 
-img.step-image {
-  max-width: 250px; }
-  img.step-image--first {
-    max-width: 400px; }
+/*SCSS PER IL BLOCCO TUTORIAL*/
+.tutorial__index .index__list {
+  padding: 0;
+  list-style-position: inside; }
+  .tutorial__index .index__list a {
+    display: block;
+    margin-bottom: 2px;
+    border-bottom: 1px solid #c8c8c8;
+    padding: 5px 0; }
+
+.tutorial__content {
+  border-left: 4px double #c8c8c8; }
+
+.tutorial__stepper {
+  padding: 0;
+  margin: 0;
+  list-style-position: inside;
+  font-size: 3rem; }
+  .tutorial__stepper li {
+    margin-bottom: 4rem; }
+    .tutorial__stepper li h3 {
+      font-size: 2rem;
+      margin-top: 0; }
+    .tutorial__stepper li p {
+      font-size: 1.5rem;
+      line-height: 2.5rem; }
+
+.gallery__container:after {
+  content: "";
+  clear: both; }
+
+.gallery__element {
+  display: inline-block;
+  width: 140px;
+  height: auto;
+  border: 1px solid #c8c8c8;
+  vertical-align: top;
+  margin-top: 2rem; }
+  .gallery__element:last-child {
+    clear: right; }
+  .gallery__element a {
+    width: inherit;
+    height: 140px;
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat; }
+  .gallery__element label {
+    font-size: 11px; }
+    .gallery__element label:before {
+      content: "Fig." attr(data-number) ": "; }
 
 /*
 * PROFILE.SCSS

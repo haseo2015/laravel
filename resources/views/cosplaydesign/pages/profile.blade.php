@@ -14,7 +14,7 @@
             </ol>
         </div>
     </div>
-
+    <div class="container">
     <div clas="row profile">
         <div class="col-sm-3">
             <!-- USER PROFILE -->
@@ -55,6 +55,7 @@
                     <li> <a data-toggle="tab" href="#photos-tab"> <i class="fa fa-picture-o"></i> Galleria <span class="menu-active"></span> </a></li>
                     <li> <a data-toggle="tab" href="#friends-tab"><i class="fa fa-group"></i> Amici <span class="menu-active"></span> </a></li>
                     <li> <a data-toggle="tab" href="#groups-tab"><i class="fa fa-cubes"></i> Gruppi <span class="menu-active"></span> </a></li>
+                    <li> <a data-toggle="tab" href="#media-tab"><i class="fa fa-film"></i> Media <span class="menu-active"></span> </a></li>
                 </ul>
                 <div class="tab-content">
                     <div id="profile-tab" class="tab-pane active">
@@ -532,12 +533,35 @@
                             </div> <!-- row -->
                         </div> <!-- pd-20 -->
                     </div>
+                    <!-- MEDIA TAB -->
+                    <div id="media-tab" class="tab-pane">
+                        <div class="pd-20">
+                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-film profile-icon"></i> Media</h3>
+                            <ul class="filters nav nav-pills">
+                                <li class="active"><a href="#photos-1" data-filter="*">Tutti</a></li>
+                                <li><a href="#" data-filter=".v_armi">Armi</a></li>
+                                <li><a href="#" data-filter=".v_accessori">Accessori</a></li>
+                                <li><a href="#" data-filter=".v_costumi">Costumi</a></li>
+                            </ul>
+                            <br>
+                            <div class="row">
+                                <div class="isotope js-isotope list-group isotope__list" data-layout="fitRows" style="position:relative;">
 
+                                    @foreach($projects as $project)
+                                    @foreach($project->media as $media)
+                                        <div class="col-md-4 list-group-item v_{{$project->category->slug}}"><iframe width="100%" height="180" src="{{$media->media_url}}" frameborder="0" allowfullscreen></iframe></div>
+                                    @endforeach
+                                @endforeach
+                                </div>
+                            </div>
+                        </div> <!-- pd-20 -->
+                    </div>
                 </div>
                 <!-- tab-content -->
             </div>
             <!-- tabs-widget -->
         </div>
         <div class="clearfix"></div>
+    </div>
     </div>
 @endsection

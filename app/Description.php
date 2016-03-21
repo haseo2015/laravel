@@ -10,8 +10,8 @@ class Description extends Model
         return $this->belongsToMany('App\Project');
 }
 
-   public function galleries(){
-        return $this->hasMany('App\Gallery','descrption_id');
+   public function images(){
+        return $this->belongsToMany('App\Gallery','description_gallery','description_id');
     }
 
 }

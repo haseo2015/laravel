@@ -19,6 +19,8 @@ elixir(function(mix) {
         'bootstrap-rating.css',
         'font-awesome/css/font-awesome.min.css',
         'isotope.css',
+        'slick.css',
+        'slick-theme.css'
     ],'public/css/base.css');
 
    /* compilo i miei scss */
@@ -41,6 +43,7 @@ elixir(function(mix) {
         "vendor/jquery.fancybox.pack.js",
         "vendor/bootstrap-rating.min.js",
         "components/isotope/isotope.pkgd.min.js",
+        "components/slickslider/slick/slick.min.js",
         "cd.core.js",
         "cd.base.js",
         "cd.helpers.js",
@@ -48,7 +51,6 @@ elixir(function(mix) {
         "cd.homepage.js",
         "cd.lista.js",
         "cd.profile.js",
-
 
     ],'public/js/app.js');
 

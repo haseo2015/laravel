@@ -1,0 +1,57 @@
+/*SCSS PER IL BLOCCO TUTORIAL*/
+.tutorial {
+
+&__index {
+  .index__list {
+    padding: 0;
+    list-style-position: inside;
+    a {
+      display: block;
+      margin-bottom: 2px;
+      border-bottom: 1px solid $grigio_griglia;
+      padding: 5px 0;
+    }
+  }
+}
+&__content { border-left: 4px double $grigio_griglia;}
+&__stepper {
+  padding:0;
+  margin:0;
+  list-style-position: inside;
+  font-size: 3rem;
+  li {
+    margin-bottom: 4rem;
+    h3 {font-size:2rem;margin-top: 0;}
+    p {font-size:1.5rem;line-height: 2.5rem;}
+  }
+}
+}
+
+.gallery__container {
+  &:after {
+    content: "";
+    clear:both;
+  }
+}
+.gallery__element {
+  display:inline-block;
+  width: 140px;
+  height: auto;
+  border: 1px solid $grigio_griglia;
+  vertical-align: top;
+  margin-top: 2rem;
+  &:last-child {clear:right;}
+ a {
+   width: inherit;
+   height: 140px;
+   display: block;
+   background-size: cover;
+   background-repeat: no-repeat;
+   }
+  label {
+    font-size: 11px;
+    &:before {
+      content:'Fig.' attr(data-number) ': ';
+    }
+  }
+}

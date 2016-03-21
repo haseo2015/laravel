@@ -7,7 +7,24 @@
 @section('content')
 
 
-    @include('cosplaydesign.includes.slider')
+   {{--  @include('cosplaydesign.includes.slider') --}}
+   <div class="mycarousel">
+       <div style="background: url(img/slider/slider01.jpg)">
+           <h1>League of Legends</h1>
+       </div>
+       <div style="background: url(img/slider/slider02.jpg)">
+           <h1>Final Fantasy</h1>
+       </div>
+       <div style="background: url(img/slider/slider03.jpg)">
+           <h1>Gantz</h1>
+       </div>
+       <div style="background: url(img/slider/slider04.jpg)">
+           <h1>Visual Key</h1>
+       </div>
+       <div style="background: url(img/slider/slider05.jpg)">
+           <h1>Prototype</h1>
+       </div>
+   </div>
 
     <div class="container">
         <div class="row">

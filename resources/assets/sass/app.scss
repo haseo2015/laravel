@@ -2,6 +2,8 @@
 @import "mymixins";
 @import "colors";
 @import "elements";
+@import "sliders";
+
 
 $text-color: $bianco;
 $text-transform: uppercase;
@@ -56,8 +58,6 @@ a, a:hover, a:focus{
   }
 }
 
-
-
 .dropdown-login {
   width:18rem;
   padding:1rem;
@@ -77,9 +77,6 @@ a, a:hover, a:focus{
   }
 
 }
-
-
-
 
 // footer CSS
 .footer {
@@ -124,10 +121,6 @@ a, a:hover, a:focus{
     margin-top: .5em;
   }
 }
-
-
-
-
 
 .split.button {
   width: 100%;
@@ -280,7 +273,21 @@ a, a:hover, a:focus{
       @include transition(all 0.5s ease-in-out);
     }
   }
-
+    .details__list {
+      padding: 0;
+      list-style: none;
+      li {
+        color: $bianco;
+        label {font-weight: normal;margin-bottom: 0; font-size:10px;}
+        span.label{text-shadow: 1px 1px 1px #000; font-size: 8px;}
+        .list__author {
+          font-size: 10px;
+          display: inline-block;
+          font-weight: 600;
+          color: red;
+        }
+      }
+    }
   figure {
     margin: 0;
     overflow: hidden;
@@ -289,6 +296,10 @@ a, a:hover, a:focus{
   &__cover {
     position:relative;
     overflow: hidden;
+    height: 140px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
   }
     // card scss
     margin:5px;
@@ -343,9 +354,6 @@ a, a:hover, a:focus{
   }
   }
 
-
-
-
 .page-header {
   .subheading-detail {
     display:block;
@@ -368,4 +376,5 @@ a, a:hover, a:focus{
 
 
 @import "project-detail";
+@import "tutorial";
 @import "profile";

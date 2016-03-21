@@ -16,7 +16,8 @@ Route::resource('/membri/{slug}/','UserController@getMemberData');
 Route::resource('/tipologia/{slug}/','SiteController@getProjectsByType');
 Route::resource('/serie/{slug}/','SiteController@getProjectsBySeries');
 
-
+Route::resource('/serie/{serie}/','SiteController@getListBySeries'); // dettaglio progetto
+Route::resource('/genere/{gender}/','SiteController@getListByGender'); // dettaglio progetto
 Route::resource('/progetto/{detail}/','SiteController@getProjectData'); // dettaglio progetto
 Route::resource('/categoria/{slug}/','SiteController@getListByCategory');
 Route::resource('/categoria/tutti/','SiteController@getListByCategory');

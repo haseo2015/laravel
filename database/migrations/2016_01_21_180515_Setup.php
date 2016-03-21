@@ -45,6 +45,7 @@ class Setup extends Migration
         {
             $table->increments('id');
             $table->integer('macro_category_id')->unsigned()->index();
+            $table->integer('serie_id')->unsigned()->index();
             $table->string('name',54);
             $table->string('slug')->index();
             $table->integer('state');
@@ -98,7 +99,15 @@ class Setup extends Migration
             $table->increments('id');
             $table->integer('description_id')->unsigned();
             $table->string('image');
+            $table->string('caption');
             $table->integer('order');
+            $table->timestamps();
+        });
+        Schema::create('description_gallery', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('description_id');
+            $table->integer('gallery_id');
             $table->timestamps();
         });
 
@@ -117,7 +126,7 @@ class Setup extends Migration
             $table->integer('gender_id');
             $table->timestamps();
         });
-*/
+
         Schema::create('user_detail', function(Blueprint $table)
         {
             $table->increments('id');
@@ -132,6 +141,40 @@ class Setup extends Migration
             $table->timestamps();
         });
 
+        Schema::create('description_gallery', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('description_id');
+            $table->integer('gallery_id');
+            $table->timestamps();
+        });
+
+        Schema::create('series', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->string('serie_name')->index();
+            $table->string('serie_slug');
+            $table->timestamps();
+        });*/
+        // pivot projects descriptions
+        Schema::create('project_document', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('project_id')->unsigned();
+            $table->string('document_name');
+            $table->integer('active');
+            $table->timestamps();
+        });
+
+        Schema::create('project_media', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('project_id')->unsigned();
+            $table->string('media_url');
+            $table->integer('active');
+            $table->timestamps();
+        });
+
     }
 
     /**
@@ -142,7 +185,7 @@ class Setup extends Migration
     public function down()
     {
         // cancellazione tabella utenti
-        /*Schema::drop('users');
+        Schema::drop('users');
         Schema::drop('macro_categories');
         Schema::drop('projects');
         Schema::drop('descriptions');
@@ -151,7 +194,12 @@ class Setup extends Migration
         Schema::drop('material_project');
         Schema::drop('galleries');
         Schema::drop('genders');
-        Schema::drop('project_gender');*/
+        Schema::drop('project_gender');
         Schema::drop('user_detail');
+        Schema::drop('description_gallery');
+        Schema::drop('series');
+        Schema::drop('project_document');
+        Schema::drop('project_media');
+
     }
 }

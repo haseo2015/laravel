@@ -1,21 +1,17 @@
-<?php dump($currentProject);echo $currentProject->fullname; //exit;  ?>
 @extends('cosplaydesign.default')
-
 @section('title')Progetto: {!! $currentProject  ->fullname !!} @endsection
-
 @section('subheading')  @endsection
-
 @section('content')
-
+<div class="container">
     <div class="row">
         <div class="col-lg-12 page-header">
-            <h1>{!! $currentProject->name !!}
+            <h1>::{!! $currentProject->name !!}
                 <ol class="project__subdetails">
-                    <li>Area: <a href="/categoria/{!! $currentProject->macro_slug !!}" title="{!! $currentProject->macro_name !!}">{!! $currentProject->macro_name !!}</a></li>
-                    <li>Serie: <a href="/serie/hack-gu" title="Hack G.U.">.Hack G.U</a></li>
+                    <li>Categoria: <a href="/categoria/{{$currentProject->category->slug}}"><span class="label label-{{$currentProject->category->category_color}}">{{$currentProject->category->name}}</span></a></li>
+                    <li>Serie: <a href="/serie/{!! $currentProject->serie->serie_slug !!}" title="{!! $currentProject->serie->name !!}">{!! $currentProject->serie->serie_name !!}</a></li>
                     <li>Tipologia:
                         @foreach($currentProject->gender as $_gender)
-                            <a href="/tipologia/{!!$_gender->slug !!}" title="{!! $_gender->gender !!}">{!! $_gender->gender !!}</a>,
+                            <a href="/genere/{!!$_gender->slug !!}" title="{!! $_gender->gender !!}">{!! $_gender->gender !!}</a>,
                         @endforeach
                     </li>
                     <li>Autore: <a href="/membri/{!! $currentProject->user->slug_username   !!}" title="autore {!! $currentProject->user->username !!}">{!! $currentProject->user->username !!}</a></li>
@@ -24,12 +20,7 @@
         </div>
     </div>
 
-    <div class="row project-detail">
-        <div class="col-lg-12">
-         <h2>Dati tecnici</h2>
-        </div>
-     </div>
-
+    <!-- DETAILS INDEX -->
     <div class="row">
         <div class="col-md-4">
             {!! HTML::image($currentProject->directory.$currentProject->cover_image,'a picture', array('class' => 'img-responsive cover-image-project pull-left lazy'))  !!}
@@ -52,7 +43,7 @@
         </div>
         <!-- PROGRESS INFOGRAFIC -->
         <div class="col-md-4">
-            <span class="project__progress">
+            <span class="project__progress progress__container">
                 <input type="text" class="knobby detail"
                            data-width="250"
                            data-height="250"
@@ -67,29 +58,17 @@
         </div>
     </div>
     <!-- BEGIN TUTORIAL STEPS -->
-    <div class="row">
+    @include ("cosplaydesign.includes.tutorial")
+    <!-- RELATED PROJECT -->
+    <div class="row related">
         <div class="col-lg-12 page-header">
-            <h1>Tutorial <small>vediamo come realizzarlo</small></h1>
-        </div>
-        <!-- STEP TUTORIAL -->
-        <div class="row tutorial-step">
-            <div class="col-lg-12">
-                <ol class="turorial__stepper">
-                    @foreach($currentProject->steps as $step)
-                        <!-- SINGLE STEP -->
-                        <li class="">
-                            <h4 class="media-heading">{!! $step->step_title !!}</h4>
-                            <div class="media">
-                                @include ("cosplaydesign.includes.tutorial_images_gallery")
-                                <div class="media-body">
-                                    <p>{!! $step->body !!}</p>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- SINGLE STEP END -->
-                    @endforeach
-                </ol>
-            </div>
+            <h1>::Potrebbero interessarti anche... </h1>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-12">
+           @include ("cosplaydesign.includes.view_griglia",["projects"=>$related,"hide" => ""])
+        </div>
+    </div>
+</div>
 @endsection

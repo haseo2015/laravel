@@ -1,5 +1,5 @@
 <!-- Header Carousel -->
-<header id="myCarousel" class="carousel slide">
+<header id="myCarousel" class="home_carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -10,19 +10,25 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
         <div class="item active">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+            <div class="fill" style="background-image:url('/img/slider/slider01.jpg');"></div>
             <div class="carousel-caption">
                 <h2>Caption 1</h2>
             </div>
         </div>
         <div class="item">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+            <div class="fill" style="background-image:url('/img/slider/slider02.jpg');"></div>
             <div class="carousel-caption">
                 <h2>Caption 2</h2>
             </div>
         </div>
         <div class="item">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+            <div class="fill" style="background-image:url('/img/slider/slider03.jpg');"></div>
+            <div class="carousel-caption">
+                <h2>Caption 3</h2>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('/img/slider/slider04.jpg');"></div>
             <div class="carousel-caption">
                 <h2>Caption 3</h2>
             </div>

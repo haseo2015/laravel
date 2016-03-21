@@ -2,16 +2,16 @@ $.using("cd.homepage", function (context, $, W) {
 
     var NS = context._NS;
 
-   $(document).on("init",function(){
-       console.log("fdfsdfds")
-   });
+  $('.mycarousel').slick({
+      dots: true,
+      speed: 300,
+      autoplay: true,
+      cssEase: 'linear',
+      autoplaySpeed: 5000,
+      arrows: false,
+  })
 
-    context.pippo = function(event, status)
-    {
-        console.log(event + " - " + status);
-    };
 
-    W.withLogging.call(context);
 
 
 });

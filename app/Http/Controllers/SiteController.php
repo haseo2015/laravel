@@ -49,20 +49,30 @@ class SiteController extends Controller
     }
 
     /*
+     * Get Project list by gender
+     */
+    public function getListByGender($slug)
+    {
+        $currentMC = collect();
+        $currentMC->name = \App\Gender::getGenderBySlug($slug)[0]->gender;
+        $currentMC->fonticon = "";
+        $projects = \App\Project::getProjectsByGender($slug);
+//dump($currentMC);
+        return view('cosplaydesign.pages.lista',compact("projects","currentMC"));
+    }
+
+
+    /*
      * get the full project data
      */
     public function getProjectData($slug){
             // get the current project by slug
             $currentProject = collect();
-            $CP = \App\Project::getCurrentProjectBySlug($slug);
-            $currentProject = \App\Project::getFullProjectData($CP->id);
-            $currentProject->steps = $currentProject->descriptions;
-            // get and associate the step images
-            foreach($currentProject->steps as $step){
-                $images = \App\Gallery::find($step->gallery_id);
-                $step->images = $images;
-            }
-        return view('cosplaydesign.pages.progetto',array('currentProject'=>$currentProject));
+            $projectID = \App\Project::getCurrentProjectBySlug($slug)->id;
+            $fullData = \App\Project::getFullProjectData($projectID);
+            $relatedProjects = \App\Project::getRelatedProjects($fullData);
+           // dump($fullData);
+        return view('cosplaydesign.pages.progetto',array('currentProject'=>$fullData,'related'=>$relatedProjects));
     }
 
 

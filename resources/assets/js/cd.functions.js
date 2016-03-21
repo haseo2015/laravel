@@ -7,6 +7,7 @@ $.using("cd.utils", function (context, $, W) {
             context.initLazyload();
             context.initFancybox();
             context.initIsotope();
+            //context.initAffix();
         };
 
 
@@ -90,6 +91,19 @@ $.using("cd.utils", function (context, $, W) {
             });
         };
 
+        context.initAffix = function (){
+
+            $("*[data-spy=affix]").affix({
+                offset: {
+                    top: 10,
+                    bottom: function () {
+                        return (this.bottom = $('.footer').innerHeight()+200)
+                    }
+                },
+
+            });
+        };
+
         context.setPercentageColor = function(_value) {
         var percentage_color = '#FFFFFF';
         switch (_value) {
@@ -112,7 +126,10 @@ $.using("cd.utils", function (context, $, W) {
         return percentage_color;
     }
 
+    context.onScrollPageHandler = function(){
+        $("*[data-spy=affix]").affix('checkPosition')
+    }
 
     context.init();
-
+    $.Listen( "scroll" ).subscribe( context.onScrollPageHandler  );
 });
