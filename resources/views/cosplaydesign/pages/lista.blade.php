@@ -23,7 +23,7 @@
         {{-- @include ("cosplaydesign.includes.blocco_cerca") --}}
         <div class="col-md-12">
             @include ("cosplaydesign.includes.view_lista",["projects"=>$projects])
-            @include ("cosplaydesign.includes.view_griglia",["projects"=>$projects,"hide" => "cd_hide"])
+            @include ("cosplaydesign.includes.view_griglia",["projects"=>$projects,"hide" => "cd_hide","isotope"=>false])
         </div>
 
 

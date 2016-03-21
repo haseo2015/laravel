@@ -2,28 +2,7 @@
 CosplayDesign Colors
 basati sui colori di google material design A700
 */
-/* progress colors */
-/* 0 to 25% */
-/* 25% to 50% */
-/* 50% to 75% */
-/* 75% to 90% */
-/* 90% to 100% */
 /* SOCIAL */
-.progress_color_percetage--under25 {
-  color: #DD2C00; }
-
-.progress_color_percetage--under50 {
-  color: #FF6D00; }
-
-.progress_color_percetage--under75 {
-  color: #FF6D00; }
-
-.progress_color_percetage--under90 {
-  color: #AEEA00; }
-
-.progress_color_percetage--complete {
-  color: #64DD17; }
-
 /* LABEL */
 .label {
   transition: all 0.2s ease-in 0s;
@@ -137,6 +116,18 @@ basati sui colori di google material design A700
 
 .element__knobby {
   margin-top: 10px; }
+
+/*UNDER DEV*/
+.element__underdev {
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 10;
+  text-align: center;
+  color: #666;
+  font: bold 30px "Roboto", sans-serif;
+  padding-top: 30%; }
 
 /*WIDGET*/
 .widget {
@@ -290,6 +281,18 @@ a, a:hover, a:focus {
     .split.button.google span {
       background: #a50c1d; }
       .split.button.google span:after {
+        border: none;
+        font-family: "foundation-icons";
+        content: "\f1ca";
+        font-size: 2rem;
+        line-height: 0.25rem;
+        margin-left: -0.7rem; }
+  .split.button.vimeo {
+    background: #1AB7EA;
+    text-transform: uppercase; }
+    .split.button.vimeo span {
+      background: #1295bf; }
+      .split.button.vimeo span:after {
         border: none;
         font-family: "foundation-icons";
         content: "\f1ca";

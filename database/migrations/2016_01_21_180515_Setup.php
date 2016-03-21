@@ -134,10 +134,11 @@ class Setup extends Migration
             $table->text('bio');
             $table->date('birthday');
             $table->string('website');
-            $table->text('facebook');
-            $table->text('twitter');
-            $table->text('google');
-            $table->text('instagram');
+            $table->string('facebook');
+            $table->string('twitter');
+            $table->string('google');
+            $table->string('vimeo');
+            $table->string('instagram');
             $table->timestamps();
         });
 

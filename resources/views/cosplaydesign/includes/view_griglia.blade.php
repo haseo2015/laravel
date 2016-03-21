@@ -1,6 +1,9 @@
 <div class="row {{$hide}} js-view" data-view="cd_grid">
+   @if($isotope == true)
+    <div class="isotope js-isotope list-group isotope__list" data-layout="fitRows" style="position:relative;">
+    @endif
     @foreach($projects as $project)
-        <div class="col-md-3 projectCard gallery-item">
+        <div class="col-md-3 projectCard gallery-item {{$project->category->slug}}">
             <div class="card" data-card-id="{{$project->id}}" data-url="{{'/'.$project->slug}}">
                 <div class="card__title__container"><h5 class="card__title">{{$project->name}}</h5></div>
                 <div class="card__cover" style="background-image: url({!! $project->directory.$project->cover_image !!})">
@@ -45,4 +48,7 @@
             </div>
         </div>
     @endforeach
+    @if($isotope == true)
+    </div>
+    @endif
 </div>

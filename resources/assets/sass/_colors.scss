@@ -9,27 +9,13 @@ $grigio_griglia: #c8c8c8;
 $grigio_griglia_chiara: #eee;
 
 
-/* progress colors */
-$rosso: #DD2C00; /* 0 to 25% */
-$arancio: #FF6D00; /* 25% to 50% */
-$giallo: #FF6D00; /* 50% to 75% */
-$lime: #AEEA00; /* 75% to 90% */
-$verde: #64DD17; /* 90% to 100% */
-
 /* SOCIAL */
 $facebook-color: #3b5998;
 $twitter-color: #55acee;
 $google-color: #d50f25;
 $instagram-color: #125688;
+$vimeo-color: #1AB7EA;
 $cosplaydesign-color: #336699;
-
-.progress_color_percetage {
-  &--under25 {color: $rosso;}
-  &--under50 {color: $arancio;}
-  &--under75 {color: $giallo;}
-  &--under90 {color: $lime;}
-  &--complete {color: $verde;}
-}
 
 
 

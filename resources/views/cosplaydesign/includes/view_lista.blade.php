@@ -13,7 +13,7 @@
                         <p class="list-group-item-text">
                             Autore: <a href="/membri/{{$project->owner->slug_username}}" title="scehda autore">{{$project->owner->username}}</a><br>
                             Categoria: <a href="/categoria/{{$project->category->slug}}"><span class="label label-{{$project->category->category_color}}">{{$project->category->name}}</span></a><br>
-                            Serie: </i> <a href="/serie/"><span class="label label-default">.Hack G.U</span></a><br>
+                            Serie: </i> <a href="/serie/{{$project->serie->serie_slug}}/"><span class="label label-info">{{$project->serie->serie_name}}</span></a><br>
                             Genere:
                             @foreach($project->gender as $gender)
                             <a href="/genere/{{$gender->slug}}"><span class="label label-default">{{$gender->gender}}</span></a>

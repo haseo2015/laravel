@@ -67,7 +67,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-           @include ("cosplaydesign.includes.view_griglia",["projects"=>$related,"hide" => ""])
+           @include ("cosplaydesign.includes.view_griglia",["projects"=>$related,"hide" => "","isotope" => "false"])
         </div>
     </div>
 </div>

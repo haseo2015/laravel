@@ -53,11 +53,12 @@
                     <li class="active"> <a data-toggle="tab"  href="#profile-tab"><i class="fa fa-user"></i> Profilo <span class="menu-active"></span> </a></li>
                     <li> <a data-toggle="tab" href="#projects-tab"> <i class="fa fa-edit"></i> Progetti <span class="menu-active"></span> </a></li>
                     <li> <a data-toggle="tab" href="#photos-tab"> <i class="fa fa-picture-o"></i> Galleria <span class="menu-active"></span> </a></li>
+                    <li> <a data-toggle="tab" href="#media-tab"><i class="fa fa-film"></i> Media <span class="menu-active"></span> </a></li>
                     <li> <a data-toggle="tab" href="#friends-tab"><i class="fa fa-group"></i> Amici <span class="menu-active"></span> </a></li>
                     <li> <a data-toggle="tab" href="#groups-tab"><i class="fa fa-cubes"></i> Gruppi <span class="menu-active"></span> </a></li>
-                    <li> <a data-toggle="tab" href="#media-tab"><i class="fa fa-film"></i> Media <span class="menu-active"></span> </a></li>
                 </ul>
                 <div class="tab-content">
+                    <!-- PROFILE TAB -->
                     <div id="profile-tab" class="tab-pane active">
                         <div class="pd-20">
                             <div class="vd_info tr"> </div>
@@ -121,7 +122,8 @@
                                         <div class="col-xs-7 controls">
                                             @if($userdata->details->facebook)<a href="http://facebook.com/{{$userdata->details->facebook}}" target="_blank" title="Seguimi su Facebook"><i class="fa fa-facebook-square facebook fa-2x"></i></a>@endif
                                                 @if($userdata->details->google)<a href="https://plus.google.com/+{{$userdata->details->google}}" target="_blank" title="Seguimi su Google+"><i class="fa fa-google-plus-square google fa-2x"></i></a>@endif
-                                                @if($userdata->details->youtube)<a href="https://www.youtube.com/c/{{$userdata->details->youtube}}" target="_blank" title="Seguimi su Youtube+"><i class="fa fa-youtube-square google fa-2x"></i></a>@endif
+                                                @if($userdata->details->youtube)<a href="https://www.youtube.com/c/{{$userdata->details->youtube}}" target="_blank" title="Seguimi su Youtube"><i class="fa fa-youtube-square google fa-2x"></i></a>@endif
+                                                @if($userdata->details->vimeo)<a href="https://www.viemo.com/{{$userdata->details->vimeo}}" target="_blank" title="Seguimi su Vimeo"><i class="fa fa-vimeo-square vimeo fa-2x"></i></a>@endif
                                                 @if($userdata->details->twitter)<a href="http://twitter.com/{{$userdata->details->twitter}}" target="_blank" title="Seguimi su Twitter"><i class="fa fa-twitter-square twitter fa-2x"></i></a>@endif
                                                 @if($userdata->details->instagram)<a href="https://www.instagram.com/{{$userdata->details->instagram}}" target="_blank" title="Seguimi su Instagram"><i class="fa fa-instagram instagram fa-2x"></i></a>@endif
                                         </div>
@@ -225,7 +227,6 @@
                         </div>
                         <!-- pd-20 -->
                     </div>
-                    <!-- home-tab -->
                     <!-- PROJECTS TAB -->
                     <div id="projects-tab" class="tab-pane">
                         <div class="pd-20">
@@ -241,95 +242,8 @@
                                 <li><a href="#" data-filter=".costumi">Costumi</a></li>
                             </ul>
                             <br>
-                           @include ("cosplaydesign.includes.view_lista");
-                            <!-- PROJECTS GALLERY -->
-                            <div class="row js-view cd_hide" data-view="cd_grid">
-                                <ul class="filters nav nav-pills">
-                                    <li class="active"><a href="#photos-1" data-filter="*">All</a></li>
-                                    <li><a href="#photos-2" data-filter=".cat-1">Armi</a></li>
-                                    <li><a href="#photos-3" data-filter=".cat-2">Accessori</a></li>
-                                    <li><a href="#photos-4" data-filter=".cat-3">Costumi</a></li>
-                                </ul>
-                                <br>
-                                <div class="isotope js-isotope user__gallery" data-layout="masonry" style="position:relative;">
-                                    <div class="gallery-item  cat-1">
-                                        <a href="http://www.lorempixel.com/300/200/technics" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://www.lorempixel.com/300/200/technics" class="img-circle img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="gallery-item  cat-2">
-                                        <a href="http://www.lorempixel.com/300/200/nature" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://www.lorempixel.com/300/200/nature" class="img-circle img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="gallery-item  cat-2">
-                                        <a href="http://www.lorempixel.com/300/200/nature" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://www.lorempixel.com/300/200/nature" class="img-circle img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="gallery-item  cat-3">
-                                        <a href="http://www.lorempixel.com/300/200/technics" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://www.lorempixel.com/300/200/nightlife" class="img-circle img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="gallery-item  cat-1">
-                                        <a href="http://www.lorempixel.com/300/200/technics" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="gallery-item  cat-2">
-                                        <a href="img/photos/06.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://lorempixel.com/400/300/nature/" class="img-circle img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="gallery-item  cat-3">
-                                        <a href="img/photos/08.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://lorempixel.com/400/300/nightlife/" class="img-circle img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="gallery-item  cat-2">
-                                        <a href="img/photos/04.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://lorempixel.com/400/300/nature/" class="img-circle img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="gallery-item  cat-1">
-                                        <a href="img/photos/10.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="gallery-item  cat-3">
-                                        <a href="img/photos/09.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://lorempixel.com/400/300/nightlife/" class="img-circle img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="gallery-item  cat-2">
-                                        <a href="img/photos/01.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://lorempixel.com/400/300/nature/" class="img-circle img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="gallery-item  cat-1">
-                                        <a href="img/photos/11.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
-                                            <div class="bg-cover"></div>
-                                        </a>
-                                    </div>
-                                    <div class="gallery-item  cat-1">
-                                        <a href="img/photos/12.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://lorempixel.com/400/300/people/" class="img-circle img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="gallery-item  cat-3">
-                                        <a href="img/photos/13.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://lorempixel.com/400/300/nightlife/" class="img-circle img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="gallery-item  cat-2">
-                                        <a href="img/photos/14.jpg" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                            <img alt="example image" src="http://lorempixel.com/400/300/nature/" class="img-circle img-responsive">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            @include ("cosplaydesign.includes.view_lista")
+                            @include ("cosplaydesign.includes.view_griglia",["hide" => "cd_hide", "isotope" => true])
                         </div>
                     </div>
                     <!-- PHOTOS TAB -->
@@ -432,6 +346,7 @@
                     <div id="friends-tab" class="tab-pane">
                         <div class="pd-20">
                             <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-users profile-icon"></i> Amici</h3>
+                            <div class="element__underdev">In arrivo prossimamente</div>
                             <ul class="filters nav nav-pills">
                                 <li class="active"><a href="#photos-1" data-filter=".confirmed">Friends</a></li>
                                 <li><a href="#photos-2"  data-filter=".pending">Pending Request</a></li>
@@ -457,6 +372,7 @@
                     <div id="groups-tab" class="tab-pane">
                         <div class="pd-20">
                             <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-cubes profile-icon"></i> Gruppi</h3>
+                            <div class="element__underdev">In arrivo prossimamente</div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="content-list content-large menu-action-right">
@@ -546,8 +462,7 @@
                             <br>
                             <div class="row">
                                 <div class="isotope js-isotope list-group isotope__list" data-layout="fitRows" style="position:relative;">
-
-                                    @foreach($projects as $project)
+                                @foreach($projects as $project)
                                     @foreach($project->media as $media)
                                         <div class="col-md-4 list-group-item v_{{$project->category->slug}}"><iframe width="100%" height="180" src="{{$media->media_url}}" frameborder="0" allowfullscreen></iframe></div>
                                     @endforeach
