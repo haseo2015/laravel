@@ -1,5 +1,3 @@
-<?php //dump($projects); //exit;?>
-
 <div class="row js-view" data-view="cd_list">
     <ul class="isotope js-isotope list-group isotope__list" data-layout="fitRows" style="position:relative;">
         @foreach($projects as $project)

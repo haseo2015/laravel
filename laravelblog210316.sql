@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2016-03-21 17:13:29
+Date: 2016-03-22 18:45:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -615,7 +615,7 @@ CREATE TABLE `cd_project_gender` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of cd_project_gender
@@ -636,6 +636,7 @@ INSERT INTO cd_project_gender VALUES ('13', '5', '2', '0000-00-00 00:00:00', '00
 INSERT INTO cd_project_gender VALUES ('14', '5', '3', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO cd_project_gender VALUES ('15', '2', '3', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO cd_project_gender VALUES ('16', '3', '3', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_project_gender VALUES ('17', '1', '3', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for `cd_project_media`
@@ -649,7 +650,7 @@ CREATE TABLE `cd_project_media` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of cd_project_media
@@ -658,6 +659,7 @@ INSERT INTO cd_project_media VALUES ('1', '5', 'https://www.youtube.com/embed/zF
 INSERT INTO cd_project_media VALUES ('2', '5', 'https://www.youtube.com/embed/teoV6aLOFQ8', '1', '2016-03-21 16:13:41', '0000-00-00 00:00:00');
 INSERT INTO cd_project_media VALUES ('3', '9', 'https://www.youtube.com/embed/OJ2eUDAupQw', '1', '2016-03-21 17:03:47', '0000-00-00 00:00:00');
 INSERT INTO cd_project_media VALUES ('4', '2', 'https://www.youtube.com/embed/owwBuWvPkVU', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_project_media VALUES ('5', '3', 'https://player.vimeo.com/video/114589580', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for `cd_series`
@@ -730,12 +732,14 @@ CREATE TABLE `cd_user_detail` (
   `avatar` varchar(100) COLLATE utf8_unicode_ci DEFAULT 'no-image.png',
   `bio` text COLLATE utf8_unicode_ci NOT NULL,
   `motto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `interessi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `birthday` date NOT NULL,
   `website` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `facebook` text COLLATE utf8_unicode_ci,
   `twitter` text COLLATE utf8_unicode_ci,
   `google` text COLLATE utf8_unicode_ci,
   `youtube` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `vimeo` text COLLATE utf8_unicode_ci,
   `instagram` text COLLATE utf8_unicode_ci,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -745,5 +749,37 @@ CREATE TABLE `cd_user_detail` (
 -- ----------------------------
 -- Records of cd_user_detail
 -- ----------------------------
-INSERT INTO cd_user_detail VALUES ('1', '1', 'fbma81h01b639x.jpg', 'Ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.', 'Cosplay Power!!', '1981-06-01', 'www.fabiomonti.it', 'HaseoXth', 'haseo2011', 'FabioMonti81', 'FabioMonti81', 'FabioMonti81', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO cd_user_detail VALUES ('2', '2', 'no-image.png', 'Moglie di un grandissimo', 'Cosplay Power! I\'m in!', '1986-11-25', null, 'Sara.Dotti', null, null, 'SaraTattoo86', null, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_detail VALUES ('1', '1', 'fbma81h01b639x.jpg', 'Ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.', 'Cosplay Power!!', 'videogames, web development, cosplay, musica', '1981-06-01', 'www.fabiomonti.it', 'HaseoXth', 'haseo2011', 'FabioMonti81', 'FabioMonti81', 'similaar', 'FabioMonti81', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_detail VALUES ('2', '2', '', 'Moglie di un grandissimo', 'Cosplay Power! I\'m in!', 'cucina, sartoria, svago', '1986-11-25', null, 'Sara.Dotti', null, null, 'SaraTattoo86', null, null, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- ----------------------------
+-- Table structure for `cd_user_relations`
+-- ----------------------------
+DROP TABLE IF EXISTS `cd_user_relations`;
+CREATE TABLE `cd_user_relations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `friend_user_id` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of cd_user_relations
+-- ----------------------------
+INSERT INTO cd_user_relations VALUES ('1', '1', '2', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_relations VALUES ('2', '1', '3', '2', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_relations VALUES ('3', '1', '4', '3', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_relations VALUES ('4', '1', '5', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_relations VALUES ('5', '1', '6', '3', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_relations VALUES ('6', '1', '7', '2', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_relations VALUES ('7', '1', '8', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_relations VALUES ('8', '2', '3', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_relations VALUES ('9', '2', '4', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_relations VALUES ('10', '2', '5', '2', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_relations VALUES ('11', '2', '6', '2', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_relations VALUES ('12', '2', '7', '3', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_relations VALUES ('13', '2', '8', '3', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO cd_user_relations VALUES ('14', '2', '1', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');

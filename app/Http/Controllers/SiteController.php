@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 
+
 class SiteController extends Controller
 {
     /**
@@ -61,7 +62,18 @@ class SiteController extends Controller
         return view('cosplaydesign.pages.lista',compact("projects","currentMC"));
     }
 
-
+    /*
+     * GetListBySeries
+     */
+    public function getListBySeries($slug){
+        $serie = \App\Serie::getSeriesIdBySlug($slug);
+        $projects = \App\Project::getProjectsBySeriesId($serie);
+        $currentMC = collect();
+        $currentMC->name = $serie->serie_name;
+        $currentMC->fonticon = "";
+//dump($serie);
+        return view('cosplaydesign.pages.lista',compact("projects","currentMC"));
+    }
     /*
      * get the full project data
      */
@@ -74,9 +86,6 @@ class SiteController extends Controller
            // dump($fullData);
         return view('cosplaydesign.pages.progetto',array('currentProject'=>$fullData,'related'=>$relatedProjects));
     }
-
-
-
 
 
 

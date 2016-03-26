@@ -3,15 +3,40 @@
 * scss for page member profile & correlated elements
 */
 .profile {}
-.profile__image { margin: 5px auto;}
+.profile__image {
+  margin: 5px auto 10px;
+  width: 250px;
+  height: 250px;
+  @include rounded(100%,100%)
+}
 
 .firends{}
 .friends__element {margin: 3px auto;}
 
 .user__gallery {
   .gallery-item {
+    position:relative;
     a{
-      img{width: 150px; height:150px;padding: 5px;}
+      img{
+        width: 150px;
+        height:150px;
+        padding: 5px;
+        margin: 3px;
+        &.confirmed {border: 2px solid green;}
+        &.pending {border: 2px solid orange;}
+        &.blacklisted {border: 2px solid black;}
+      }
     }
   }
+}
+.user__item_label {
+  display: block;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+  background: rgba(255,255,255,.5);
+  font: bold 17px Arial;
+  color: #000;
+  padding: 5px
 }

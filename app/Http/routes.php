@@ -10,11 +10,39 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+/*------------- AUTORIZZAZIONI ----------------------*/
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+Route::controllers([
+    'password' => 'Auth\PasswordController',
+]);
+
+
+/*******************************************************/
+
+Route::get('github', 'AccountController@github_redirect');
+Route::get('account/github', 'AccountController@github');
+
+Route::get('facebook', 'AccountController@facebook_redirect');
+Route::get('account/facebook', 'AccountController@facebook');
+
+
+//Route::get('/auth/facebook', 'SiteController@redirectToProvider');
+Route::resource('/utenti/registrazione/','UserController@');
+
 Route::resource('/area/{page}/','SiteController@redirectToPage');
 
 Route::resource('/membri/{slug}/','UserController@getMemberData');
 Route::resource('/tipologia/{slug}/','SiteController@getProjectsByType');
-Route::resource('/serie/{slug}/','SiteController@getProjectsBySeries');
 
 Route::resource('/serie/{serie}/','SiteController@getListBySeries'); // dettaglio progetto
 Route::resource('/genere/{gender}/','SiteController@getListByGender'); // dettaglio progetto
@@ -24,9 +52,9 @@ Route::resource('/categoria/tutti/','SiteController@getListByCategory');
 Route::controller('/', 'SiteController');
 
 /* TO DO: social login*/
-Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
-Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
-Route::get('auth/google', 'Auth\AuthController@redirectToProvider');
-Route::get('auth/google/callback', 'Auth\AuthController@handleProviderCallback');
+
+Route::get('/auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
+Route::get('/auth/google', 'Auth\AuthController@redirectToProvider');
+Route::get('/auth/google/callback', 'Auth\AuthController@handleProviderCallback');
 //Route::controller('/blog', FrontendController');
 

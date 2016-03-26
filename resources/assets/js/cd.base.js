@@ -451,3 +451,24 @@ $.Listen = function( id ) {
     }
     return topic;
 };
+
+
+$("[data-toggle=modal]").click(function(){
+    var modalTemplate = $("#modalTemplateBase").html(),
+        relatedContent = $($(this).data("content")).html(),
+        modalContent = ".modal-body",
+        modalType = $(this).data("modal-type"),
+        modalTitle = $($(this).data("content")).data("modal-title");
+    if (!$(".modal").length)
+        $('body').append(modalTemplate);
+
+    $('body').find(modalContent).empty().append(relatedContent);
+    $('body').find(".modal-title").html(modalTitle);
+    if (modalType == "close"){
+        $('body').find(".modal .btnConfirm").hide();
+    }
+
+    $(".modal").modal({
+
+    })
+})

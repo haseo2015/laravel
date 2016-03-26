@@ -34,17 +34,28 @@ return [
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
-
+    // valido per l'altro servizio
     'facebook' => [
         'client_id' => '1542777405946107',
         'client_secret' => '1fa1d51ae2156a88265318cfd446717a',
         'redirect' => 'http://localhost:8000/',
     ],
+    /*'facebook' => [
+        'client_id'     => '1542777405946107',
+        'client_secret' => '1fa1d51ae2156a88265318cfd446717a',
+        'scope'         => [],
+    ],*/
 
     'google' => [
             'client_id' => '838149181428-sk867c84cofn8uoqe59p20m90hk44pgg.apps.googleusercontent.com',
             'client_secret' => 'R4ztt7OuK5OZ3WkbPEdMBwsO',
             'redirect' => 'http://localhost:8000/',
         ],
+
+    'github' => [
+        'client_id' => '721452bf121585ef63aa',
+        'client_secret' => '135c37a6f3e4a8ac79deef9355d41234f3a59d7a',
+        'redirect' => 'http://localhost:8000/account/github',
+    ],
 
 ];

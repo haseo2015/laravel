@@ -114,7 +114,20 @@ class Project extends Model
             $projectsComplete->push($progetto);
         }
         return $projectsComplete;
+    }
 
+    public static function getProjectsBySeriesId($serie){
+        $baseProjects =  \App\Project::where("serie_id","=",$serie->id)
+            ->where('published_at', '<=', 'NOW()')
+            ->where('is_published', '=', true)
+            ->orderBy('name')
+            ->paginate(10);
+        $projectsComplete = collect();
+        foreach($baseProjects as $project){
+            $progetto = \App\Project::getFullProjectData($project->id);
+            $projectsComplete->push($progetto);
+        }
+        return $projectsComplete;
     }
 
     public static function getRelatedProjects($currentProject){

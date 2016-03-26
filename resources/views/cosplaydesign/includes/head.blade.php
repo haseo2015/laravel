@@ -8,5 +8,6 @@
      <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
 
  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 
 

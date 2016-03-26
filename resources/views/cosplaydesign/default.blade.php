@@ -36,16 +36,16 @@
                             <li><a href="/categoria/costumi"><i class="fa fa-qq"></i> Costumi</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="/area/contatti">Contatti</a>
-                    </li>
+                    <li><a href="/area/contatti">Contatti</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#">Accedi</a>
+                        <a href="#" data-toggle="modal" data-content="#socials" data-modal-type="close">Accedi</a>
                     </li>
-
+                    <li><a href="{!!URL::to('github')!!}"><i class="fa fa-github"></i></a></li>
+                    <li><a href="{!!URL::to('facebook')!!}"><i class="fa fa-facebook"></i></a></li>
                 </ul>
+
 
             </div>
             <!-- /.navbar-collapse -->
@@ -88,6 +88,7 @@
             </div>
         </div>
     </footer>
+    @include('cosplaydesign.includes.popup')
     <script src="{{ elixir('js/app.js') }}"></script>
     </body>
 

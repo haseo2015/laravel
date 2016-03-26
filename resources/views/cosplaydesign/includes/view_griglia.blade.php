@@ -27,7 +27,7 @@
                                         <!-- <li><small>Difficoltà:</small><br><input type="hidden" class="rate" data-fractions="2" value="2" disabled="disabled" /></li> -->
                                         <li><label for="autore">Autore:</label> <a href="/membri/{{$project->owner->slug_username}}" title="scehda autore" class="list__author">{{$project->owner->username}}</a></li>
                                         <li><label for="categoria">Categoria:</label> <a href="/categoria/{{$project->category->slug}}"><span class="label label-{{$project->category->category_color}}">{{$project->category->name}}</span></a></li>
-                                        <li><label for="serie">Serie:</label> <a href="/serie/"><span class="label label-default">.Hack G.U</span></a></li>
+                                        <li><label for="serie">Serie:</label> <a href="/serie/{{$project->serie->serie_slug}}/"><span class="label label-info">{{$project->serie->serie_name}}</span></a></li>
                                         <li><label for="genere">Genere:</label>
                                             @foreach($project->gender as $gender)
                                                 <a href="/genere/{{$gender->slug}}"><span class="label label-default">{{$gender->gender}}</span></a>

@@ -83,6 +83,7 @@ class Setup extends Migration
             $table->string('material_name',60);
             $table->string('slug')->index();
             $table->integer('count');
+            $table->integer('punteggio');
             $table->boolean('is_published');
             $table->dateTime('published_at');
             $table->timestamps();
@@ -156,7 +157,7 @@ class Setup extends Migration
             $table->string('serie_name')->index();
             $table->string('serie_slug');
             $table->timestamps();
-        });*/
+        });
         // pivot projects descriptions
         Schema::create('project_document', function(Blueprint $table)
         {
@@ -173,6 +174,15 @@ class Setup extends Migration
             $table->integer('project_id')->unsigned();
             $table->string('media_url');
             $table->integer('active');
+            $table->timestamps();
+        });*/
+
+        Schema::create('user_relations', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('friend_user_id');
+            $table->integer('status');
             $table->timestamps();
         });
 
@@ -201,6 +211,6 @@ class Setup extends Migration
         Schema::drop('series');
         Schema::drop('project_document');
         Schema::drop('project_media');
-
+        Schema::drop('user_relations');
     }
 }

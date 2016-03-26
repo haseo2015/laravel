@@ -26,7 +26,38 @@ basati sui colori di google material design A700
   width: 100px;
   height: 100px; }
 
-/*SOCIALS*/
+/*SOCIAL BUTTONS */
+div.social-wrap button {
+  padding-right: 15px;
+  height: 35px;
+  background: none;
+  border: none;
+  display: block;
+  border-radius: 4px;
+  color: white;
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 14px;
+  margin-bottom: 15px;
+  width: 205px;
+  border-bottom: 2px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transprent;
+  box-shadow: 0 4px 2px -2px gray;
+  text-shadow: rgba(0, 0, 0, 0.5) -1px -1px 0; }
+  div.social-wrap button .fa {
+    margin-right: 10px; }
+  div.social-wrap button.facebook {
+    background-color: #3b5998; }
+  div.social-wrap button.googleplus {
+    background-color: #d50f25; }
+  div.social-wrap button.twitter {
+    background-color: #55acee; }
+  div.social-wrap button.cosplaydesing {
+    background-color: #336699; }
+    div.social-wrap button.cosplaydesing i {
+      font-weight: bold;
+      margin-right: 10px; }
+
 .facebook {
   color: #3b5998; }
 
@@ -80,7 +111,12 @@ basati sui colori di google material design A700
 .list__element {
   width: 100%;
   clear: both;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  transition: all 0.2s ease-in-out; }
+  .list__element:hover {
+    border: 1px solid dodgerblue;
+    box-shadow: 1px 1px 10px dodgerblue;
+    transition: all 0.2s ease-in-out; }
 
 .element__container {
   margin-bottom: 0; }
@@ -136,6 +172,12 @@ basati sui colori di google material design A700
   .widget h2 {
     margin: 0 0 5px; }
 
+/* NO RESULTS */
+.no_results {
+  text-align: center; }
+  .no_results h4 {
+    color: #c8c8c8; }
+
 /*
 Cosplay design sliders scss
 
@@ -188,17 +230,22 @@ a, a:hover, a:focus {
     overflow: hidden;
     border-radius: 100%; }
 
+.halfHeight {
+  margin-top: 15%; }
+
 .maincontent {
   padding-top: 0px; }
 
 .navbar .navbar-brand {
   font-size: 34px;
-  transition: 0.1s ease-in-out; }
+  transition: 0.1s ease-in-out;
+  font-style: italic; }
 
 .navbar.top-nav-collapse {
   box-shadow: 1px 1px 30px #c8c8c8; }
   .navbar.top-nav-collapse .navbar-brand {
     font-size: 20px;
+    font-style: italic;
     transition: 0.1s ease-in-out; }
 
 .dropdown-login {
@@ -544,14 +591,39 @@ a, a:hover, a:focus {
 * scss for page member profile & correlated elements
 */
 .profile__image {
-  margin: 5px auto; }
+  margin: 5px auto 10px;
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%; }
 
 .friends__element {
   margin: 3px auto; }
 
-.user__gallery .gallery-item a img {
-  width: 150px;
-  height: 150px;
+.user__gallery .gallery-item {
+  position: relative; }
+  .user__gallery .gallery-item a img {
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+    margin: 3px; }
+    .user__gallery .gallery-item a img.confirmed {
+      border: 2px solid green; }
+    .user__gallery .gallery-item a img.pending {
+      border: 2px solid orange; }
+    .user__gallery .gallery-item a img.blacklisted {
+      border: 2px solid black; }
+
+.user__item_label {
+  display: block;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+  background: rgba(255, 255, 255, 0.5);
+  font: bold 17px Arial;
+  color: #000;
   padding: 5px; }
 
 /*# sourceMappingURL=app.css.map */

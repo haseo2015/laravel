@@ -50,7 +50,6 @@ class User extends Model
         return $this->hasMany('App\Project', 'user_id');
     }
 
-
     public static function getUserDataBySlug($slug){
         return \App\User::where('slug_username','=',$slug)->first();
     }
@@ -59,11 +58,28 @@ class User extends Model
         return \App\User::find($userId)->details;
     }
 
+    public static function getAllUserDataById($userId){
+        //echo $userId . "| ";
+
+        $dati = \App\User::where('id','=',$userId)->first();
+        $dati['details'] = $dati->details;
+        if ($dati['details'] !== null){
+            $dati['details']->birthday = Carbon::parse($dati['details']->birthday)->format('d/m/Y');
+            $dati['details']->avatar = !empty($dati['details']->avatar) ? "/profiles/".$dati['details']->avatar : 'http://www.placehold.it/150/';
+        } else {
+            $dati['details']= collect();
+            $dati['details']->avatar = 'http://www.placehold.it/150/';
+        }
+
+//dump($dati);
+         return $dati;
+    }
+
     public static function getAllUserDataBySlug($slug){
         $dati = \App\User::where('slug_username','=',$slug)->first();
         $dati['details'] = $dati->details;
         $dati['details']->birthday = Carbon::parse($dati['details']->birthday)->format('d/m/Y');
-        $dati['details']->avatar = "/profiles/".$dati['details']->avatar;
+        $dati['details']->avatar = !empty($dati['details']->avatar) ? "/profiles/".$dati['details']->avatar : 'http://www.placehold.it/150/';
         //dump($dati);
         return $dati;
     }

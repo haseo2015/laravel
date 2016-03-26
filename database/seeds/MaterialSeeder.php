@@ -29,6 +29,7 @@ class MaterialSeeder extends Seeder
                 'material_name' => $name,
                 'slug' => $slug,
                 'count' => $faker->randomDigitNotNull,
+                'punteggio' => 10,
                 'is_published' => 1,
                 'published_at' => $faker->dateTimeThisYear($max = 'now')
             ]);

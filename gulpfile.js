@@ -42,6 +42,7 @@ elixir(function(mix) {
         "vendor/jquery.lazyload.min.js",
         "vendor/jquery.fancybox.pack.js",
         "vendor/bootstrap-rating.min.js",
+        "vendor/handlebars-v4.0.5.js",
         "components/isotope/isotope.pkgd.min.js",
         "components/slickslider/slick/slick.min.js",
         "cd.core.js",

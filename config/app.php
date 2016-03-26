@@ -141,7 +141,8 @@ return [
         Lavary\Menu\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-
+        Jenssegers\OAuth\OAuthServiceProvider::class,
+        Kozz\Laravel\Providers\Guzzle::class,
 
         /*
          * Application Service Providers...
@@ -203,6 +204,8 @@ return [
         'Slug'      => Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
         'Lavary'    => Lavary\Menu\Facade::class,
         'Socialize' => Laravel\Socialite\Facades\Socialite::class,
+        'OAuth'     => Jenssegers\OAuth\Facades\OAuth::class,
+        'Guzzle'    => Kozz\Laravel\Facades\Guzzle::class
 
     ],
 

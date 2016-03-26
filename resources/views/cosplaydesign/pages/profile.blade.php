@@ -16,14 +16,14 @@
     </div>
     <div class="container">
     <div clas="row profile">
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <!-- USER PROFILE -->
             <div class="panel widget light-widget panel-bd-top">
                 <div class="panel-heading no-title"> </div>
                 <div class="panel-body">
-                    <div class="text-center"> <img alt="" class="profile__image img-responsive img-circle" src="{{$userdata->details->avatar}}"> </div>
+                    <div class="text-center"> <img alt="{{$userdata->username}}" class="profile__image img-responsive img-circle" src="{{$userdata->details->avatar}}"> </div>
                     <div class="row">
-                        <div class="col-xs-12"> <a class="btn vd_btn vd_bg-green btn-xs btn-block no-br"><i class="fa fa-check-circle append-icon"></i>Friends</a> </div>
+                        <div class="col-xs-12"> <a class="btn vd_btn vd_bg-green btn-xs btn-block no-br"><i class="fa fa-check-circle append-icon"></i> Richiedi amicizia</a> </div>
                     </div>
                     <h2 class="font-semibold mgbt-xs-5 profile__name">{{$userdata->username}}</h2>
                     <h4 class="profile__sub"><cite>{{$userdata->details->motto}}</cite></h4>
@@ -46,16 +46,16 @@
             </div>
         </div>
 
-        <div class="col-sm-9">
+        <div class="col-sm-8">
             <!-- SUBNAVIGATION TABS -->
             <div class="tabs widget">
                 <ul class="nav nav-tabs widget js-tabs">
                     <li class="active"> <a data-toggle="tab"  href="#profile-tab"><i class="fa fa-user"></i> Profilo <span class="menu-active"></span> </a></li>
                     <li> <a data-toggle="tab" href="#projects-tab"> <i class="fa fa-edit"></i> Progetti <span class="menu-active"></span> </a></li>
-                    <li> <a data-toggle="tab" href="#photos-tab"> <i class="fa fa-picture-o"></i> Galleria <span class="menu-active"></span> </a></li>
+                    <!-- <li> <a data-toggle="tab" href="#photos-tab"> <i class="fa fa-picture-o"></i> Galleria <span class="menu-active"></span> </a></li> -->
                     <li> <a data-toggle="tab" href="#media-tab"><i class="fa fa-film"></i> Media <span class="menu-active"></span> </a></li>
                     <li> <a data-toggle="tab" href="#friends-tab"><i class="fa fa-group"></i> Amici <span class="menu-active"></span> </a></li>
-                    <li> <a data-toggle="tab" href="#groups-tab"><i class="fa fa-cubes"></i> Gruppi <span class="menu-active"></span> </a></li>
+                   <!-- <li> <a data-toggle="tab" href="#groups-tab"><i class="fa fa-cubes"></i> Gruppi <span class="menu-active"></span> </a></li> -->
                 </ul>
                 <div class="tab-content">
                     <!-- PROFILE TAB -->
@@ -103,7 +103,7 @@
                                 <div class="col-sm-6">
                                     <div class="row mgbt-xs-0">
                                         <label class="col-xs-5 control-label">Interessi:</label>
-                                        <div class="col-xs-7 controls">(to do)</div>
+                                        <div class="col-xs-7 controls">{{$userdata->details->interessi}}</div>
                                         <!-- col-sm-10 -->
                                     </div>
                                 </div>
@@ -234,22 +234,29 @@
                             <div class="btn-group btn-group-sm pull-right" role="group">
                                 <button type="button" class="btn btn-default active js-switch-view" data-view="cd_list" title="List view"><i class="fa fa-list"></i></button>
                                 <button type="button" class="btn btn-default js-switch-view" data-view="cd_grid" title="Grid view"><i class="fa fa-th"></i></button>
-                            </div>
-                            <ul class="filters nav nav-pills">
-                                <li class="active"><a href="#photos-1" data-filter="*">Tutti</a></li>
-                                <li><a href="#" data-filter=".armi">Armi</a></li>
-                                <li><a href="#" data-filter=".accessori">Accessori</a></li>
-                                <li><a href="#" data-filter=".costumi">Costumi</a></li>
-                            </ul>
-                            <br>
-                            @include ("cosplaydesign.includes.view_lista")
-                            @include ("cosplaydesign.includes.view_griglia",["hide" => "cd_hide", "isotope" => true])
+                            </div><br>
+                            @if (count($projects)>0)
+                                <ul class="filters nav nav-pills">
+                                    <li class="active"><a href="#photos-1" data-filter="*">Tutti</a></li>
+                                    <li><a href="#" data-filter=".armi">Armi</a></li>
+                                    <li><a href="#" data-filter=".accessori">Accessori</a></li>
+                                    <li><a href="#" data-filter=".costumi">Costumi</a></li>
+                                </ul>
+                                <br>
+                                @include ("cosplaydesign.includes.view_lista")
+                                @include ("cosplaydesign.includes.view_griglia",["hide" => "cd_hide", "isotope" => true])
+                            @else
+                                <div class="no_results">
+                                    <h4>Nessun progetto disponibile</h4>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <!-- PHOTOS TAB -->
                     <div id="photos-tab" class="tab-pane">
                         <div class="pd-20">
                             <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-picture-o mgr-10 profile-icon"></i> Gallleria</h3>
+                            <div class="element__underdev">In arrivo prossimamente</div>
                             <ul id="" class="filters nav nav-pills">
                                 <li class="active"><a href="#photos-1" data-filter="*">All</a></li>
                                 <li><a href="#photos-2" data-filter=".filter-1">Photos of You</a></li>
@@ -340,38 +347,42 @@
                             </div>
                             <div class="clearfix"></div>
                         </div>
-                        <!-- pd-20 -->
                     </div>
                     <!-- FRIENDS TAB -->
                     <div id="friends-tab" class="tab-pane">
                         <div class="pd-20">
-                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-users profile-icon"></i> Amici</h3>
-                            <div class="element__underdev">In arrivo prossimamente</div>
+                            <h3><i class="fa fa-users profile-icon"></i> Amici</h3><br>
+                            @if(count($friends) > 0)
                             <ul class="filters nav nav-pills">
-                                <li class="active"><a href="#photos-1" data-filter=".confirmed">Friends</a></li>
-                                <li><a href="#photos-2"  data-filter=".pending">Pending Request</a></li>
-                                <li><a href="#photos-3" data-filter=".blacklisted">Blacklisted</a></li>
+                                <li class="active"><a href="#photos-1" data-filter="*">Tutti</a></li>
+                                <li><a href="#photos-1" data-filter=".confirmed">Confermati</a></li>
+                                <li><a href="#photos-2"  data-filter=".pending">In attesa</a></li>
+                                <li><a href="#photos-3" data-filter=".blacklisted">Blacklist</a></li>
                             </ul>
-                            <div class="content-grid column-xs-3 column-sm-4 column-md-4 column-lg-6 height-xs-4 mgbt-xs-20">
-                                <div>
-                                    <div class="isotope js-isotope user__gallery" data-layout="masonry" style="position:relative;">
-                                        <?php $type = array(array("confirmed","cc3366"),array("pending","fac321"),array("blacklisted","cccccc")); ?>
-                                        @for($i=1;$i<=20;$i++)
-                                        <div class="gallery-item <?php echo $type[mt_rand(0,count($type)-1)][0]; ?>">
-                                            <a href="/membri/#" data-rel="prettyPhoto[2]" rel="prettyPhoto[2]">
-                                                <img alt="example image" src="http://www.placehold.it/150/<?php echo $type[mt_rand(0,count($type)-1)][1]; ?>" class="img-circle img-responsive">
-                                            </a>
-                                        </div>
-                                        @endfor
+                            <br>
+                                <div class="content-grid">
+                                    <div class="isotope js-isotope user__gallery" data-layout="masonry">
+                                        @foreach($friends as $myfriend)
+                                            <div class="gallery-item user__item {{$myfriend->friendStatus}}">
+                                                <a href="/membri/{{$myfriend->slug_username}}">
+                                                    <img alt="{{$myfriend->username}}" src="{{$myfriend->details->avatar}}" class="img-circle img-responsive {{$myfriend->friendStatus}}">
+                                                    <div class="user__item_label">{{$myfriend->username}}</div>
+                                                </a>
+                                            </div>
+                                        @endforeach
                                     </div>
                                 </div>
-                            </div>
-                        </div><!-- pd-20 -->
+                            @else
+                                <div class="no_results">
+                                    <h4>Nessun amico disponibile</h4>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                     <!-- GROUPS TAB -->
                     <div id="groups-tab" class="tab-pane">
                         <div class="pd-20">
-                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-cubes profile-icon"></i> Gruppi</h3>
+                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-cubes profile-icon"></i> Gruppi</h3><br>
                             <div class="element__underdev">In arrivo prossimamente</div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6">
@@ -393,9 +404,9 @@
                                                     </div>
                                                 </div>
                                             </li>
-                                        </ul> <!-- list-wrapper -->
-                                    </div> <!-- content-list -->
-                                </div> <!-- col-xs-12 col-sm-6 -->
+                                        </ul>
+                                    </div>
+                                </div>
 
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="content-list content-large menu-action-right">
@@ -416,9 +427,9 @@
                                                     </div>
                                                 </div>
                                             </li>
-                                        </ul> <!-- list-wrapper -->
-                                    </div> <!-- content-list -->
-                                </div> <!-- col-xs-12 col-sm-6 -->
+                                        </ul>
+                                    </div>
+                                </div>
 
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="content-list content-large menu-action-right">
@@ -452,24 +463,30 @@
                     <!-- MEDIA TAB -->
                     <div id="media-tab" class="tab-pane">
                         <div class="pd-20">
-                            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="fa fa-film profile-icon"></i> Media</h3>
-                            <ul class="filters nav nav-pills">
-                                <li class="active"><a href="#photos-1" data-filter="*">Tutti</a></li>
-                                <li><a href="#" data-filter=".v_armi">Armi</a></li>
-                                <li><a href="#" data-filter=".v_accessori">Accessori</a></li>
-                                <li><a href="#" data-filter=".v_costumi">Costumi</a></li>
-                            </ul>
-                            <br>
-                            <div class="row">
-                                <div class="isotope js-isotope list-group isotope__list" data-layout="fitRows" style="position:relative;">
-                                @foreach($projects as $project)
-                                    @foreach($project->media as $media)
-                                        <div class="col-md-4 list-group-item v_{{$project->category->slug}}"><iframe width="100%" height="180" src="{{$media->media_url}}" frameborder="0" allowfullscreen></iframe></div>
+                            <h3><i class="fa fa-film profile-icon"></i> Media</h3><br>
+                            @if(count($projects)>0)
+                                <ul class="filters nav nav-pills">
+                                    <li class="active"><a href="#photos-1" data-filter="*">Tutti</a></li>
+                                    <li><a href="#" data-filter=".v_armi">Armi</a></li>
+                                    <li><a href="#" data-filter=".v_accessori">Accessori</a></li>
+                                    <li><a href="#" data-filter=".v_costumi">Costumi</a></li>
+                                </ul>
+                                <br>
+                                <div class="row">
+                                    <div class="isotope js-isotope list-group isotope__list" data-layout="fitRows" style="position:relative;">
+                                    @foreach($projects as $project)
+                                        @foreach($project->media as $media)
+                                            <div class="col-md-4 list-group-item v_{{$project->category->slug}}"><iframe width="100%" height="180" src="{{$media->media_url}}" frameborder="0" allowfullscreen></iframe></div>
+                                        @endforeach
                                     @endforeach
-                                @endforeach
+                                    </div>
                                 </div>
-                            </div>
-                        </div> <!-- pd-20 -->
+                            @else
+                                <div class="no_results">
+                                    <h4>Nessun media disponibile</h4>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
                 <!-- tab-content -->
