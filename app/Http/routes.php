@@ -10,7 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+/*------------- PARTI PRIVATE ----------------------*/
+Route::controller('private','PrivateController');
 /*------------- AUTORIZZAZIONI ----------------------*/
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -27,8 +28,7 @@ Route::controllers([
 ]);
 
 
-/*******************************************************/
-
+/*------------- SOCIAL LOGIN ----------------------*/
 Route::get('github', 'AccountController@github_redirect');
 Route::get('account/github', 'AccountController@github');
 
@@ -36,9 +36,7 @@ Route::get('facebook', 'AccountController@facebook_redirect');
 Route::get('account/facebook', 'AccountController@facebook');
 
 
-//Route::get('/auth/facebook', 'SiteController@redirectToProvider');
-Route::resource('/utenti/registrazione/','UserController@');
-
+/*------------- PARTI PUBBLICHE ----------------------*/
 Route::resource('/area/{page}/','SiteController@redirectToPage');
 
 Route::resource('/membri/{slug}/','UserController@getMemberData');
