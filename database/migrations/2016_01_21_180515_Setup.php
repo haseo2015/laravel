@@ -175,7 +175,7 @@ class Setup extends Migration
             $table->string('media_url');
             $table->integer('active');
             $table->timestamps();
-        });*/
+        });
 
         Schema::create('user_relations', function(Blueprint $table)
         {
@@ -183,6 +183,25 @@ class Setup extends Migration
             $table->integer('user_id');
             $table->integer('friend_user_id');
             $table->integer('status');
+            $table->timestamps();
+        });
+     */
+        Schema::create('groups', function(Blueprint $table)
+        {
+            $table->increments('group_id');
+            $table->string('group_name');
+            $table->string('group_slug')->index();
+            $table->string('group_avatar');
+            $table->integer('group_owner');
+            $table->integer('active');
+            $table->timestamps();
+        });
+
+        Schema::create('user_group', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->string('group_id');
+            $table->string('user_id');
             $table->timestamps();
         });
 
@@ -212,5 +231,7 @@ class Setup extends Migration
         Schema::drop('project_document');
         Schema::drop('project_media');
         Schema::drop('user_relations');
+        Schema::drop('groups');
+        Schema::drop('user_group');
     }
 }

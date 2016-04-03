@@ -53,7 +53,7 @@
                     <li class="active"> <a data-toggle="tab"  href="#profile-tab"><i class="fa fa-user"></i> Profilo <span class="menu-active"></span> </a></li>
                     <li> <a data-toggle="tab" href="#projects-tab"> <i class="fa fa-edit"></i> Progetti <span class="menu-active"></span> </a></li>
                     <!-- <li> <a data-toggle="tab" href="#photos-tab"> <i class="fa fa-picture-o"></i> Galleria <span class="menu-active"></span> </a></li> -->
-                    <li> <a data-toggle="tab" href="#media-tab"><i class="fa fa-film"></i> Media <span class="menu-active"></span> </a></li>
+                    <li> <a data-toggle="tab" href="#media-tab"><i class="fa fa-youtube-play"></i> Media <span class="menu-active"></span> </a></li>
                     <li> <a data-toggle="tab" href="#friends-tab"><i class="fa fa-group"></i> Amici <span class="menu-active"></span> </a></li>
                    <!-- <li> <a data-toggle="tab" href="#groups-tab"><i class="fa fa-cubes"></i> Gruppi <span class="menu-active"></span> </a></li> -->
                 </ul>

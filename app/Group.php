@@ -4,12 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Media extends Model
+class Group extends Model
 {
     //
-    protected $table = "project_media";
-
-
-
-
 }

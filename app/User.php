@@ -58,6 +58,10 @@ class User extends Model
         return \App\User::find($userId)->details;
     }
 
+    public function media(){
+        return $this->hasManyThrough('App\Media','App\Project','user_id','project_id');
+    }
+
     public static function getAllUserDataById($userId){
         //echo $userId . "| ";
 
@@ -83,6 +87,12 @@ class User extends Model
         //dump($dati);
         return $dati;
     }
+
+    public static function getMediaByUser($userId){
+        return \App\User::find($userId)->media;
+    }
+
+
 
     //###################################################
     // USER -> PROJECTS

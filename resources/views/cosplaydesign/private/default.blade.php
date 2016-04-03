@@ -2,6 +2,7 @@
 <head>
     @include ('cosplaydesign.includes.head')
     {!! HTML::style("css/sb-admin-2.css") !!}
+    {!! HTML::style("css/admin.css") !!}
 </head>
 <body id="page-top">
 <!-- Navigation -->
@@ -41,7 +42,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="/progetti/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="http://placehold.it/30x30?text=FM" class="img-circle"> Utente <span class="caret"></span></a>
+                    <a href="/progetti/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{!! $userdata->details->avatar !!}" class="img-circle navbar__avatar"> {!! $userdata->username !!} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/categoria/accessori"><i class="fa fa-user"></i> Il mio profilo</a></li>
                         <li role="separator" class="divider"></li>

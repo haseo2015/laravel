@@ -44,6 +44,9 @@ class Project extends Model
         return $this->hasMany('\App\Media','project_id');
     }
 
+
+
+
     //################################################
     // STATIC FUNCTIONS
 
@@ -97,14 +100,39 @@ class Project extends Model
             ->where('is_published', '=', true);
     }
 
-    public static function getProjectsByCateogory($cat){
-        return \App\Project::where('macro_category_id', '=', $cat)
+    public static function getProjectsByCateogory($cat,$userid=null){
+        if ($userid != null):
+            $projects = \App\Project::where('macro_category_id', '=', $cat)
             ->where('published_at', '<=', 'NOW()')
             ->where('is_published', '=', true)
+            ->where('user_id','=',$userid)
             ->orderBy('name')
-            ->paginate(10);
+            ->get();
+        else:
+            $projects = \App\Project::where('macro_category_id', '=', $cat)
+                ->where('published_at', '<=', 'NOW()')
+                ->where('is_published', '=', true)
+                ->orderBy('name')
+                ->get();
+        endif;
+//dump($projects);
+        return $projects;
     }
 
+    public static function getProjectbyUserIdAndStatus($userID,$status){
+        $baseProjects =  \App\Project::where("user_id","=",$userID)
+            ->where('published_at', '<=', 'NOW()')
+            ->where('is_published', '=', true)
+            ->where('state','=',$status)
+            ->orderBy('name')
+            ->paginate(5);
+        $progetti = collect();
+        foreach($baseProjects as $project):
+            $project->knobColor = \App\Project::percent2Color($project->progress);
+            $progetti->push($project);
+        endforeach;
+         return $progetti;
+    }
 
     public static function getProjectsByGender($gender){
         $baseProjects =  \App\Gender::getProjectsByGender($gender);
@@ -171,31 +199,7 @@ class Project extends Model
         //dump($steps);
         return $steps;
     }
-    /*
-     * Set KnobColor:
-     *
-     */
-    public static function setKnobColor($progress=1) {
-        $color = '';
-        switch($progress){
-            case ($progress <= 25):
-                $color = "#DD2C00";
-                break;
-            case ($progress > 25 && $progress <= 50):
-                $color = "#FF6D00";
-                break;
-            case ($progress > 50 && $progress <= 75):
-                $color = "#FF6D00";
-                break;
-            case ($progress > 75 && $progress <= 90):
-                $color = "#AEEA00";
-                break;
-            case ($progress > 90 && $progress <= 100):
-                $color = "#64DD17";
-                break;
-        }
-        return $color;
-    }
+
 
     public static function percent2Color($value,$brightness = 255, $max = 100,$min = 0, $thirdColorHex = '00')
     {

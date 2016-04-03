@@ -1,0 +1,26 @@
+/*CSS - PARTE PRIVATA */
+.relative {
+    position: relative;
+}
+
+.img-circle.navbar__avatar {
+    max-width:30px;}
+
+.overlink {
+    text-align: center;
+    background: #000000;
+    display: none;
+    position: absolute;
+    padding-top:25%;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+   
+}
+
+.panel:hover .overlink {
+    display: block;
+    opacity: .75;
+    color: #fff;
+
+}

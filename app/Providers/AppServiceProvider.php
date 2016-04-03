@@ -24,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('categories', \App\MacroCategory::all());
         });
 
+        view()->composer('cosplaydesign.private.default.layout', function($view){
+            $view->with('userdata', \App\User::getAllUserDataBySlug('haseo-xth'));
+        });
+
     }
 
     /**
