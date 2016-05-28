@@ -14,4 +14,9 @@ class Description extends Model
         return $this->belongsToMany('App\Gallery','description_gallery','description_id');
     }
 
+    public function materials(){
+        return $this->belongsToMany('App\Material','material_description','description_id');
+    }
+
+
 }

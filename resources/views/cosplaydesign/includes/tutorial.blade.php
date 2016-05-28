@@ -33,16 +33,19 @@
             @endif
         </div>
         <div class="col-md-8 tutorial__content">
+            {!! dump( $currentProject->steps[0]) !!}
             <ol class="tutorial__stepper">
-                @foreach($currentProject->steps as $index => $step)
-                    <li>
-                        <a href="#{{$index}}"></a>
-                        <h3 class="page-header">{!! $step->step_title !!}</h3>
-                        <p>{!! $step->body !!}</p>
-                        @include ("cosplaydesign.includes.tutorial_images_gallery",['dir' => $currentProject->directory,'images' => $step->images])
-                    </li>
-                @endforeach
+                @include ("cosplaydesign.includes.single_step",['currentStep' => $currentProject->steps[0]])
             </ol>
+
+            @if(count($currentProject->steps)>1)
+            <div class="tutorial__navigation">
+
+                <button class="btn btn-primary btn-prevStep">Indietro</button>
+
+                <button class="btn btn-primary btn-nextStep pull-right">Avanti</button>
+            </div>
+            @endif
         </div>
     </div>
 </div>

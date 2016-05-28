@@ -52,6 +52,7 @@ elixir(function(mix) {
         "cd.homepage.js",
         "cd.lista.js",
         "cd.profile.js",
+        "cd.project.js",
 
     ],'public/js/app.js');
 

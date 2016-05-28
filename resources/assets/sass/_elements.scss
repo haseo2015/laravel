@@ -164,3 +164,11 @@ div.social-wrap button {
   h4 {color: $grigio_griglia;}
 }
 
+
+/*GENERIC LISTS*/
+ul,ol {
+    &.inline-list{
+      li {display: inline;}
+    }
+}
+

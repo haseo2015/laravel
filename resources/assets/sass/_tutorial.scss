@@ -13,6 +13,7 @@
     }
   }
 }
+
 &__content { border-left: 4px double $grigio_griglia;}
 &__stepper {
   padding:0;
@@ -23,8 +24,18 @@
     margin-bottom: 4rem;
     h3 {font-size:2rem;margin-top: 0;}
     p {font-size:1.5rem;line-height: 2.5rem;}
+    }
   }
 }
+.materials_list {
+  padding: 0;
+  font-size: 1.5rem;
+  li {
+    &:after {content: ", ";}
+    &:last-child {
+      &:after {content: "";}
+    }
+  }
 }
 
 .gallery__container {

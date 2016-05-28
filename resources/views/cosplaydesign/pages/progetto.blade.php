@@ -32,12 +32,6 @@
             <ul>
                 <li>Tempo di realizzazione: <strong>{!! $currentProject->timing_completion !!} giorni</strong></li>
                 <li>Costo totale di realizzazione: <strong>{!! $currentProject->approximate_cost !!} &euro;</strong></li>
-                <li>Materiali utilizzati:<br>
-                    <div class="materials">
-                        @foreach($currentProject->materials as $mat)
-                            <span class="tiny hollow button">{!! $mat->material_name !!}</span>
-                        @endforeach
-                    </div></li>
                 <li class="sr-only">Progresso:</li>
             </ul>
         </div>

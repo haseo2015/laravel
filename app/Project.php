@@ -70,9 +70,9 @@ class Project extends Model
         return \App\Project::find($projID)->genders;
     }
 
-    public static function getProjectMaterials($projID){
+    /* public static function getProjectMaterials($projID){
         return \App\Project::find($projID)->materials;
-    }
+    }*/
 
     public static function getProjectSerie($projID){
        return \App\Project::find($projID)->series;
@@ -195,6 +195,8 @@ class Project extends Model
        foreach($steps as $step){
            $images = \App\Description::find($step->id)->images;
            $step->images = $images;
+           $materials = \App\Description::find($step->id)->materials;
+           $step->materials = $materials;
        }
         //dump($steps);
         return $steps;
@@ -231,7 +233,7 @@ class Project extends Model
         $owner = \App\Project::getProjectAuthor($currentProject->id);
         $tags = \App\Project::getProjectTags($currentProject->meta_keys);
         $gender = \App\Project::getProjectGenders($currentProject->id);
-        $materials = \App\Project::getProjectMaterials($currentProject->id);
+        //$materials = \App\Project::getProjectMaterials($currentProject->id);
         $knobColor = \App\Project::percent2Color($currentProject->progress);
         $steps = \App\Project::getTutorialStepByProjectId($currentProject->id);
         $serie = \App\Project::getProjectSerie($currentProject->id);
@@ -247,7 +249,7 @@ class Project extends Model
         $currentProject->tags = $tags;
         $currentProject->owner = $owner;
         $currentProject->gender = $gender;
-        $currentProject->materials = $materials;
+        //$currentProject->materials = $materials;
         $currentProject->steps = $steps;
         $currentProject->media = $media;
         $currentProject->documents = $documents;

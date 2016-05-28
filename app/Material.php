@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Material extends Model
 {
-    public function projects()
+    public function descriptions()
     {
-        return $this->belongsToMany('App\Material','material_project','project_id');
+        return $this->belongsToMany('App\Description','material_description','description_id');
     }
 }

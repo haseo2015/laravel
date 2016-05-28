@@ -178,6 +178,10 @@ div.social-wrap button {
   .no_results h4 {
     color: #c8c8c8; }
 
+/*GENERIC LISTS*/
+ul.inline-list li, ol.inline-list li {
+  display: inline; }
+
 /*
 Cosplay design sliders scss
 
@@ -561,6 +565,14 @@ a, a:hover, a:focus {
     .tutorial__stepper li p {
       font-size: 1.5rem;
       line-height: 2.5rem; }
+
+.materials_list {
+  padding: 0;
+  font-size: 1.5rem; }
+  .materials_list li:after {
+    content: ", "; }
+  .materials_list li:last-child:after {
+    content: ""; }
 
 .gallery__container:after {
   content: "";
