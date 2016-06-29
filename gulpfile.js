@@ -1,5 +1,5 @@
 var elixir = require('laravel-elixir');
-
+require('laravel-elixir-requirejs');
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -12,6 +12,10 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
+
+    //mix.requirejs('app.js');
+
+
     /* compilo i miei css */
     mix.styles([
         'bootstrap.min.css',
@@ -35,25 +39,15 @@ elixir(function(mix) {
         "vendor/bootstrap.js",
         "vendor/jquery.easing.min.js",
         "vendor/jqBootstrapValidation.js",
-        "vendor/what-input.min.js",
         "vendor/scrolling-nav.js",
-        "vendor/clean-blog.min.js",
+        //gulp"vendor/clean-blog.min.js",
         "vendor/jquery.knob.js",
         "vendor/jquery.lazyload.min.js",
         "vendor/jquery.fancybox.pack.js",
         "vendor/bootstrap-rating.min.js",
         "vendor/handlebars-v4.0.5.js",
         "components/isotope/isotope.pkgd.min.js",
-        "components/slickslider/slick/slick.min.js",
-        "cd.core.js",
-        "cd.base.js",
-        "cd.helpers.js",
-        "cd.functions.js",
-        "cd.homepage.js",
-        "cd.lista.js",
-        "cd.profile.js",
-        "cd.project.js",
-
+        "components/slickslider/slick/slick.min.js"
     ],'public/js/app.js');
 
 

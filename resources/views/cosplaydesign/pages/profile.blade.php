@@ -1,8 +1,9 @@
 @extends('cosplaydesign.default')
-
 @section('title') {{$userdata->username}} :: author :: CosplayDesign  @endsection
-
-@section('subheading')  @endsection
+@section('pagescript')
+    {!! HTML::script('js/sections/cd.functions.js') !!}
+    {!! HTML::script('js/sections/cd.profile.js') !!}
+@endsection
 
 @section('content')
     <div class="row">

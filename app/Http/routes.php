@@ -45,14 +45,8 @@ Route::resource('/tipologia/{slug}/','SiteController@getProjectsByType');
 Route::resource('/serie/{serie}/','SiteController@getListBySeries'); // dettaglio progetto
 Route::resource('/genere/{gender}/','SiteController@getListByGender'); // dettaglio progetto
 Route::resource('/progetto/{detail}/','SiteController@getProjectData'); // dettaglio progetto
-Route::resource('/categoria/{slug}/','SiteController@getListByCategory');
-Route::resource('/categoria/tutti/','SiteController@getListByCategory');
+Route::resource('/categoria/{slug}/','SiteController@getListByCategory',['getListByCategory' => 'category.list']);
+Route::resource('/categoria/tutti/','SiteController@getListByCategory',['getListByCategory' => 'category.list']);
 Route::controller('/', 'SiteController');
 
-/* TO DO: social login*/
-
-Route::get('/auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
-Route::get('/auth/google', 'Auth\AuthController@redirectToProvider');
-Route::get('/auth/google/callback', 'Auth\AuthController@handleProviderCallback');
-//Route::controller('/blog', FrontendController');
 

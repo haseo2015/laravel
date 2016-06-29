@@ -53,7 +53,7 @@
         <!-- /.container -->
     </nav>
     <div class="maincontent">
-    @yield('content')
+        @yield('content')
     </div>
     <div class="clearfix"></div>
     <!-- Footer -->
@@ -89,7 +89,6 @@
         </div>
     </footer>
     @include('cosplaydesign.includes.popup')
-    <script src="{{ elixir('js/app.js') }}"></script>
     </body>
 
 </html>

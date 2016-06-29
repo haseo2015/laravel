@@ -1,6 +1,9 @@
 @extends('cosplaydesign.default')
 @section('title')Progetto: {!! $currentProject  ->fullname !!} @endsection
-@section('subheading')  @endsection
+@section('pagescript')
+    {!! HTML::script('js/sections/cd.functions.js') !!}
+    {!! HTML::script('js/sections/cd.project.js') !!}
+@endsection
 @section('content')
 <div class="container">
     <div class="row">

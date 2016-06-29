@@ -1,8 +1,10 @@
-
 @extends('cosplaydesign.default')
+@section('pagescript')
+    {!! HTML::script('js/sections/cd.functions.js') !!}
+    {!! HTML::script('js/sections/cd.lista.js') !!}
+@endsection
 
 @section('title')  @endsection
-
 @section('subheading')  @endsection
 
 @section('content')

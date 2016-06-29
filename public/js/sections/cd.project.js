@@ -14,7 +14,7 @@ $.using("cd.project", function (context, $, W) {
 
     context.gotoStep = function(event){
         console.log("context.gotoStep");
-        console.log($(event.target.context));
+        
     };
 
     context.init();

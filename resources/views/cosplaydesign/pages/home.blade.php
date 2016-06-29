@@ -1,11 +1,8 @@
 @extends('cosplaydesign.default')
-
 @section('title') Home Page @endsection
-
 @section('subheading') Developer, Curious & Enthusiast. @endsection
-
+@section('pagescript') {!! HTML::script('js/sections/cd.homepage.js') !!} @endsection
 @section('content')
-
 
    {{--  @include('cosplaydesign.includes.slider') --}}
    <div class="mycarousel">
@@ -132,7 +129,7 @@
                 </div>
             </div>
         </div>
-
-
     </div>
+
+
 @endsection

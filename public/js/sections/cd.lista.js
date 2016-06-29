@@ -1,13 +1,12 @@
-$.using("cd.lista", function (context, $, W) {
-
-    var NS = context._NS;
+$(function(){
+console.log("init")
     var callbacks = $.Callbacks( "unique" );
 
-    context.init = function(){
+    var init = function(){
         var body = $("body");
     };
 
-    context.initFragmentHandler = function(){
+    var initFragmentHandler = function(){
         console.log("context.initFragmentHandler")
     };
 
@@ -15,8 +14,8 @@ $.using("cd.lista", function (context, $, W) {
 
 
 
-    context.init()
-    $.Listen( "init" ).subscribe( context.init  );
+    init()
+    $.Listen( "init" ).subscribe( init  );
     //$.Listen( "mailSent" ).subscribe( context.initFragmentHandler );
 
 
